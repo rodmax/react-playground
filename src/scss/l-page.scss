@@ -1,0 +1,35 @@
+$borderStyle: 1px solid rgb(232,232,232);
+$mainPad: 20px;
+
+.l-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.l-page__topbar {
+    height: 40px;
+    flex: 0 0 auto;
+    border-bottom: $borderStyle;
+    padding: 0 $mainPad;
+}
+
+.l-page__content {
+    flex-grow: 1;
+    display: flex;
+}
+.l-page__sidebar {
+    flex: 0 0 auto;
+    height: inherit;
+    width: 220px;
+    border-right: $borderStyle;
+    overflow: auto;
+    padding: $mainPad;
+}
+.l-page__main {
+    height: inherit;
+    flex-grow: 1;
+    overflow: auto;
+    background-color: #f1f1f1;
+    padding: $mainPad;
+}
