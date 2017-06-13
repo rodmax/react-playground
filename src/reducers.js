@@ -1,21 +1,33 @@
 import {combineReducers} from 'redux';
-import {SET_SEARCH_TEXT} from './actions';
+import {SET_SEARCH_TEXT, LOAD_SEARCH_RESULTS} from './actions';
 
 // State shape
-// {
-//      searchText: 'text input by user'
-// }
+const initialStore = {
+    searchText: 'initial',
+    searchResults: []
+};
 
 const appStoreReducer = combineReducers({
-    searchText
+    searchText,
+    searchResults
 });
 export default appStoreReducer;
 
 
-function searchText(state='initial', action) {
+function searchText(state=initialStore.searchText, action) {
     switch (action.type) {
         case SET_SEARCH_TEXT:
             return action.searchText;
+        default:
+            return state;
+    }
+}
+
+
+function searchResults(state=initialStore.searchResults, action) {
+    switch (action.type) {
+        case LOAD_SEARCH_RESULTS:
+            return action.searchResults;
         default:
             return state;
     }

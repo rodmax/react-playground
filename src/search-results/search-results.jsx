@@ -1,13 +1,25 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
 
-export default class SearchResults extends React.Component {
-    constructor() {
-        super();
-    }
 
-    render() {
-        return (
-            <h4 className="c-search-results">search results page</h4>
-        );
-    }
+SearchResults.propTypes = {
+    items: PropTypes.array.isRequired
+};
+
+function SearchResults({items}) {
+    console.log('searchOsmData', items);
+    return (
+        <div className="c-search-results">
+            <h4>Total results: {items.length}</h4>
+            {items.map(item => {
+                return <pre key={item.osm_id}>{JSON.stringify(item, null, 4)}</pre>;
+            })}
+        </div>
+    );
+}
+
+export default connect(mapStateToProps)(SearchResults);
+
+function mapStateToProps({searchResults}) {
+    return {items: searchResults};
 }

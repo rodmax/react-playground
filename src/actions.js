@@ -5,3 +5,11 @@ export function setSearchText(searchText) {
         searchText
     };
 }
+
+export const LOAD_SEARCH_RESULTS = 'LOAD_SEARCH_RESULTS';
+export function loadSearchResults(searchResults) {
+    return {
+        type: LOAD_SEARCH_RESULTS,
+        searchResults
+    };
+}
