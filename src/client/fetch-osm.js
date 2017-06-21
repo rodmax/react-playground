@@ -9,7 +9,7 @@ const defaultSearchParams = {
     format: 'json'
 };
 
-export function searchOsmLocations(params) {
+export function fetchLocations(params) {
     return OsmClient.get('/search', {
         params: Object.assign({}, defaultSearchParams, params)
     });

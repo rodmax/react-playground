@@ -18,12 +18,9 @@ module.exports = {
                 }),
             },
             {
-                test: /\.jsx$/,
+                test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                query: {
-                    presets: ['es2015', 'react']
-                }
             }
         ]
     },

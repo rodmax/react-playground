@@ -21,6 +21,6 @@ function SearchResults({items}) {
 
 export default connect(mapStateToProps)(SearchResults);
 
-function mapStateToProps({searchResults}) {
-    return {items: searchResults};
+function mapStateToProps({searchedLocations}) {
+    return {items: searchedLocations.items};
 }
