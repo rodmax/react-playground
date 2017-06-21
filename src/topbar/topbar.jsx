@@ -11,9 +11,7 @@ Topbar.propTypes = {
 
 function Topbar({onSearchTextChange}) {
     function onKeyPress(ev) {
-        console.log(ev);
         if (ev.key === 'Enter') {
-            console.log('go');
             onSearchTextChange(ev.target.value);
         }
 

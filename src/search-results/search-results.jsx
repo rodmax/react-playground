@@ -8,7 +8,6 @@ SearchResults.propTypes = {
 };
 
 function SearchResults({items}) {
-    console.log('searchOsmData', items);
     return (
         <div className="c-search-results">
             <h4>Total results: {items.length}</h4>

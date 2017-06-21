@@ -15,7 +15,6 @@ export function getStore() {
 export function createAppStore() {
     const sagaMiddleware = createSagaMiddleware();
     store = createStore(appStoreReducer, applyMiddleware(sagaMiddleware));
-    console.log('333', loadLocationsSaga);
     sagaMiddleware.run(loadLocationsSaga);
     return store;
 }

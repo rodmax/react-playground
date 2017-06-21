@@ -2,7 +2,7 @@ const path = require('path');
 const port = process.env.PORT || 3000;
 const outputPath = path.join(__dirname, 'dist');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-console.log(path.resolve(__dirname, 'src'));
+
 module.exports = {
     entry: './src/main.jsx',
     output: {

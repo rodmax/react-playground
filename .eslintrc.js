@@ -42,7 +42,7 @@ module.exports = {
         'no-multiple-empty-lines': [ERR, {max: 2, maxBOF: 0, maxEOF: 1}],
         'max-len': [ERR, 120, 4],
         camelcase: [ERR],
-        'no-console': [OFF],  // allow for dev scripts
+        'no-console': [ERR],  // allow for dev scripts
         'new-cap': [ERR, {
             newIsCap: true,
             capIsNew: true,
