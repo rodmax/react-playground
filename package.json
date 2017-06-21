@@ -7,7 +7,10 @@
     "start": "webpack-dev-server",
     "build": "webpack"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodmax/react-playground.git"
+  },
   "author": "Rodionov Maxim <rodionov.m.m@gmail.com>",
   "license": "MIT",
   "dependencies": {
