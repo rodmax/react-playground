@@ -9,5 +9,12 @@
                 }
             }
         ]
+    ],
+    "plugins": [
+        [
+            "react-intl", {
+            "messagesDir": "./dist/l10n/"
+            }
+        ]
     ]
 }
