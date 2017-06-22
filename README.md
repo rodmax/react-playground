@@ -1,10 +1,12 @@
 # React stack playground
-Initially based on https://github.com/temilaj/react-webpack-starter
 The main purpose of this project is to study web applications development  based on react stack
+
+> Initially based on https://github.com/temilaj/react-webpack-starter
 
 
 ## TODO list
 - [x] MVP based on react and redux
+- [ ] play with react/redux DevTools
 - [ ] routing
 - [ ] add some mainstream react third party
     - [ ] react forms
