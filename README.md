@@ -11,9 +11,10 @@ The main purpose of this project is to study web applications development  based
 - [ ] add some mainstream react third party
     - [ ] react forms
     - [x] something to help working with REST
-    - [ ] redux-thunk middleware
     - [x] redux-saga
+    - [ ] mobx
     - [ ] redux-actions
+    - [ ] redux-thunk middleware
 - [ ] localization
 - [ ] refactoring involving best practice
 - [ ] tests
