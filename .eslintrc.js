@@ -30,7 +30,10 @@ module.exports = {
         browser: true
     },
     rules: {
-        indent: ['error', 4, {SwitchCase: 1}],
+        indent: ['error', 4, {
+            SwitchCase: 1,
+            MemberExpression: 'off'
+        }],
         'linebreak-style': [ERR, 'unix'],
         'eol-last': [ERR],
         'no-trailing-spaces': [ERR],
