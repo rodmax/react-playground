@@ -1,0 +1,5 @@
+# to lint .eslintrc.js
+!.*.js
+
+node_modules/
+dist/

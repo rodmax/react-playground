@@ -4,15 +4,16 @@ import {Provider} from 'react-redux';
 import {createAppStore} from 'store';
 import {IntlProvider} from 'react-intl';
 
-
 import App from 'app.jsx';
 
 const store = createAppStore();
 
 ReactDOM.render(
-    <IntlProvider locale="en">
+    <IntlProvider
+        locale="ru"
+    >
         <Provider store={store}>
-            <App/>
+            <App />
         </Provider>
     </IntlProvider>,
     document.getElementById('root')

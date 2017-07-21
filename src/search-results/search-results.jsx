@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 
 SearchResults.propTypes = {
-    items: PropTypes.array.isRequired
+    items: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 function SearchResults({items}) {

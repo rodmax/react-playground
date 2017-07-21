@@ -1,13 +1,9 @@
 import React from 'react';
 
-export default class Sidebar extends React.Component {
-    constructor() {
-        super();
-    }
-
-    render() {
-        return (
+export default function Sidebar() {
+    return (
+        <div>
             <h4 className="c-sidebar">I am sidebar</h4>
-        );
-    }
+        </div>
+    );
 }

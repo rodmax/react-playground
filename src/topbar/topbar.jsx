@@ -27,14 +27,16 @@ function Topbar({onSearchTextChange, intl}) {
 
     }
 
-    return <div className="c-topbar">
-        <input
-            type="text"
-            name="name"
-            onKeyPress={onKeyPress}
-            placeholder={intl.formatMessage(msgs.searchPlaceholder)}
-        />
-    </div>;
+    return (
+        <div className="c-topbar">
+            <input
+                type="text"
+                name="name"
+                onKeyPress={onKeyPress}
+                placeholder={intl.formatMessage(msgs.searchPlaceholder)}
+            />
+        </div>
+    );
 }
 
 export default injectIntl(connect(null, mapDispatchToProps)(Topbar));

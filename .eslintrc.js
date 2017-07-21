@@ -1,32 +1,28 @@
 /*
- * Copyright (C) 2016 Synesis LLC. All rights reserved.
- * Author Maxim Rodionov <max.rodionov@synesis.ru>, Synesis LLC www.synesis.ru.
- */
-/*
  * Eslint config file
  * Configuration guide http://eslint.org/docs/user-guide/configuring
  * Rules list http://eslint.org/docs/rules/
 **/
+/* eslint-disable no-unused-vars */
 const OFF = 0;
 const WARN = 1;
 const ERR = 2;
+/* eslint-enable no-unused-vars */
 
 module.exports = {
-    root: true,  // prevent search .eslintrc in parent dirs
+    root: true, // prevent search .eslintrc in parent dirs
     extends: [
         'eslint:recommended',
-        'plugin:react/recommended'
+        'plugin:react/recommended',
+        './.eslintrc-react.js'
     ],
     parserOptions: {
         ecmaVersion: 6,
-        sourceType: 'module',  // your code is in ECMAScript modules
+        sourceType: 'module', // your code is in ECMAScript modules
         ecmaFeatures: {
             jsx: true
         }
     },
-    plugins: [
-        'react'
-    ],
     env: {
         es6: true,
         commonjs: true,
@@ -42,7 +38,7 @@ module.exports = {
         'no-multiple-empty-lines': [ERR, {max: 2, maxBOF: 0, maxEOF: 1}],
         'max-len': [ERR, 120, 4],
         camelcase: [ERR],
-        'no-console': [ERR],  // allow for dev scripts
+        'no-console': [ERR], // allow for dev scripts
         'new-cap': [ERR, {
             newIsCap: true,
             capIsNew: true,
@@ -103,7 +99,7 @@ module.exports = {
         'template-curly-spacing': [ERR],
         'no-shadow': [ERR, {builtinGlobals: true, hoist: 'functions', allow: [
             'require',
-            'root',  // It is exactly the same as global, root is deprecated since Node.js v6
+            'root', // It is exactly the same as global, root is deprecated since Node.js v6
         ]}],
         'quote-props': [ERR, 'as-needed']
     }

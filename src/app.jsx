@@ -5,25 +5,21 @@ import SearchResults from 'search-results/search-results';
 import 'scss/app.scss';
 
 
-class App extends React.Component {
+export default function App() {
 
-    render() {
-        return (
-            <div className="l-page">
-                <div className="l-page__topbar">
-                    <Topbar></Topbar>
+    return (
+        <div className="l-page">
+            <div className="l-page__topbar">
+                <Topbar />
+            </div>
+            <div className="l-page__content">
+                <div className="l-page__sidebar">
+                    <Sidebar />
                 </div>
-                <div className="l-page__content">
-                    <div className="l-page__sidebar">
-                        <Sidebar></Sidebar>
-                    </div>
-                    <div className="l-page__main">
-                        <SearchResults></SearchResults>
-                    </div>
+                <div className="l-page__main">
+                    <SearchResults />
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
-
-export default App;
