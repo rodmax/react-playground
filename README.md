@@ -1,4 +1,7 @@
 # React stack playground
+
+[![Build Status](https://travis-ci.org/rodmax/react-playground.svg?branch=master)](https://travis-ci.org/rodmax/react-playground)
+
 The main purpose of this project is to study web applications development  based on react stack
 
 > Initially based on https://github.com/temilaj/react-webpack-starter
