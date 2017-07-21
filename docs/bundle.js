@@ -29593,7 +29593,7 @@ var _axios2 = _interopRequireDefault(_axios);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const OsmClient = _axios2.default.create({
-    baseURL: 'http://nominatim.openstreetmap.org'
+    baseURL: '//nominatim.openstreetmap.org'
 });
 
 const defaultSearchParams = {
