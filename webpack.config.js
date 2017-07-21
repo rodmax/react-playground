@@ -1,13 +1,11 @@
-const path = require('path');
-const port = process.env.PORT || 3000;
-const outputPath = path.join(__dirname, 'dist');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const env = require('./devtools/env');
 
 module.exports = {
     entry: './src/main.jsx',
     output: {
-        path: outputPath,
-        filename: 'dist/bundle.js'
+        path: env.buildDir,
+        filename: 'bundle.js'
     },
     module: {
         loaders: [
@@ -26,17 +24,17 @@ module.exports = {
     },
     resolve: {
         modules: [
-            path.resolve(__dirname, 'src'),
+            env.srcDir,
             'node_modules'
         ],
         extensions: ['.js', '.jsx', '.json']
     },
     plugins: [
-        new ExtractTextPlugin('dist/bundle.css'),
+        new ExtractTextPlugin('bundle.css'),
     ],
     devtool: 'source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'src'),
-        port,
+        contentBase: env.srcDir,
+        port: env.devServerPort,
     }
 };

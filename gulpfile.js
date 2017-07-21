@@ -1,13 +1,43 @@
+const path = require('path');
 const gulp = require('gulp');
 const shell = require('gulp-shell');
+const clean = require('gulp-clean');
+const runSequence = require('run-sequence');
+const env = require('./devtools/env');
 
+
+// DEV
 gulp.task('dev', shell.task('webpack-dev-server', {verbose: true}));
 
-gulp.task('webpack' , shell.task('webpack', {verbose: true}));
 
+// BUILD TASKS
+gulp.task('clean-build', () => {
+    return gulp.src(env.buildDir, {read: false})
+    .pipe(clean());
+});
+gulp.task('webpack' , shell.task('webpack', {verbose: true}));
+gulp.task('copy-static-to-build', () => {
+    return gulp
+    .src([
+        path.join(env.srcDir, 'index.html'),
+        path.join(env.srcDir, 'assets/*')
+    ], {base: env.srcDir})
+    .pipe(gulp.dest(env.buildDir));
+});
+
+gulp.task('build-gh-pages', () => {
+    return runSequence(
+        'clean-build',
+        ['copy-static-to-build', 'webpack']
+    );
+});
+
+
+// LINTERS
 gulp.task('eslint', shell.task('eslint --ext .js --ext .jsx ./', {verbose: true}));
 
 
+// HOOKS
 gulp.task('pre-push', ['eslint', 'webpack']);
 gulp.task('pre-commit', shell.task('echo "pre-commit hook not implemented yet :)"'));
 
