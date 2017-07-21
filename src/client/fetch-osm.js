@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const OsmClient = axios.create({
-    baseURL: 'http://nominatim.openstreetmap.org'
+    baseURL: '//nominatim.openstreetmap.org'
 });
 
 const defaultSearchParams = {
