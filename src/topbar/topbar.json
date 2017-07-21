@@ -1,0 +1,15 @@
+[
+  {
+    "id": "Topbar.searchPlaceholder",
+    "defaultMessage": "search for locations...",
+    "file": "src/topbar/topbar.jsx",
+    "start": {
+      "line": 10,
+      "column": 23
+    },
+    "end": {
+      "line": 13,
+      "column": 5
+    }
+  }
+]
