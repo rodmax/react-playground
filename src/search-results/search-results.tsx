@@ -3,12 +3,12 @@ import {PropTypes} from 'prop-types';
 import {connect} from 'react-redux';
 
 
-interface LocationItem {
+interface ILocationItem {
     osm_id: number
 }
 
 
-function SearchResults({items}: {items: ReadonlyArray<LocationItem>}) {
+function SearchResults({items}: {items: ReadonlyArray<ILocationItem>}) {
     return (
         <div className="c-search-results">
             <h4>Total results: {items.length}</h4>

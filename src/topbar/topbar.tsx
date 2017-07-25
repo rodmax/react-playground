@@ -14,12 +14,12 @@ const msgs = defineMessages({
 });
 
 
-interface TopBarProps {
+interface ITopBarProps {
     onSearchTextChange: any
     intl: any
 }
 
-function Topbar({onSearchTextChange, intl}: TopBarProps) {
+function Topbar({onSearchTextChange, intl}: ITopBarProps) {
     function onKeyPress(ev) {
         if (ev.key === 'Enter') {
             onSearchTextChange(ev.target.value);
