@@ -1,5 +1,7 @@
-$borderStyle: 1px solid rgb(232,232,232);
-$mainPad: 20px;
+:root {
+    --borderStyle: 1px solid rgb(232,232,232);
+    --mainPad: 20px;
+}
 
 .App {
     display: flex;
@@ -10,8 +12,8 @@ $mainPad: 20px;
 .App__topbar {
     height: 40px;
     flex: 0 0 auto;
-    border-bottom: $borderStyle;
-    padding: 0 $mainPad;
+    border-bottom: var(--borderStyle);
+    padding: 0 var(--mainPad);
 }
 
 .App__content {
@@ -22,14 +24,14 @@ $mainPad: 20px;
     flex: 0 0 auto;
     height: inherit;
     width: 220px;
-    border-right: $borderStyle;
+    border-right: var(--borderStyle);
     overflow: auto;
-    padding: $mainPad;
+    padding: var(--mainPad);
 }
 .App__main {
     height: inherit;
     flex-grow: 1;
     overflow: auto;
     background-color: #f1f1f1;
-    padding: $mainPad;
+    padding: var(--mainPad);
 }
