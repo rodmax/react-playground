@@ -2,7 +2,7 @@ import * as React from 'react';
 import Sidebar from 'sidebar/sidebar';
 import Topbar from 'topbar/topbar';
 import SearchResults from 'search-results/search-results';
-import 'scss/app.scss';
+import 'scss/app.css';
 
 
 export default function App() {

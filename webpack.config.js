@@ -10,9 +10,9 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.scss$/,
+                test: /\.css$/,
                 use: ExtractTextPlugin.extract({
-                    use: 'css-loader!sass-loader'
+                    use: 'css-loader?importLoaders=1!postcss-loader'
                 }),
             },
             {

@@ -3,7 +3,7 @@ import {PropTypes} from 'prop-types';
 import {connect} from 'react-redux';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import {changeSearchText} from '../actions';
-import './topbar.scss';
+import './topbar.css';
 
 
 const msgs = defineMessages({
