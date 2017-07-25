@@ -14,7 +14,7 @@ export function getStore() {
 
 export function createAppStore() {
     const sagaMiddleware = createSagaMiddleware();
-    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    const composeEnhancers = (<any>window).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     store = createStore(
         appStoreReducer,
         composeEnhancers(

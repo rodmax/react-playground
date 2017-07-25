@@ -1,13 +1,14 @@
-import React from 'react';
+import * as React from 'react';
 import {PropTypes} from 'prop-types';
 import {connect} from 'react-redux';
 
 
-SearchResults.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object).isRequired
-};
+interface LocationItem {
+    osm_id: number
+}
 
-function SearchResults({items}) {
+
+function SearchResults({items}: {items: ReadonlyArray<LocationItem>}) {
     return (
         <div className="c-search-results">
             <h4>Total results: {items.length}</h4>

@@ -2,7 +2,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const env = require('./devtools/env');
 
 module.exports = {
-    entry: './src/main.jsx',
+    entry: './src/main.tsx',
     output: {
         path: env.buildDir,
         filename: 'bundle.js'
@@ -16,6 +16,10 @@ module.exports = {
                 }),
             },
             {
+                test: /\.tsx?$/,
+                loader: 'awesome-typescript-loader',
+            },
+            {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
@@ -27,7 +31,7 @@ module.exports = {
             env.srcDir,
             'node_modules'
         ],
-        extensions: ['.js', '.jsx', '.json']
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
     },
     plugins: [
         new ExtractTextPlugin('bundle.css'),

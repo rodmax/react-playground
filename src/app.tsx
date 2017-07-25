@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Sidebar from 'sidebar/sidebar';
 import Topbar from 'topbar/topbar';
 import SearchResults from 'search-results/search-results';
