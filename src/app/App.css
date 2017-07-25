@@ -1,24 +1,24 @@
 $borderStyle: 1px solid rgb(232,232,232);
 $mainPad: 20px;
 
-.l-page {
+.App {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-.l-page__topbar {
+.App__topbar {
     height: 40px;
     flex: 0 0 auto;
     border-bottom: $borderStyle;
     padding: 0 $mainPad;
 }
 
-.l-page__content {
+.App__content {
     flex-grow: 1;
     display: flex;
 }
-.l-page__sidebar {
+.App__sidebar {
     flex: 0 0 auto;
     height: inherit;
     width: 220px;
@@ -26,7 +26,7 @@ $mainPad: 20px;
     overflow: auto;
     padding: $mainPad;
 }
-.l-page__main {
+.App__main {
     height: inherit;
     flex-grow: 1;
     overflow: auto;
