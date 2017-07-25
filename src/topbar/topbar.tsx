@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {PropTypes} from 'prop-types';
 import {connect} from 'react-redux';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
@@ -14,12 +14,12 @@ const msgs = defineMessages({
 });
 
 
-Topbar.propTypes = {
-    onSearchTextChange: PropTypes.func.isRequired,
-    intl: intlShape.isRequired
-};
+interface ITopBarProps {
+    onSearchTextChange: any
+    intl: any
+}
 
-function Topbar({onSearchTextChange, intl}) {
+function Topbar({onSearchTextChange, intl}: ITopBarProps) {
     function onKeyPress(ev) {
         if (ev.key === 'Enter') {
             onSearchTextChange(ev.target.value);

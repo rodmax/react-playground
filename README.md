@@ -22,7 +22,7 @@ The main purpose of this project is to study web applications development  based
 - [ ] refactoring involving best practice
     - [x] Involve airbnb react eslint config
 - [ ] tests
-- [ ] TypeScript with React
+- [x] TypeScript with React
 
 
 ## Credit

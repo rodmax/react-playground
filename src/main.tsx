@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createAppStore} from 'store';
 import {IntlProvider} from 'react-intl';
 
-import App from 'app.jsx';
+import App from 'app';
 
 const store = createAppStore();
 

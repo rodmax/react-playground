@@ -3,6 +3,7 @@ const gulp = require('gulp');
 const shell = require('gulp-shell');
 const clean = require('gulp-clean');
 const runSequence = require('run-sequence');
+const debug = require('gulp-debug');
 const env = require('./devtools/env');
 
 
@@ -35,6 +36,9 @@ gulp.task('build-gh-pages', () => {
 
 // LINTERS
 gulp.task('eslint', shell.task('eslint --ext .js --ext .jsx ./', {verbose: true}));
+gulp.task('tslint', shell.task('tslint -t stylish ./src/**/*ts{x,}', {verbose: true}));
+
+gulp.task('lint', ['eslint', 'tslint']);
 
 
 // HOOKS
@@ -57,3 +61,18 @@ function getShellCommandsToCreateHook(hook) {
         `chmod a+x .git/hooks/${hook}`
     ];
 }
+
+
+gulp.task('js-to-ts', () => {
+    const rename = require('gulp-rename');
+    return gulp.src([
+        path.join(env.srcDir, '*.{js,jsx}'),
+        path.join(env.srcDir, '**/*.{js,jsx}'),
+    ])
+    .pipe(debug({title: 'dbg1'}))
+    .pipe(rename(filePath => {
+        filePath.extname = filePath.extname.replace('js', 'ts');
+    }))
+    .pipe(debug({title: 'dbg'}))
+    .pipe(gulp.dest(env.srcDir));
+});

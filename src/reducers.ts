@@ -17,7 +17,7 @@ const initialStore = {
 };
 
 
-function searchText(state=initialStore.searchText, action) {
+function searchText(state = initialStore.searchText, action) {
     switch (action.type) {
         case CHANGE_SEARCH_TEXT:
             return action.searchText;
@@ -27,7 +27,7 @@ function searchText(state=initialStore.searchText, action) {
 }
 
 
-function searchedLocations(state=initialStore.searchedLocations, action) {
+function searchedLocations(state = initialStore.searchedLocations, action) {
     switch (action.type) {
         case LOAD_LOCATIONS_REQUEST:
             return Object.assign({}, state, {isLoading: true});
