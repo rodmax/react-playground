@@ -23,6 +23,7 @@ The main purpose of this project is to study web applications development  based
     - [x] Involve airbnb react eslint config
 - [ ] tests
 - [x] TypeScript with React
+- [x] Use PostCSS to manage CSS
 
 
 ## Credit
