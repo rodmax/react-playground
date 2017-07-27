@@ -15803,11 +15803,11 @@ var ReactDOM = __webpack_require__(134);
 var react_redux_1 = __webpack_require__(56);
 var store_1 = __webpack_require__(246);
 var react_intl_1 = __webpack_require__(116);
-var app_1 = __webpack_require__(293);
+var App_1 = __webpack_require__(293);
 var store = store_1.createAppStore();
 ReactDOM.render(React.createElement(react_intl_1.IntlProvider, { locale: "ru" },
     React.createElement(react_redux_1.Provider, { store: store },
-        React.createElement(app_1.default, null))), document.getElementById('root'));
+        React.createElement(App_1.default, null))), document.getElementById('root'));
 
 
 /***/ }),
@@ -33102,19 +33102,20 @@ exports.bind = bind, exports.defineProperty = defineProperty, exports.objCreate 
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(15);
-var sidebar_1 = __webpack_require__(294);
-var topbar_1 = __webpack_require__(295);
-var search_results_1 = __webpack_require__(297);
+var Sidebar_1 = __webpack_require__(294);
+var Topbar_1 = __webpack_require__(295);
+var SearchResults_1 = __webpack_require__(297);
 __webpack_require__(298);
+__webpack_require__(299);
 function App() {
-    return (React.createElement("div", { className: "l-page" },
-        React.createElement("div", { className: "l-page__topbar" },
-            React.createElement(topbar_1.default, null)),
-        React.createElement("div", { className: "l-page__content" },
-            React.createElement("div", { className: "l-page__sidebar" },
-                React.createElement(sidebar_1.default, null)),
-            React.createElement("div", { className: "l-page__main" },
-                React.createElement(search_results_1.default, null)))));
+    return (React.createElement("div", { className: "App" },
+        React.createElement("div", { className: "App__topbar" },
+            React.createElement(Topbar_1.default, null)),
+        React.createElement("div", { className: "App__content" },
+            React.createElement("div", { className: "App__sidebar" },
+                React.createElement(Sidebar_1.default, null)),
+            React.createElement("div", { className: "App__main" },
+                React.createElement(SearchResults_1.default, null)))));
 }
 exports.default = App;
 
@@ -33129,7 +33130,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(15);
 function Sidebar() {
     return (React.createElement("div", null,
-        React.createElement("h4", { className: "c-sidebar" }, "I am sidebar")));
+        React.createElement("h4", { className: "Sidebar" }, "I am sidebar")));
 }
 exports.default = Sidebar;
 
@@ -33159,7 +33160,7 @@ function Topbar(_a) {
             onSearchTextChange(ev.target.value);
         }
     }
-    return (React.createElement("div", { className: "c-topbar" },
+    return (React.createElement("div", { className: "Topbar" },
         React.createElement("input", { type: "text", name: "name", onKeyPress: onKeyPress, placeholder: intl.formatMessage(msgs.searchPlaceholder) })));
 }
 exports.default = react_intl_1.injectIntl(react_redux_1.connect(null, mapDispatchToProps)(Topbar));
@@ -33204,6 +33205,12 @@ function mapStateToProps(_a) {
 
 /***/ }),
 /* 298 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 299 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
