@@ -34,7 +34,7 @@ gulp.task('lint', ['eslint', 'tslint']);
 
 
 // HOOKS
-gulp.task('pre-push', ['eslint', 'webpack']);
+gulp.task('pre-push', ['lint', 'webpack']);
 gulp.task('pre-commit', shell.task('echo "pre-commit hook not implemented yet :)"'));
 
 gulp.task('install-hooks', shell.task(
