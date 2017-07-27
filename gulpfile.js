@@ -16,7 +16,7 @@ gulp.task('clean-build', () => {
     return gulp.src(env.buildDir, {read: false})
     .pipe(clean());
 });
-gulp.task('webpack' , shell.task('webpack', {verbose: true}));
+gulp.task('webpack' , shell.task('webpack --hide-modules', {verbose: true}));
 
 gulp.task('build-gh-pages', () => {
     return runSequence(
