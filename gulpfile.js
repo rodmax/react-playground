@@ -16,20 +16,12 @@ gulp.task('clean-build', () => {
     return gulp.src(env.buildDir, {read: false})
     .pipe(clean());
 });
-gulp.task('webpack' , shell.task('webpack', {verbose: true}));
-gulp.task('copy-static-to-build', () => {
-    return gulp
-    .src([
-        path.join(env.srcDir, 'index.html'),
-        path.join(env.srcDir, 'assets/*')
-    ], {base: env.srcDir})
-    .pipe(gulp.dest(env.buildDir));
-});
+gulp.task('webpack' , shell.task('webpack --hide-modules', {verbose: true}));
 
 gulp.task('build-gh-pages', () => {
     return runSequence(
         'clean-build',
-        ['copy-static-to-build', 'webpack']
+        'webpack'
     );
 });
 
@@ -42,7 +34,7 @@ gulp.task('lint', ['eslint', 'tslint']);
 
 
 // HOOKS
-gulp.task('pre-push', ['eslint', 'webpack']);
+gulp.task('pre-push', ['lint', 'webpack']);
 gulp.task('pre-commit', shell.task('echo "pre-commit hook not implemented yet :)"'));
 
 gulp.task('install-hooks', shell.task(

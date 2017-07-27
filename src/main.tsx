@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {createAppStore} from 'store';
 import {IntlProvider} from 'react-intl';
 
-import App from 'app';
+import App from 'app/App';
 
 const store = createAppStore();
 

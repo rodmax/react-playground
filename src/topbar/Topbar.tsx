@@ -3,7 +3,7 @@ import {PropTypes} from 'prop-types';
 import {connect} from 'react-redux';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import {changeSearchText} from '../actions';
-import './topbar.scss';
+import './Topbar.css';
 
 
 const msgs = defineMessages({
@@ -28,7 +28,7 @@ function Topbar({onSearchTextChange, intl}: ITopBarProps) {
     }
 
     return (
-        <div className="c-topbar">
+        <div className="Topbar">
             <input
                 type="text"
                 name="name"
