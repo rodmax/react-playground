@@ -1,4 +1,8 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+
+
 const env = require('./devtools/env');
 
 module.exports = {
@@ -35,10 +39,20 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin('bundle.css'),
+        new HtmlWebpackPlugin({
+            template: 'src/index.ejs',
+            favicon: 'src/assets/favicon.png'
+        }),
+        new HtmlWebpackHarddiskPlugin({
+            alwaysWriteToDisk: true,
+            outputPath: env.srcDir
+        })
     ],
     devtool: 'source-map',
     devServer: {
         contentBase: env.srcDir,
+        // stats: 'minimal',
         port: env.devServerPort,
+        overlay: true
     }
 };

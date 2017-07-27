@@ -37,6 +37,8 @@
     "gulp-rename": "1.2.2",
     "gulp-replace": "0.6.1",
     "gulp-shell": "0.6.3",
+    "html-webpack-harddisk-plugin": "0.1.0",
+    "html-webpack-plugin": "2.29.0",
     "postcss": "6.0.8",
     "postcss-cssnext": "3.0.2",
     "postcss-import": "10.0.0",

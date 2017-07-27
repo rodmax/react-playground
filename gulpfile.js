@@ -17,19 +17,11 @@ gulp.task('clean-build', () => {
     .pipe(clean());
 });
 gulp.task('webpack' , shell.task('webpack', {verbose: true}));
-gulp.task('copy-static-to-build', () => {
-    return gulp
-    .src([
-        path.join(env.srcDir, 'index.html'),
-        path.join(env.srcDir, 'assets/*')
-    ], {base: env.srcDir})
-    .pipe(gulp.dest(env.buildDir));
-});
 
 gulp.task('build-gh-pages', () => {
     return runSequence(
         'clean-build',
-        ['copy-static-to-build', 'webpack']
+        'webpack'
     );
 });
 
