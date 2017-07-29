@@ -51,7 +51,9 @@ module.exports = {
     devtool: 'source-map',
     devServer: {
         contentBase: env.srcDir,
-        // stats: 'minimal',
+        stats: {
+            modules: false
+        },
         port: env.devServerPort,
         overlay: true
     }
