@@ -1,13 +1,10 @@
-const path = require('path');
 const gulp = require('gulp');
 const shell = require('gulp-shell');
 const clean = require('gulp-clean');
 const runSequence = require('run-sequence');
-const debug = require('gulp-debug');
 const env = require('./devtools/env');
 
 
-// DEV
 gulp.task('dev', shell.task('webpack-dev-server', {verbose: true}));
 
 
@@ -39,32 +36,17 @@ gulp.task('pre-commit', shell.task('echo "pre-commit hook not implemented yet :)
 
 gulp.task('install-hooks', shell.task(
     [].concat(
-        getShellCommandsToCreateHook('pre-commit'),
-        getShellCommandsToCreateHook('pre-push')
+        makeGitHookCreateScript('pre-commit'),
+        makeGitHookCreateScript('pre-push')
     ),
     {verbose: true}
 ));
 
 
-function getShellCommandsToCreateHook(hook) {
+function makeGitHookCreateScript(hook) {
     return [
         `echo '#!/bin/sh' > .git/hooks/${hook}`,
         `echo gulp ${hook} >> .git/hooks/${hook}`,
         `chmod a+x .git/hooks/${hook}`
     ];
 }
-
-
-gulp.task('js-to-ts', () => {
-    const rename = require('gulp-rename');
-    return gulp.src([
-        path.join(env.srcDir, '*.{js,jsx}'),
-        path.join(env.srcDir, '**/*.{js,jsx}'),
-    ])
-    .pipe(debug({title: 'dbg1'}))
-    .pipe(rename(filePath => {
-        filePath.extname = filePath.extname.replace('js', 'ts');
-    }))
-    .pipe(debug({title: 'dbg'}))
-    .pipe(gulp.dest(env.srcDir));
-});
