@@ -1,5 +1,5 @@
 :root {
-    --borderStyle: 1px solid rgb(232,232,232);
+    --borderStyle: 1px solid rgb(232, 232, 232);
     --mainPad: 20px;
 }
 
@@ -20,6 +20,7 @@
     flex-grow: 1;
     display: flex;
 }
+
 .App__sidebar {
     flex: 0 0 auto;
     height: inherit;
@@ -28,6 +29,7 @@
     overflow: auto;
     padding: var(--mainPad);
 }
+
 .App__main {
     height: inherit;
     flex-grow: 1;

@@ -26,8 +26,9 @@ gulp.task('build-gh-pages', () => {
 // LINTERS
 gulp.task('eslint', shell.task('eslint --ext .js --ext .jsx ./', {verbose: true}));
 gulp.task('tslint', shell.task('tslint -t stylish ./src/**/*ts{x,}', {verbose: true}));
+gulp.task('stylelint', shell.task('stylelint ./src/**/*.css', {verbose: true}));
 
-gulp.task('lint', ['eslint', 'tslint']);
+gulp.task('lint', ['eslint', 'tslint', 'stylelint']);
 
 
 // HOOKS
