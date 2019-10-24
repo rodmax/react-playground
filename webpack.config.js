@@ -3,10 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 
-const env = require('./devtools/env');
-
 module.exports = {
-    entry: './src/main.tsx',
+    entry: './src/index.tsx',
     output: {
         path: env.buildDir,
         filename: 'bundle.js'
@@ -14,20 +12,9 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    use: 'css-loader?importLoaders=1!postcss-loader'
-                }),
-            },
-            {
                 test: /\.tsx?$/,
                 loader: 'awesome-typescript-loader',
             },
-            {
-                test: /\.jsx?$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-            }
         ]
     },
     resolve: {
