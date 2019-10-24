@@ -1,0 +1,24 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "baseUrl": "./",
+        "checkJs": false,                       /* Report errors in .js files. */
+        "sourceMap": true /* Generates corresponding '.map' file. */,
+        "target": "es6",
+        "module": "esnext",
+        "jsx": "react",
+        "lib": [
+            "es2015",
+            "es2017",
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ]
+    },
+    "include": [
+        "./"
+    ],
+    "exclude": [
+        "../node_modules"
+    ]
+}

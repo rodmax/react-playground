@@ -1,20 +1,6 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {createAppStore} from 'store';
-import {IntlProvider} from 'react-intl';
+import ReactDOM from 'react-dom'
+import React from 'react'
+import './index.scss'
+import { App } from 'app/app'
 
-import App from 'app/App';
-
-const store = createAppStore();
-
-ReactDOM.render(
-    <IntlProvider
-        locale="ru"
-    >
-        <Provider store={store}>
-            <App />
-        </Provider>
-    </IntlProvider>,
-    document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'))

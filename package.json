@@ -1,16 +1,69 @@
 {
-  "name": "react-playground",
-  "version": "0.0.1",
-  "description": "project is aimed to study react stack",
-  "main": "src/app.jsx",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rodmax/react-playground.git"
-  },
-  "author": "Rodionov Maxim <rodionov.m.m@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-  },
-  "devDependencies": {
-  }
+    "name": "react-playground",
+    "version": "0.0.1",
+    "description": "project is aimed to study react stack",
+    "author": "Rodionov Maxim <rodionov.m.m@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "app:build": "webpack -p",
+        "app:start": "webpack-dev-server",
+        "app:serve": "./devtools/serve.js",
+        "lint:all": "run-p -ln eslint",
+        "eslint": "eslint --max-warnings=0 --ext=js,ts,tsx ./",
+        "prettier:fix": "prettier --check --write './*.js'",
+        "test:watch": "jest --watch",
+        "test": "jest",
+        "testcafe:prod": "E2E_MODE=prod testcafe --app 'npm run app:serve'",
+        "testcafe:live": "E2E_MODE=dev testcafe chrome --live",
+        "pre-commit": "run-p -ln lint:all",
+        "pre-push": "run-p -ln lint:all app:build test"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run pre-commit",
+            "pre-push": "npm run pre-push"
+        }
+    },
+    "browserslist": [
+        "last 3 version"
+    ],
+    "dependencies": {
+        "react": "16.11.0",
+        "react-dom": "16.11.0"
+    },
+    "devDependencies": {
+        "@testing-library/react": "9.3.0",
+        "@types/html-webpack-plugin": "3.2.1",
+        "@types/jest": "24.0.20",
+        "@types/mini-css-extract-plugin": "0.8.0",
+        "@types/react": "16.9.11",
+        "@types/react-dom": "16.9.2",
+        "@types/webpack": "4.39.5",
+        "@typescript-eslint/eslint-plugin": "2.5.0",
+        "@typescript-eslint/parser": "2.5.0",
+        "autoprefixer": "9.7.0",
+        "css-loader": "3.2.0",
+        "css-mqpacker": "7.0.0",
+        "cssnano": "4.1.10",
+        "eslint": "6.5.1",
+        "eslint-plugin-react": "7.16.0",
+        "html-webpack-plugin": "3.2.0",
+        "husky": "3.0.9",
+        "jest": "24.9.0",
+        "mini-css-extract-plugin": "0.8.0",
+        "node-sass": "4.13.0",
+        "npm-run-all": "4.1.5",
+        "postcss-loader": "3.0.0",
+        "prettier": "1.18.2",
+        "sass-loader": "8.0.0",
+        "serve-handler": "6.1.2",
+        "style-loader": "1.0.0",
+        "testcafe": "1.6.0",
+        "ts-jest": "24.1.0",
+        "ts-loader": "6.2.1",
+        "typescript": "3.6.4",
+        "webpack": "4.41.2",
+        "webpack-cli": "3.3.9",
+        "webpack-dev-server": "3.9.0"
+    }
 }

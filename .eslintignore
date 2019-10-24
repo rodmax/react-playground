@@ -1,5 +1,2 @@
-# to lint .eslintrc.js
-!.*.js
-
-node_modules/
 docs/
+node_modules/

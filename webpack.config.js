@@ -1,47 +1,79 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+// @ts-check
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const env = require('./devtools/env')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+/**
+ * @typedef {import('webpack').Configuration} WebpackConfig
+ */
 
+/**
+ * @typedef {import('webpack').Rule} WebpackRule
+ */
+
+/**
+ * @type {WebpackConfig}
+ */
 module.exports = {
     entry: './src/index.tsx',
     output: {
         path: env.buildDir,
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.tsx?$/,
-                loader: 'awesome-typescript-loader',
+                loader: 'ts-loader',
             },
-        ]
+            getScssRuleConfig(),
+        ],
     },
     resolve: {
-        modules: [
-            env.srcDir,
-            'node_modules'
-        ],
-        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+        modules: [env.srcDir, 'node_modules'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     },
     plugins: [
-        new ExtractTextPlugin('bundle.css'),
         new HtmlWebpackPlugin({
             template: 'src/index.ejs',
-            favicon: 'src/assets/favicon.png'
+            favicon: 'src/assets/favicon.png',
         }),
-        new HtmlWebpackHarddiskPlugin({
-            alwaysWriteToDisk: true,
-            outputPath: env.srcDir
-        })
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        }),
     ],
     devtool: 'source-map',
     devServer: {
         contentBase: env.srcDir,
         stats: {
-            modules: false
+            modules: false,
         },
         port: env.devServerPort,
-        overlay: true
+        overlay: true,
+    },
+}
+
+/**
+ * @return {WebpackRule}
+ */
+function getScssRuleConfig() {
+    return {
+        test: /\.scss$/,
+        use: [
+            'style-loader',
+            MiniCssExtractPlugin.loader,
+            {
+                loader: 'css-loader',
+                options: { sourceMap: true },
+            },
+            {
+                loader: 'postcss-loader',
+                options: { sourceMap: true, config: { path: 'src/js/postcss.config.js' } },
+            },
+            {
+                loader: 'sass-loader',
+                options: { sourceMap: true },
+            },
+        ],
     }
-};
+}
