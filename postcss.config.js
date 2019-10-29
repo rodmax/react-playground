@@ -1,8 +1,17 @@
+// npm install postcss-loader autoprefixer css-mqpacker cssnano --save-dev
 module.exports = {
-    plugins: {
-        'postcss-import': {},
-        'postcss-cssnext': {
-            browsers: ['last 2 versions', '> 5%'],
-        }
-    }
-};
+    plugins: [
+        require('autoprefixer'),
+        require('css-mqpacker'),
+        require('cssnano')({
+            preset: [
+                'default',
+                {
+                    discardComments: {
+                        removeAll: true,
+                    },
+                },
+            ],
+        }),
+    ],
+}
