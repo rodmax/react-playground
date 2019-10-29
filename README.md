@@ -1,15 +1,22 @@
 # React stack playground
 
-[![Build Status](https://travis-ci.org/rodmax/react-playground.svg?branch=master)](https://travis-ci.org/rodmax/react-playground)
-[![Dependency Status](https://david-dm.org/rodmax/react-playground.svg)](https://david-dm.org/rodmax/react-playground)
-[![devDependency Status](https://david-dm.org/rodmax/badges/react-playground/dev-status.svg)](https://david-dm.org/rodmax/react-playground#info=devDependencies)
+[![Actions Status](https://github.com/rodmax/react-playground/workflows/ci/badge.svg)](https://github.com/rodmax/react-playground/actions)
+
 
 The main purpose of this project is to study web applications development based on react stack
 
 ## TODO list
 
-- [x] MVP based on react and redux
-- [x] TypeScript with React
-- [ ] play with react/redux DevTools
-- [ ] localization
-- [ ] tests
+- [x] Build: webpack based
+    - [x] JavaScript: TypeScript
+    - [x] CSS: Sass + PostCSS(autoprefixer and friends)
+- [ ] Quality:
+    - [x] E2E testing: testcafe
+    - [x] unit & international testing: jest + testing-library
+    - [x] Hyper strong TypeScript config
+    - [x] EsLint
+    - [x] Prettier for formatting
+- [ ] App:
+    - [ ] localization
+    - [ ] Store: Redux + Redux Starter Kit(?) + RxJs(rxjs/observable)
+    - [ ] Router: router5
