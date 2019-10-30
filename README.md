@@ -18,7 +18,7 @@ The main purpose of this project is to study web applications development based 
     - [x] unit & international testing: jest + testing-library
     - [x] Hyper strong TypeScript config
     - [x] EsLint
-    - [ ] Stylelint
+    - [x] Stylelint
 - App:
     - [ ] localization
     - Store
