@@ -28,7 +28,7 @@ The main purpose of this project is to study web applications development based 
     - [ ] Effects/async flow: RxJs(rxjs/observable)
     - [ ] Router: router5
 - React related
-    - [ ] React.StrictMode
+    - [x] [React.StrictMode](https://reactjs.org/docs/strict-mode.html)
 - Development experience
     - [x] Prettier for formatting(integration with VSCode)
     - [ ] HMR for CSS

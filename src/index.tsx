@@ -3,4 +3,9 @@ import React from 'react'
 import './index.scss'
 import { App } from 'app/app'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+    <React.StrictMode>
+        <App></App>
+    </React.StrictMode>,
+    document.getElementById('root')
+)
