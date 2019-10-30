@@ -5,7 +5,7 @@
     "author": "Rodionov Maxim <rodionov.m.m@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "app:build": "webpack -p",
+        "app:build": "BUILD_MODE=production webpack",
         "app:start": "webpack-dev-server",
         "app:serve": "./devtools/serve.js",
         "eslint": "eslint --max-warnings=0 --ext=js,ts,tsx ./",

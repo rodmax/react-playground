@@ -19,6 +19,7 @@ The main purpose of this project is to study web applications development based 
     - [x] Hyper strong TypeScript config
     - [x] EsLint
     - [x] Stylelint
+    - [ ] Review tools of [minimizing for production](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production)
 - App:
     - [ ] localization
     - Store

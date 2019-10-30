@@ -3,19 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const env = require('./devtools/env')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-/**
- * @typedef {import('webpack').Configuration} WebpackConfig
- */
+const baseConfig = getModeRelatedConfig()
 
 /**
- * @typedef {import('webpack').Rule} WebpackRule
- */
-
-/**
- * @type {WebpackConfig}
+ * @type {import('webpack').Configuration}
  */
 module.exports = {
     entry: './src/index.tsx',
+    mode: baseConfig.mode,
     output: {
         path: env.buildDir,
         filename: 'bundle.js',
@@ -54,7 +49,7 @@ module.exports = {
 }
 
 /**
- * @return {WebpackRule}
+ * @return {import('webpack').Rule}
  */
 function getScssRuleConfig() {
     return {
@@ -75,5 +70,14 @@ function getScssRuleConfig() {
                 options: { sourceMap: true },
             },
         ],
+    }
+}
+
+/**
+ * @return {Pick<import('webpack').Configuration, 'mode'>}
+ */
+function getModeRelatedConfig() {
+    return {
+        mode: env.mode,
     }
 }
