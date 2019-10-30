@@ -1,5 +1,5 @@
 {
-    "extends": "../tsconfig.json",
+    "extends": "../tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": "./",
         "checkJs": false,                       /* Report errors in .js files. */
