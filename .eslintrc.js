@@ -18,5 +18,6 @@ module.exports = {
 
         // typescript specific
         '@typescript-eslint/no-unused-vars': WARN,
+        '@typescript-eslint/no-explicit-any': ERR,
     },
 }
