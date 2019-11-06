@@ -12,12 +12,14 @@
         "stylelint": "stylelint -f unix 'src/**/*.scss'",
         "lint:all": "run-p -ln eslint stylelint",
         "prettier:fix": "prettier --check --write './*.js'",
-        "test:watch": "jest --watch",
-        "test": "jest",
+        "jest:watch": "jest --watch",
+        "jest": "jest",
         "testcafe:prod": "E2E_MODE=prod testcafe --app 'npm run app:serve'",
         "testcafe:live": "E2E_MODE=dev testcafe chrome --live",
         "pre-commit": "run-p -ln lint:all",
-        "pre-push": "run-p -ln lint:all app:build test"
+        "pre-push": "run-s -ln pre-push:stage-1 pre-push:stage-2",
+        "pre-push:stage-1": "run-p -ln lint:all app:build",
+        "pre-push:stage-2": "run-p -ln testcafe:prod"
     },
     "husky": {
         "hooks": {
