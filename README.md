@@ -18,7 +18,10 @@ The main purpose of this project is to study web applications development based 
     - [x] unit & international testing: jest + testing-library
     - [x] Hyper strong TypeScript config
     - [x] EsLint
+        - [ ] add HOOKS related eslint rules
+        - [ ] add REACT related eslint rules
     - [x] Stylelint
+    - [ ] integrate audit(click house or other) to CI
     - [ ] Review tools of [minimizing for production](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production)
 - Build:
     - [x] add [tslib](https://www.npmjs.com/package/tslib)
