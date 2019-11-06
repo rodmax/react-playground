@@ -32,7 +32,8 @@
     ],
     "dependencies": {
         "react": "16.11.0",
-        "react-dom": "16.11.0"
+        "react-dom": "16.11.0",
+        "tslib": "1.10.0"
     },
     "devDependencies": {
         "@testing-library/react": "9.3.0",

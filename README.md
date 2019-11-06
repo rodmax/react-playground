@@ -21,7 +21,7 @@ The main purpose of this project is to study web applications development based 
     - [x] Stylelint
     - [ ] Review tools of [minimizing for production](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production)
 - Build:
-    - [ ] add [tslib](https://www.npmjs.com/package/tslib)
+    - [x] add [tslib](https://www.npmjs.com/package/tslib)
 - App:
     - [ ] localization
     - [ ] form handling(ui/server validation, form state)
