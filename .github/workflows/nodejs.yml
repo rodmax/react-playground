@@ -19,7 +19,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm ci
         run: npm ci
-      - name: npm run pre-push
+      - name: npm run pre-push(lint/build/e2e)
         run: npm run pre-push
-      - name: npm run testcafe:prod
-        run: npm run testcafe:prod
