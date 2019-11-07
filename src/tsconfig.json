@@ -1,5 +1,5 @@
 {
-    "extends": "../tsconfig.base.json",
+    "extends": "../tsconfig.json",
     "compilerOptions": {
         "baseUrl": "./",
         "checkJs": false,                       /* Report errors in .js files. */
@@ -7,6 +7,9 @@
         "target": "es6",
         "module": "esnext",
         "jsx": "react",
+        "types": [
+            "jest"
+        ],
         "lib": [
             "es2015",
             "es2017",
