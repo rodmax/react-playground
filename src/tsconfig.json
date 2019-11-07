@@ -7,6 +7,9 @@
         "target": "es6",
         "module": "esnext",
         "jsx": "react",
+        "types": [
+            "jest"
+        ],
         "lib": [
             "es2015",
             "es2017",
