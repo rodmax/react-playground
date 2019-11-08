@@ -35,6 +35,10 @@ The main purpose of this project is to study web applications development based 
         the best approach in terms of minimal boilerplate|strong typing|no unneeded abstractions/libs in my opinion
     - [ ] Effects/async flow: RxJs(rxjs/observable)
     - [ ] Router: router5
+    - API client (rxjs based?)
+        - [ ] Base API client helper to be used for every domain API client
+        - [ ] File uploading
+        - [ ] Catch unhandled API errors on App level
     - React related:
         - [x] [React.StrictMode](https://reactjs.org/docs/strict-mode.html)
         - [ ] try suspense

@@ -1,8 +1,10 @@
-import { GithubUserDto } from '../api/github-profile.api.typings'
+import { GithubUserDto } from '../api/github-profile-api.typings'
 import { rdxActionCreator } from '../../../shared/redux/redux-tools'
 
 export const ghProfileActions = {
-    fetchRequested: rdxActionCreator('@ghProfile.fetchRequested').withNoPayload(),
+    fetchRequested: rdxActionCreator('@ghProfile.fetchRequested').withPayload<{
+        username: string
+    }>(),
     fetchComplete: rdxActionCreator('@ghProfile.fetchComplete').withPayload<GithubUserDto>(),
     fetchError: rdxActionCreator('@ghProfile.fetchError').withPayload<object>(),
 } as const

@@ -34,8 +34,8 @@ export const rdxActionCreator = <T extends string>(type: T) => {
 }
 
 export type RdxReducerFn<S, T extends string, P> = (
-    state: S,
-    payload: RdxAction<T, P>['payload']
+    payload: RdxAction<T, P>['payload'],
+    state: S
 ) => Partial<S>
 
 export class RdxReducerBuilder<S> {
@@ -55,7 +55,7 @@ export class RdxReducerBuilder<S> {
             if (reducerFn) {
                 return {
                     ...state,
-                    ...reducerFn(state, action.payload),
+                    ...reducerFn(action.payload, state),
                 }
             } else {
                 return state

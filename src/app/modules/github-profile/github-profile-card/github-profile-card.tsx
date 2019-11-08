@@ -4,10 +4,15 @@ import { AppState } from '../../../core/store'
 
 export const GithubProfileCard: React.FC = () => {
     const userDto = useSelector(selectGithubUserDto)
+    if (!userDto) {
+        return <h4>Loading...</h4>
+    }
     return (
         <>
             <h2>Github profile</h2>
-            <pre>{JSON.stringify(userDto)}</pre>
+            <h3>{userDto.login}</h3>
+            <img src={userDto.avatar_url} />
+            <pre>{JSON.stringify(userDto, null, 4)}</pre>
         </>
     )
 }
