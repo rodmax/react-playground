@@ -18,7 +18,7 @@
         "testcafe:live": "E2E_MODE=dev testcafe chrome --live",
         "pre-commit": "run-p -ln lint:all",
         "pre-push": "run-s -ln pre-push:stage-1 pre-push:stage-2",
-        "pre-push:stage-1": "run-p -ln lint:all app:build",
+        "pre-push:stage-1": "run-p -ln lint:all app:build jest",
         "pre-push:stage-2": "run-p -ln testcafe:prod"
     },
     "husky": {
@@ -58,6 +58,7 @@
         "cssnano": "4.1.10",
         "eslint": "6.6.0",
         "eslint-plugin-react": "7.16.0",
+        "factory-t": "0.2.1",
         "html-webpack-plugin": "3.2.0",
         "husky": "3.0.9",
         "jest": "24.9.0",
