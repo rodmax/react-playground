@@ -2,8 +2,8 @@
     "extends": "../tsconfig.json",
     "compilerOptions": {
         "baseUrl": "./",
-        "checkJs": false,                       /* Report errors in .js files. */
-        "sourceMap": true /* Generates corresponding '.map' file. */,
+        "checkJs": false,
+        "sourceMap": true,
         "target": "es6",
         "module": "esnext",
         "jsx": "react",
