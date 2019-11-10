@@ -1,11 +1,13 @@
-export interface RdxAction<T extends string, P = null> {
-    type: T
+/// <reference types="./redux-observable.patch" />
+import { Action } from 'redux'
+
+export interface RdxAction<T extends string, P = null> extends Action<T> {
     payload: P
 }
 
-export interface RdxActionCreator<T, P> {
+export interface RdxActionCreator<T extends string, P> {
     type: T
-    create: P extends null ? () => { type: T; payload: null } : (p: P) => { type: T; payload: P }
+    create: P extends null ? () => { type: T; payload: null } : (p: P) => RdxAction<T, P>
 }
 
 // To create action creator we need involve two generic parameter "type" type and "payload" type
