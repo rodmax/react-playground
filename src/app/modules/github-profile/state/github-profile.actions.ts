@@ -2,11 +2,11 @@ import { GithubUserDto } from '../api/github-profile-api.typings'
 import { rdxActionCreator } from '../../../shared/redux/redux-tools'
 
 export const ghProfileActions = {
-    fetchRequested: rdxActionCreator('@ghProfile.fetchRequested').withPayload<{
+    fetchRequested: rdxActionCreator('@gh-profile/fetch-requested').withPayload<{
         username: string
     }>(),
-    fetchComplete: rdxActionCreator('@ghProfile.fetchComplete').withPayload<GithubUserDto>(),
-    fetchError: rdxActionCreator('@ghProfile.fetchError').withPayload<object>(),
+    fetchComplete: rdxActionCreator('@gh-profile/fetch-complete').withPayload<GithubUserDto>(),
+    fetchError: rdxActionCreator('@gh-profile/fetch-error').withPayload<object>(),
 } as const
 
 type ActionsObject = typeof ghProfileActions

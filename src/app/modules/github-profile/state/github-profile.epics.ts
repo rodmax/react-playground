@@ -7,7 +7,7 @@ const DEFAULT_USERNAME = 'rodmax'
 
 export const ghProfileFetchDataEpic: Epic<GhProfileAnyAction> = action$ => {
     return action$.pipe(
-        ofType('@ghProfile.fetchRequested'),
+        ofType('@gh-profile/fetch-requested'),
         switchMap(action => {
             return ghProfileApiClient.getProfile(action.payload.username).pipe(
                 map(userDto => {

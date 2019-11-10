@@ -31,8 +31,8 @@ The main purpose of this project is to study web applications development based 
     - Store
         - [x] Redux
         - [x] [type safety with redux](https://medium.com/@dhruvrajvanshi/some-tips-on-type-safety-with-redux-98588a85604c):
-        - [x] [actions naming](https://itnext.io/namespacing-redux-action-type-constant-values-90b932eea43f)
-        the best approach in terms of minimal boilerplate|strong typing|no unneeded abstractions/libs in my opinion
+        - [x] [actions naming](https://itnext.io/namespacing-redux-action-type-constant-values-90b932eea43f) -
+        my current choice how to name action types
     - [ ] Effects/async flow: RxJs(rxjs/observable)
     - [ ] Router: router5
     - API client (rxjs based?)
