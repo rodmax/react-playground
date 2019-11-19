@@ -14,8 +14,10 @@ The main purpose of this project is to study web applications development based 
     - [x] Sass + PostCSS(autoprefixer and friends)
 - Quality:
     - [x] CI: base on [github actions](https://github.com/rodmax/react-playground/actions)
+    - [ ] CI: code coverage badge
     - [x] E2E testing: testcafe
     - [x] unit & international testing: jest + testing-library
+    - [ ] jest: code coverage
     - [x] Hyper strong TypeScript config
     - [x] EsLint
         - [ ] add HOOKS related eslint rules
@@ -25,6 +27,7 @@ The main purpose of this project is to study web applications development based 
     - [ ] Review tools of [minimizing for production](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production)
 - Build:
     - [x] add [tslib](https://www.npmjs.com/package/tslib)
+    - [ ] CI: deploy to github pages via github actions
 - App:
     - [ ] localization
     - [ ] form handling(ui/server validation, form state)
