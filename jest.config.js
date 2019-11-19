@@ -1,5 +1,5 @@
 /**
- * @type { jest.ProjectConfig }
+ * @type { jest.GlobalConfig }
  */
 module.exports = {
     roots: ['src'],
@@ -16,4 +16,6 @@ module.exports = {
             tsConfig: './src/tsconfig.json',
         },
     },
+    collectCoverageFrom: ['./src/app/**'],
+    coverageDirectory: './reports',
 }

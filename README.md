@@ -2,6 +2,7 @@
 
 [![Actions Status](https://github.com/rodmax/react-playground/workflows/ci/badge.svg)](https://github.com/rodmax/react-playground/actions) [![Greenkeeper badge](https://badges.greenkeeper.io/rodmax/react-playground.svg)](https://greenkeeper.io/)
 
+[![codecov](https://codecov.io/gh/rodmax/react-playground/branch/master/graph/badge.svg)](https://codecov.io/gh/rodmax/react-playground)
 
 The main purpose of this project is to study web applications development based on react stack
 
@@ -14,7 +15,8 @@ The main purpose of this project is to study web applications development based 
     - [x] Sass + PostCSS(autoprefixer and friends)
 - Quality:
     - [x] CI: base on [github actions](https://github.com/rodmax/react-playground/actions)
-    - [ ] CI: code coverage badge
+    - [ ] [CI: code coverage](https://codecov.io/gh/rodmax/react-playground)
+    - [ ] [CI:  sonar cloud analyzer](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
     - [x] E2E testing: testcafe
     - [x] unit & international testing: jest + testing-library
     - [ ] jest: code coverage

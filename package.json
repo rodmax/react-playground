@@ -13,7 +13,7 @@
         "lint:all": "run-p -ln eslint stylelint",
         "prettier:fix": "prettier --check --write './*.js'",
         "jest:watch": "jest --watch",
-        "jest": "jest",
+        "jest": "jest --coverage",
         "testcafe:prod": "E2E_MODE=prod testcafe --app 'npm run app:serve'",
         "testcafe:live": "E2E_MODE=dev testcafe chrome --live",
         "pre-commit": "run-p -ln lint:all",

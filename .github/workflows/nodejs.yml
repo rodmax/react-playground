@@ -13,11 +13,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
+
+      - name: use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: npm install global packages
+        run: npm install -g codecov
+
       - name: npm ci
         run: npm ci
-      - name: npm run pre-push(lint/build/e2e)
+      - name: lint, test, build, then e2e
         run: npm run pre-push
+
+      - name: send coverage to codecov.io
+        run: codecov --token="${{ secrets.CODECOV_IO_TOKEN }}" --branch="${GITHUB_REF#refs/heads/}"
