@@ -5,6 +5,7 @@ import { httpClient } from '../../../shared/http/http-client'
 import { Subject } from 'rxjs'
 import { GithubUserDto } from '../api/github-profile-api.typings'
 import { githubUserDtoFactory } from '../api/github-profile-api.factory'
+import { map } from 'rxjs/operators'
 
 describe(`<GithubProfileCard>`, () => {
     it('should load and show github user data', () => {
@@ -19,7 +20,13 @@ describe(`<GithubProfileCard>`, () => {
 
 const createApiClientMock = () => {
     const responseSubject = new Subject<GithubUserDto>()
-    const requestSpy = jest.spyOn(httpClient, 'request').mockImplementation(() => responseSubject)
+    const requestSpy = jest.spyOn(httpClient, 'request').mockImplementation(() =>
+        responseSubject.pipe(
+            map(data => {
+                return { data, response: {} as Response }
+            })
+        )
+    )
     return {
         responseSubject,
         requestSpy,
