@@ -1,5 +1,5 @@
 import { GithubUserDto } from '../api/github-profile-api.typings'
-import { rdxActionCreator } from '../../../shared/redux/redux-tools'
+import { rdxActionCreator } from '../../../shared/redux-utils/redux-tools'
 
 export const ghProfileActions = {
     fetchRequested: rdxActionCreator('@gh-profile/fetch-requested').withPayload<{

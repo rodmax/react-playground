@@ -1,5 +1,5 @@
 import { GithubUserDto } from '../api/github-profile-api.typings'
-import { RdxReducerBuilder } from '../../../shared/redux/redux-tools'
+import { RdxReducerBuilder } from '../../../shared/redux-utils/redux-tools'
 import { ghProfileActions } from './github-profile.actions'
 
 export interface GhProfileState {

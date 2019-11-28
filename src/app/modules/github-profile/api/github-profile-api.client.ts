@@ -1,5 +1,5 @@
 import { GithubUserDto } from './github-profile-api.typings'
-import { httpClient } from 'app/shared/http/http-client'
+import { httpClient } from 'app/shared/http-client/http-client'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
