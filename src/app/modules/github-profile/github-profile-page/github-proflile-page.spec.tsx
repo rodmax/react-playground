@@ -1,5 +1,5 @@
 import React from 'react'
-import { GithubProfileCard } from './github-profile-card'
+import { GithubProfileCard } from './github-profile-page'
 import { renderWithStore } from '../../../core/testing/render-with-store'
 import { httpClient } from '../../../shared/http/http-client'
 import { Subject } from 'rxjs'

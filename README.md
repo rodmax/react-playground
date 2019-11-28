@@ -18,6 +18,7 @@ The main purpose of this project is to study web applications development based 
     - [ ] [CI: code coverage](https://codecov.io/gh/rodmax/react-playground)
     - [ ] [CI:  sonar cloud analyzer](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
     - [x] E2E testing: testcafe
+        - [ ] snapshots of failed tests as artifacts
     - [x] unit & international testing: jest + testing-library
     - [ ] jest: code coverage
     - [x] Hyper strong TypeScript config
