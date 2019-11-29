@@ -1,8 +1,10 @@
 # React stack playground
 
 [![Actions Status](https://github.com/rodmax/react-playground/workflows/ci/badge.svg)](https://github.com/rodmax/react-playground/actions) [![Greenkeeper badge](https://badges.greenkeeper.io/rodmax/react-playground.svg)](https://greenkeeper.io/)
-
 [![codecov](https://codecov.io/gh/rodmax/react-playground/branch/master/graph/badge.svg)](https://codecov.io/gh/rodmax/react-playground)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=alert_status)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=sqale_index)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
 
 The main purpose of this project is to study web applications development based on react stack
 

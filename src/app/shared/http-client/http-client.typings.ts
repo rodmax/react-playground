@@ -1,6 +1,8 @@
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
+
 export interface HttpRequestConfig {
     url: string
-    method: 'GET' | 'POST' | 'PUT' | 'DELETE'
+    method: HttpMethod
     queryParams?: object
 }
 
