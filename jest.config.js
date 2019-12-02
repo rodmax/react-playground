@@ -10,12 +10,14 @@ module.exports = {
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
     moduleNameMapper: {
         '^app/(.*)$': '<rootDir>/src/app/$1',
+        '^common/(.*)$': '<rootDir>/src/common/$1',
+        '^features/(.*)$': '<rootDir>/src/features/$1',
     },
     globals: {
         'ts-jest': {
             tsConfig: './src/tsconfig.json',
         },
     },
-    collectCoverageFrom: ['./src/app/**'],
+    collectCoverageFrom: ['./src/*/**'],
     coverageDirectory: './reports',
 }
