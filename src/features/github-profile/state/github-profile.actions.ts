@@ -1,5 +1,5 @@
 import { GithubUserDto } from '../api/github-profile-api.typings'
-import { rdxActionCreator } from '../../../common/redux-utils/redux-utils'
+import { rdxActionCreator, RdxExtractActionsUnion } from 'common/redux-toolkit/redux-toolkit'
 
 export const ghProfileActions = {
     fetchRequested: rdxActionCreator('@gh-profile/fetch-requested').withPayload<{
@@ -9,9 +9,4 @@ export const ghProfileActions = {
     fetchError: rdxActionCreator('@gh-profile/fetch-error').withPayload<object>(),
 } as const
 
-type ActionsObject = typeof ghProfileActions
-
-type AnyActionCreator = typeof ghProfileActions[keyof ActionsObject]
-
-export type GhProfileActionType = AnyActionCreator['type']
-export type GhProfileAnyAction = ReturnType<AnyActionCreator['create']>
+export type GhProfileAction = RdxExtractActionsUnion<typeof ghProfileActions>

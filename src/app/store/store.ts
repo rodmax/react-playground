@@ -2,7 +2,7 @@ import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { createEpicMiddleware, combineEpics } from 'redux-observable'
 import { ghProfileReducer } from '../../features/github-profile/state/github-profile.reducer'
 import { ghProfileFetchDataEpic } from '../../features/github-profile/state/github-profile.epics'
-import { GhProfileAnyAction } from '../../features/github-profile/state/github-profile.actions'
+import { GhProfileAction } from '../../features/github-profile/state/github-profile.actions'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 export type AppState = ReturnType<ReturnType<typeof createRootReducer>>
@@ -18,7 +18,7 @@ export const createAppStore = () => {
 }
 
 // Root action
-export type AnyAction = GhProfileAnyAction
+export type AnyAction = GhProfileAction
 
 // Root reducer
 function createRootReducer() {

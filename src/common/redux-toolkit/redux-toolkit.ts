@@ -10,6 +10,11 @@ export interface RdxActionCreator<T extends string, P> {
     create: P extends null ? () => { type: T; payload: null } : (p: P) => RdxAction<T, P>
 }
 
+export type RdxExtractActionsUnion<
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    T extends Record<string, RdxActionCreator<string, any>>
+> = ReturnType<T[keyof T]['create']>
+
 // To create action creator we need involve two generic parameter "type" type and "payload" type
 // To prevent 'Partial type argument inference in typescript'
 // we add bellow influent API
