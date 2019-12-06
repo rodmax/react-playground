@@ -10,20 +10,20 @@ export interface GhProfileState {
 }
 
 export const ghProfileReducer = new RdxReducerBuilder<GhProfileState>()
-    .bindReducerWithAction(ghProfileActions.fetchRequested, payload => {
+    .bindReducerWithAction(ghProfileActions.profileDataRequested, payload => {
         return {
             username: payload.username,
             isLoading: true,
         }
     })
-    .bindReducerWithAction(ghProfileActions.fetchComplete, userDto => {
+    .bindReducerWithAction(ghProfileActions.profileDataLoaded, userDto => {
         return {
             isLoading: false,
             error: null,
             userDto,
         }
     })
-    .bindReducerWithAction(ghProfileActions.fetchError, error => {
+    .bindReducerWithAction(ghProfileActions.profileDataLoadFailed, error => {
         return {
             isLoading: false,
             error,
