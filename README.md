@@ -33,18 +33,20 @@ and i am now implementing this ideas
 
 ### Quality
 - [x] CI: base on [github actions](https://github.com/rodmax/react-playground/actions)
-- [ ] [CI: code coverage](https://codecov.io/gh/rodmax/react-playground)
-- [ ] [CI:  sonar cloud analyzer](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
-- [x] E2E testing: testcafe
+- [x] [CI: code coverage](https://codecov.io/gh/rodmax/react-playground)
+- [x] [CI:  sonar cloud analyzer](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
+- [x] E2E testing: [testcafe](https://devexpress.github.io/testcafe/)
     - [ ] snapshots of failed tests as artifacts
-- [x] unit & international testing: jest + testing-library
-- [ ] jest: code coverage
+- [x] unit & international testing:
+    - [x] [jest](https://jestjs.io/)
+    - [x] [testing-library](https://testing-library.com/)
 - [x] Hyper strong TypeScript config
 - [x] EsLint
+    - [ ] review all set of existing rules and involve them
     - [ ] add HOOKS related eslint rules
     - [ ] add REACT related eslint rules
 - [x] Stylelint
-- [ ] integrate audit(click house or other) to CI
+- [ ] integrate audit(LightHouse or other) to CI
 - [ ] Review tools of [minimizing for production](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production)
 
 ### Build/Deploy
@@ -52,17 +54,17 @@ and i am now implementing this ideas
 - [ ] CI: deploy to github pages via github actions
 
 ### App/Architecture
-- [ ] Follow [redux architecture StyleGuide](https://redux.js.org/style-guide/style-guide) rules whenever it is reasonably possible
+- [x] Follow [redux architecture StyleGuide](https://redux.js.org/style-guide/style-guide) rules whenever it is reasonably possible
 - [ ] localization
 - [ ] form handling(ui/server validation, form state)
 - Store
-    - [x] Redux
-    - [x] [type safety with redux](https://medium.com/@dhruvrajvanshi/some-tips-on-type-safety-with-redux-98588a85604c):
-    - [x] [actions naming](https://itnext.io/namespacing-redux-action-type-constant-values-90b932eea43f) -
-    my current choice how to name action types
-- [ ] Effects/async flow: RxJs(rxjs/observable)
-- [ ] Router: router5
+    - [x] Redux (fully type safe at first and with reduced boilerplate at second)
+    - [ ] try [immer](https://immerjs.github.io/immer/docs/introduction) (looks nice and recommended by redux team)
+- [x] Effects/async flow: RxJs(rxjs/observable)
+- [x] Router: router5
+- [ ] auth logic (route guards/permissions for individual features)
 - API client
+    - [x] Proof of concent using RxJs builtin clients(fetch/xhr)
     - [ ] API client factory(rxjs based)
         - [ ] File uploading
         - [ ] Catch unhandled API errors on App level
@@ -74,3 +76,10 @@ and i am now implementing this ideas
 - [x] Prettier for formatting(integration with VSCode)
 - [ ] HMR for CSS
 - [ ] commit format & commit-based changelog generation
+
+### Web technologies:
+- [ ] Web workers
+- [ ] WebAssembly
+- [ ] Service Worker
+- [ ] SSR
+
