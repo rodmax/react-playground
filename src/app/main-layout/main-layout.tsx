@@ -1,8 +1,8 @@
 import React from 'react'
-import { useAppRoute } from '../../core/router/router'
-import { AppRouteName, APP_FEATURE_ROUTE_NAMES } from '../../core/router/router.typings'
-import { GithubProfileCard } from '../github-profile/github-profile-page/github-profile-page'
-import { HttpClientDemoPage } from '../http-client-demo/http-client-demo-page'
+import { useAppRoute } from '../router/router'
+import { AppRouteName, APP_FEATURE_ROUTE_NAMES } from '../router/router.typings'
+import { GithubProfileCard } from '../../features/github-profile/github-profile-page/github-profile-page'
+import { HttpClientDemoPage } from '../../features/http-client-demo/http-client-demo-page'
 import './main-layout.scss'
 import { Link } from 'react-router5'
 

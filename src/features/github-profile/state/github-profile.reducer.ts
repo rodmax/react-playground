@@ -1,5 +1,5 @@
 import { GithubUserDto } from '../api/github-profile-api.typings'
-import { RdxReducerBuilder } from '../../../shared/redux-utils/redux-tools'
+import { RdxReducerBuilder } from 'common/redux-toolkit/redux-toolkit'
 import { ghProfileActions } from './github-profile.actions'
 
 export interface GhProfileState {
@@ -10,20 +10,20 @@ export interface GhProfileState {
 }
 
 export const ghProfileReducer = new RdxReducerBuilder<GhProfileState>()
-    .bindReducerWithAction(ghProfileActions.fetchRequested, payload => {
+    .bindReducerWithAction(ghProfileActions.profileDataRequested, payload => {
         return {
             username: payload.username,
             isLoading: true,
         }
     })
-    .bindReducerWithAction(ghProfileActions.fetchComplete, userDto => {
+    .bindReducerWithAction(ghProfileActions.profileDataLoaded, userDto => {
         return {
             isLoading: false,
             error: null,
             userDto,
         }
     })
-    .bindReducerWithAction(ghProfileActions.fetchError, error => {
+    .bindReducerWithAction(ghProfileActions.profileDataLoadFailed, error => {
         return {
             isLoading: false,
             error,

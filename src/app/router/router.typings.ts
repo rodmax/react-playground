@@ -2,7 +2,7 @@ import {
     TypedRouter,
     TypedRoute,
     TypedRouteContext,
-} from '../../shared/router5-utils/router5-tools.typings'
+} from 'common/router5-toolkit/router5-toolkit.typings'
 
 export const APP_FEATURE_ROUTE_NAMES = ['github-profile', 'http-client-demo'] as const
 export const APP_AUX_ROUTE_NAMES = ['home'] as const
