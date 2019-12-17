@@ -48,6 +48,7 @@ and i am now implementing this ideas
 - [x] Stylelint
 - [ ] integrate audit(LightHouse or other) to CI
 - [ ] Review tools of [minimizing for production](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production)
+- [ ] Investigate & involve(if appreciable) dependency visualization tool, [like this](https://arkit.pro/svg/UDfDp34EW20C0C2zh-YeWrym37waaQe4sf82-dqTdI-vq3fv7r80MavQoKbGJ6s_t8In--2Vj8kYFKbFFAWq1jZuvcAL7PSL9_AS-WmGMEDtlbU28LS0)
 
 ### Build/Deploy
 - [x] add [tslib](https://www.npmjs.com/package/tslib)
