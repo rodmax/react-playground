@@ -1,7 +1,7 @@
 /**
- * @type { jest.GlobalConfig }
+ * @type { jest.InitialOptions }
  */
-module.exports = {
+const config = {
     roots: ['src'],
     transform: {
         '^.+\\.tsx?$': 'ts-jest',
@@ -21,3 +21,4 @@ module.exports = {
     collectCoverageFrom: ['./src/*/**'],
     coverageDirectory: './reports',
 }
+module.exports = config
