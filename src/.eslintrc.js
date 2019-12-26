@@ -1,13 +1,5 @@
 // @ts-check
-/**
- *  @typedef { import('eslint').Linter.RuleEntry } EslintRuleEntry
- *  @type { EslintRuleEntry }
- */
 const WARN = 1
-
-/**
- *  @type { EslintRuleEntry }
- */
 const ERR = 2
 
 /**

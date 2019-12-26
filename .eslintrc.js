@@ -1,13 +1,5 @@
 // @ts-check
-/**
- *  @typedef { import('eslint').Linter.RuleEntry } EslintRuleEntry
- *  @type { EslintRuleEntry }
- */
 const WARN = 1 // allowed during development but not in production
-
-/**
- *  @type { EslintRuleEntry }
- */
 const ERR = 2
 
 /**
