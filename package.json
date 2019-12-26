@@ -10,7 +10,7 @@
         "app:serve": "./devtools/serve.js",
         "eslint": "eslint --max-warnings=0 --ext=js,ts,tsx ./",
         "stylelint": "stylelint -f unix 'src/**/*.scss'",
-        "tsc:js-type-check": "tsc --allowJs --checkJs --noEmit ./*.js",
+        "tsc:js-type-check": "tsc --allowJs --checkJs --noEmit ./*.js ./.*.js ./src/.*.js",
         "lint:all": "run-p -ln eslint stylelint tsc:js-type-check",
         "prettier:fix": "prettier --check --write './*.js'",
         "jest:watch": "jest --watch",
