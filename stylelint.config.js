@@ -1,7 +1,12 @@
 /**
- * @type {import('stylelint').Configuration}
+ * @type { import('stylelint').Configuration }
  */
-module.exports = {
+const config = {
     extends: 'stylelint-config-recommended',
     rules: {},
+    processors: [],
+    plugins: [],
+    ignoreFiles: [],
+    defaultSeverity: 'error',
 }
+module.exports = config

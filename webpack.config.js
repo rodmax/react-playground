@@ -1,4 +1,3 @@
-// @ts-check
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const env = require('./devtools/env')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -6,9 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const baseConfig = getModeRelatedConfig()
 
 /**
- * @type {import('webpack').Configuration}
+ * @typedef { import('webpack').Configuration } WebpackConfiguration
+ * @type { WebpackConfiguration }
  */
-module.exports = {
+const config = {
     entry: './src/index.tsx',
     mode: baseConfig.mode,
     output: {
@@ -47,9 +47,10 @@ module.exports = {
         overlay: true,
     },
 }
+module.exports = config
 
 /**
- * @return {import('webpack').Rule}
+ * @return { import('webpack').Rule }
  */
 function getScssRuleConfig() {
     return {
@@ -74,7 +75,7 @@ function getScssRuleConfig() {
 }
 
 /**
- * @return {Pick<import('webpack').Configuration, 'mode'>}
+ * @return { Pick<WebpackConfiguration, 'mode'>}
  */
 function getModeRelatedConfig() {
     return {

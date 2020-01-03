@@ -1,7 +1,12 @@
+// @ts-check
 const WARN = 1
 const ERR = 2
 
-module.exports = {
+/**
+ * @typedef { import('eslint').Linter.Config } EslintConfig
+ * @type { EslintConfig }
+ */
+const config = {
     extends: ['../.eslintrc.js'],
     rules: {
         'no-restricted-globals': [ERR, 'test.only'],
@@ -14,3 +19,4 @@ module.exports = {
         ],
     },
 }
+module.exports = config

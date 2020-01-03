@@ -2,7 +2,11 @@
 const WARN = 1 // allowed during development but not in production
 const ERR = 2
 
-module.exports = {
+/**
+ * @typedef { import('eslint').Linter.Config } EslintConfig
+ * @type { EslintConfig }
+ */
+const config = {
     parser: '@typescript-eslint/parser',
     plugins: ['@typescript-eslint', 'react'],
     parserOptions: {
@@ -22,3 +26,4 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': ERR,
     },
 }
+module.exports = config
