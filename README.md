@@ -1,4 +1,7 @@
 # React stack playground
+> [ We can’t be silent! #SavePandaDoc](https://savebelarusit.org/en/)
+
+<img src="src/assets/playground-logo.png">
 
 [![Actions Status](https://github.com/rodmax/react-playground/workflows/ci/badge.svg)](https://github.com/rodmax/react-playground/actions) [![Greenkeeper badge](https://badges.greenkeeper.io/rodmax/react-playground.svg)](https://greenkeeper.io/)
 [![codecov](https://codecov.io/gh/rodmax/react-playground/branch/master/graph/badge.svg)](https://codecov.io/gh/rodmax/react-playground)
