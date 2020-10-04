@@ -1,6 +1,11 @@
 name: ci
 
-on: [push]
+on:
+  push:
+      branches:
+        - master
+  pull_request:
+
 
 jobs:
   check-all:
@@ -12,10 +17,10 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2-beta
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -29,3 +34,10 @@ jobs:
 
       - name: send coverage to codecov.io
         run: codecov --token="${{ secrets.CODECOV_IO_TOKEN }}" --branch="${GITHUB_REF#refs/heads/}"
+
+      - name: Github Pages Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'master'}}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
