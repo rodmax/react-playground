@@ -1,5 +1,11 @@
 /**
- * @type { jest.InitialOptions }
+ * Bellow hack with types taken from
+ * https://kulshekhar.github.io/ts-jest/user/config/#ide-ts-jest-config-suggestion
+ * @typedef { import('ts-jest') }
+ */
+
+/**
+ * @type { import('@jest/types').Config.InitialOptions }
  */
 const config = {
     roots: ['src'],
