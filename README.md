@@ -43,6 +43,7 @@ and i am now implementing this ideas
 - [x] unit & international testing:
     - [x] [jest](https://jestjs.io/)
     - [x] [testing-library](https://testing-library.com/)
+        - [ ] attempt to find approach to reuse testing code like angular harnesses do
 - [x] Hyper strong TypeScript config
 - [x] EsLint
     - [ ] review all set of existing rules and involve them
@@ -61,6 +62,7 @@ and i am now implementing this ideas
 - [x] Follow [redux architecture StyleGuide](https://redux.js.org/style-guide/style-guide) rules whenever it is reasonably possible
 - [ ] localization
 - [ ] form handling(ui/server validation, form state)
+- [ ] folder structure: description and rules
 - Store
     - [x] Redux (fully type safe at first and with reduced boilerplate at second)
     - [ ] try [immer](https://immerjs.github.io/immer/docs/introduction) (looks nice and recommended by redux team)
@@ -78,6 +80,8 @@ and i am now implementing this ideas
 
 ### Development experience
 - [x] Prettier for formatting(integration with VSCode)
+    - [ ] Apply prettier to all files(md,js,json,yaml)
+- [ ] Setup solution tsconfig.json (split base/app/spec/testcafe tsconfigs)
 - [ ] HMR for CSS
 - [ ] commit format & commit-based changelog generation
 

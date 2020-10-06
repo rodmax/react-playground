@@ -13,7 +13,7 @@ describe(`<GithubProfileCard>`, () => {
 
         const { getByText } = renderWithStore(<GithubProfileCard />)
         expect(apiClientMock.requestSpy).toHaveBeenCalledTimes(1)
-        apiClientMock.responseSubject.next(githubUserDtoFactory.build({ login: 'USER_LOGIN' }))
+        apiClientMock.responseSubject.next(githubUserDtoFactory.item({ login: 'USER_LOGIN' }))
         getByText('USER_LOGIN')
     })
 })
