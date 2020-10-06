@@ -1,6 +1,6 @@
 const path = require('path')
 
-// NOTE: TS server cant infer type if module.exports = {} wrapped in parens
+// NOTE: TS server can't infer type if module.exports = {} wrapped in parens
 // so we ignore prettier here
 // prettier-ignore
 const env = module.exports = {}

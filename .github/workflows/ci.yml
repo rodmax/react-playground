@@ -2,14 +2,12 @@ name: ci
 
 on:
   push:
-      branches:
-        - master
+    branches:
+      - master
   pull_request:
-
 
 jobs:
   check-all:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -29,6 +27,7 @@ jobs:
 
       - name: npm ci
         run: npm ci
+
       - name: lint, test, build, then e2e
         run: npm run pre-push
 

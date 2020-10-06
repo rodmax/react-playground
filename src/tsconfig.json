@@ -1,27 +1,15 @@
 {
-    "extends": "../tsconfig.json",
-    "compilerOptions": {
-        "baseUrl": "./",
-        "checkJs": false,
-        "sourceMap": true,
-        "target": "es6",
-        "module": "esnext",
-        "jsx": "react",
-        "types": [
-            "jest"
-        ],
-        "lib": [
-            "es2015",
-            "es2017",
-            "dom",
-            "dom.iterable",
-            "esnext"
-        ]
-    },
-    "include": [
-        "./"
-    ],
-    "exclude": [
-        "../node_modules"
-    ]
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "checkJs": false,
+    "sourceMap": true,
+    "target": "es6",
+    "module": "esnext",
+    "jsx": "react",
+    "types": ["jest"],
+    "lib": ["es2015", "es2017", "dom", "dom.iterable", "esnext"]
+  },
+  "include": ["./"],
+  "exclude": ["../node_modules"]
 }
