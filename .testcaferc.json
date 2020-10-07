@@ -1,5 +1,5 @@
 {
-    "src": "testcafe/",
-    "browsers": "firefox:headless",
-    "tsConfigPath": "testcafe/tsconfig.json"
+  "src": "testcafe/",
+  "browsers": "firefox:headless",
+  "tsConfigPath": "testcafe/tsconfig.json"
 }

@@ -14,5 +14,11 @@ const config = {
     bracketSpacing: true,
     jsxBracketSameLine: false,
     arrowParens: 'avoid',
+    overrides: [
+        {
+            files: '*.{json,yaml,yml}',
+            options: { tabWidth: 2 },
+        },
+    ],
 }
 module.exports = config
