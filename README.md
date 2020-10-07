@@ -63,7 +63,7 @@ and i am now implementing this ideas
 ### Build/Deploy
 
 -   [x] add [tslib](https://www.npmjs.com/package/tslib)
--   [ ] CI: deploy to github pages via github actions
+-   [x] CI: deploy to github pages via github actions
 
 ### App/Architecture
 
