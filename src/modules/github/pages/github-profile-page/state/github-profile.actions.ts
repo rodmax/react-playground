@@ -1,4 +1,4 @@
-import { GithubUserDto } from '../api/github-profile-api.typings'
+import { GithubUserDto } from 'api/github/github-api.typings'
 import { rdxActionCreator, RdxExtractActionsUnion } from 'common/redux-toolkit/redux-toolkit'
 
 export const ghProfileActions = {

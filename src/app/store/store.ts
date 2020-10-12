@@ -1,9 +1,9 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { createEpicMiddleware, combineEpics } from 'redux-observable'
-import { ghProfileReducer } from '../../features/github-profile/state/github-profile.reducer'
-import { ghProfileFetchDataEpic } from '../../features/github-profile/state/github-profile.epics'
-import { GhProfileAction } from '../../features/github-profile/state/github-profile.actions'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import { GhProfileAction } from 'modules/github/pages/github-profile-page/state/github-profile.actions'
+import { ghProfileReducer } from 'modules/github/pages/github-profile-page/state/github-profile.reducer'
+import { ghProfileFetchDataEpic } from 'modules/github/pages/github-profile-page/state/github-profile.epics'
 
 export type AppState = ReturnType<ReturnType<typeof createRootReducer>>
 

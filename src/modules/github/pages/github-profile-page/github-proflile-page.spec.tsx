@@ -1,10 +1,10 @@
 import React from 'react'
 import { GithubProfileCard } from './github-profile-page'
-import { renderWithStore } from '../../../app/testing/render-with-store'
+import { renderWithStore } from 'app/testing/render-with-store'
 import { httpClient } from 'common/http-client/http-client'
 import { Subject } from 'rxjs'
-import { GithubUserDto } from '../api/github-profile-api.typings'
-import { githubUserDtoFactory } from '../api/github-profile-api.factory'
+import { GithubUserDto } from 'api/github/github-api.typings'
+import { githubUserDtoFactory } from 'api/github/github-api.factory'
 import { map } from 'rxjs/operators'
 
 describe(`<GithubProfileCard>`, () => {

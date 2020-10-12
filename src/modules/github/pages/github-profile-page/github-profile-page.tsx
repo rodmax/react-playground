@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { AppState } from '../../../app/store/store'
+import { AppState } from 'app/store/store'
 
 export const GithubProfileCard: React.FC = () => {
     const userDto = useSelector(selectGithubUserDto)

@@ -10,6 +10,5 @@
     "types": ["jest"],
     "lib": ["es2015", "es2017", "dom", "dom.iterable", "esnext"]
   },
-  "include": ["./"],
-  "exclude": ["../node_modules"]
+  "include": ["./*.ts", "./*.tsx", "./**/*.ts", "./**/*.tsx"]
 }

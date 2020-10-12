@@ -15,9 +15,10 @@ const config = {
     testRegex: '\\.(test|spec)\\.tsx?$',
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
     moduleNameMapper: {
-        '^app/(.*)$': '<rootDir>/src/app/$1',
         '^common/(.*)$': '<rootDir>/src/common/$1',
-        '^features/(.*)$': '<rootDir>/src/features/$1',
+        '^api/(.*)$': '<rootDir>/src/api/$1',
+        '^modules/(.*)$': '<rootDir>/src/modules/$1',
+        '^app/(.*)$': '<rootDir>/src/app/$1',
     },
     globals: {
         'ts-jest': {

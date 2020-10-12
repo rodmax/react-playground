@@ -1,9 +1,9 @@
-import { GithubUserDto } from './github-profile-api.typings'
+import { GithubUserDto } from './github-api.typings'
 import { httpClient } from 'common/http-client/http-client'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
-export const ghProfileApiClient = {
+export const githubApiClient = {
     getProfile,
 }
 
