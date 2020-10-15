@@ -1,14 +1,12 @@
 import { GithubUserDto } from 'api/github/github-api.typings'
-import { rdxActionCreator, RdxExtractActionsUnion } from 'common/redux-toolkit/redux-toolkit'
+import { actionCreator, ActionsUnion } from 'common/redux/action-utils'
 
-export const ghProfileActions = {
-    profileDataRequested: rdxActionCreator('ghProfile/profileDataRequested').withPayload<{
+export const githubProfileActions = {
+    dataLoadingStart: actionCreator('@githubProfile/dataLoad.Start').withPayload<{
         username: string
     }>(),
-    profileDataLoaded: rdxActionCreator('ghProfile/profileDataLoaded').withPayload<GithubUserDto>(),
-    profileDataLoadFailed: rdxActionCreator('ghProfile/profileDataLoadFailed').withPayload<
-        object
-    >(),
+    dataLoadSuccess: actionCreator('@githubProfile/dataLoad.Success').withPayload<GithubUserDto>(),
+    dataLoadError: actionCreator('@githubProfile/dataLoad.Error').withPayload<object>(),
 } as const
 
-export type GhProfileAction = RdxExtractActionsUnion<typeof ghProfileActions>
+export type GithubProfileAction = ActionsUnion<typeof githubProfileActions>

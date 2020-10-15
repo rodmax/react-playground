@@ -1,17 +1,27 @@
 import React from 'react'
-import { GithubProfileCard } from './github-profile-page'
-import { renderWithStore } from 'app/testing/render-with-store'
-import { httpClient } from 'common/http-client/http-client'
+import { GithubProfilePage } from './github-profile-page'
+import { httpClient } from 'common/http/http-client'
 import { Subject } from 'rxjs'
 import { GithubUserDto } from 'api/github/github-api.typings'
-import { githubUserDtoFactory } from 'api/github/github-api.factory'
+import { githubUserDtoFactory } from 'api/github/github-api.factories'
 import { map } from 'rxjs/operators'
+import { renderWithStore } from 'common/redux/testing/render-with-store'
+import { storeFactory } from 'common/redux/store-utils'
+import { githubProfileReducerSlice } from './state/github-profile.reducer'
+import { githubProfileFetchDataEpic } from './state/github-profile.epics'
 
 describe(`<GithubProfileCard>`, () => {
+    const testingStore = storeFactory({
+        reducers: {
+            ...githubProfileReducerSlice,
+        },
+        epics: [githubProfileFetchDataEpic],
+    })
+
     it('should load and show github user data', () => {
         const apiClientMock = createApiClientMock()
 
-        const { getByText } = renderWithStore(<GithubProfileCard />)
+        const { getByText } = renderWithStore(<GithubProfilePage />, testingStore())
         expect(apiClientMock.requestSpy).toHaveBeenCalledTimes(1)
         apiClientMock.responseSubject.next(githubUserDtoFactory.item({ login: 'USER_LOGIN' }))
         getByText('USER_LOGIN')

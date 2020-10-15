@@ -1,8 +1,9 @@
+import { GithubUserCard } from 'modules/github/ui/github-user-card/github-user.card'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { AppState } from 'app/store/store'
+import { GithubProfileStateSlice } from './state/github-profile.reducer'
 
-export const GithubProfileCard: React.FC = () => {
+export const GithubProfilePage: React.FC = () => {
     const userDto = useSelector(selectGithubUserDto)
     if (!userDto) {
         return <h4>Loading...</h4>
@@ -10,11 +11,9 @@ export const GithubProfileCard: React.FC = () => {
     return (
         <>
             <h2>Github profile</h2>
-            <h3>{userDto.login}</h3>
-            <img src={userDto.avatar_url} />
-            <pre>{JSON.stringify(userDto, null, 4)}</pre>
+            <GithubUserCard user={userDto}></GithubUserCard>
         </>
     )
 }
 
-const selectGithubUserDto = (state: AppState) => state.ghProfile.userDto
+const selectGithubUserDto = (state: GithubProfileStateSlice) => state.githubProfile.userDto

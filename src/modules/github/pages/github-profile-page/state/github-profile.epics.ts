@@ -1,21 +1,21 @@
 import { Epic, ofType } from 'redux-observable'
 import { switchMap, map, startWith } from 'rxjs/operators'
-import { githubApiClient } from '../../../../../api/github/github-api.client'
-import { GhProfileAction, ghProfileActions } from './github-profile.actions'
+import { githubApiClient } from 'api/github/github-api.client'
+import { GithubProfileAction, githubProfileActions } from './github-profile.actions'
 
 const DEFAULT_USERNAME = 'rodmax'
 
-export const ghProfileFetchDataEpic: Epic<GhProfileAction> = action$ => {
+export const githubProfileFetchDataEpic: Epic<GithubProfileAction> = action$ => {
     return action$.pipe(
-        ofType('ghProfile/profileDataRequested'),
+        ofType('@githubProfile/dataLoad.Start'),
         switchMap(action => {
             return githubApiClient.getProfile(action.payload.username).pipe(
                 map(userDto => {
-                    return ghProfileActions.profileDataLoaded.create(userDto)
+                    return githubProfileActions.dataLoadSuccess(userDto)
                 })
             )
         }),
         // Kick start initial loading
-        startWith(ghProfileActions.profileDataRequested.create({ username: DEFAULT_USERNAME }))
+        startWith(githubProfileActions.dataLoadingStart({ username: DEFAULT_USERNAME }))
     )
 }

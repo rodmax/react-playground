@@ -1,37 +1,47 @@
 import { GithubUserDto } from 'api/github/github-api.typings'
-import { RdxReducerBuilder } from 'common/redux-toolkit/redux-toolkit'
-import { ghProfileActions } from './github-profile.actions'
+import { StateSlice, reducerSlice } from 'common/redux/reducer-utils'
+import { shouldNeverBeCalled } from 'common/utils/misc'
+import { GithubProfileAction } from './github-profile.actions'
 
-export interface GhProfileState {
+export interface GithubProfileState {
     username: string
     userDto: GithubUserDto | null
     isLoading: boolean
     error: unknown
 }
 
-export const ghProfileReducer = new RdxReducerBuilder<GhProfileState>()
-    .bindReducerWithAction(ghProfileActions.profileDataRequested, payload => {
-        return {
-            username: payload.username,
-            isLoading: true,
+const initialState: GithubProfileState = {
+    username: '',
+    userDto: null,
+    isLoading: false,
+    error: null,
+}
+
+export type GithubProfileStateSlice = StateSlice<typeof githubProfileReducerSlice>
+
+export const githubProfileReducerSlice = reducerSlice(
+    'githubProfile',
+    (
+        state: Readonly<GithubProfileState> = initialState,
+        action: GithubProfileAction
+    ): GithubProfileState => {
+        switch (action.type) {
+            case '@githubProfile/dataLoad.Start':
+                return {
+                    ...state,
+                    username: action.payload.username,
+                    isLoading: true,
+                }
+
+            case '@githubProfile/dataLoad.Success':
+                return { ...state, isLoading: false, userDto: action.payload }
+
+            case '@githubProfile/dataLoad.Error':
+                return { ...state, isLoading: false, error: action.payload }
+
+            default:
+                shouldNeverBeCalled(action)
         }
-    })
-    .bindReducerWithAction(ghProfileActions.profileDataLoaded, userDto => {
-        return {
-            isLoading: false,
-            error: null,
-            userDto,
-        }
-    })
-    .bindReducerWithAction(ghProfileActions.profileDataLoadFailed, error => {
-        return {
-            isLoading: false,
-            error,
-        }
-    })
-    .build({
-        username: '',
-        userDto: null,
-        isLoading: false,
-        error: null,
-    })
+        return state
+    }
+)
