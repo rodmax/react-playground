@@ -1,8 +1,8 @@
 import React from 'react'
 import { useAppRoute } from '../router/router'
 import { AppRouteName, APP_FEATURE_ROUTE_NAMES } from '../router/router.typings'
-import { GithubProfileCard } from '../../features/github-profile/github-profile-page/github-profile-page'
-import { HttpClientDemoPage } from '../../features/http-client-demo/http-client-demo-page'
+import { GithubProfilePage } from 'modules/github/pages/github-profile-page/github-profile-page'
+import { HttpClientDemoPage } from 'modules/http-client-demo/pages/http-client-demo-page/http-client-demo-page'
 import './main-layout.scss'
 import { Link } from 'react-router5'
 
@@ -12,7 +12,7 @@ interface PageConfig {
 
 const FEATURE_PAGES_CONFIG_BY_ID: Partial<Record<AppRouteName, PageConfig>> = {
     'github-profile': {
-        PageComponent: GithubProfileCard,
+        PageComponent: GithubProfilePage,
     },
     'http-client-demo': {
         PageComponent: HttpClientDemoPage,

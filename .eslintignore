@@ -1,2 +1,3 @@
 dist/
 node_modules/
+!.dependency-cruiser.js

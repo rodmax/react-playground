@@ -1,7 +1,13 @@
 {
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["browserslist", "devtool", "devtools", "mqpacker"],
+  "cSpell.words": [
+    "browserslist",
+    "depcruise",
+    "devtool",
+    "devtools",
+    "mqpacker"
+  ],
   "[javascript]": {
     "editor.formatOnSave": true
   },
