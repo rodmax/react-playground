@@ -7,9 +7,12 @@ export type StateSlice<RS extends Record<string, (...args: any[]) => any>> = {
     [K in keyof RS]: ReturnType<RS[K]>
 }
 
-export function reducerSlice<K extends string, S, A>(
-    key: K,
-    fn: (s: Readonly<S>, a: A) => S
-): ReducerSlice<Record<K, S>, A> {
-    return { [key]: fn } as ReducerSlice<Record<K, S>, A>
+export const storeSlice = <K extends string, S>(key: K, initialState: Readonly<S>) => {
+    return {
+        withReducer: <A>(reducer: (s: Readonly<S>, a: A) => S) => {
+            return {
+                [key]: (s: S, a: A) => reducer(s || initialState, a),
+            } as ReducerSlice<Record<K, S>, A>
+        },
+    }
 }

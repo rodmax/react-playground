@@ -1,12 +1,12 @@
 import { GithubUserDto } from 'api/github/github-api.typings'
-import { actionCreator, ActionsUnion } from 'common/redux/action-utils'
+import { action, ActionsUnion } from 'common/redux/action-utils'
 
 export const githubProfileActions = {
-    dataLoadingStart: actionCreator('@githubProfile/dataLoad.Start').withPayload<{
+    loadStart: action('@githubProfile.loadStart').withPayload<{
         username: string
     }>(),
-    dataLoadSuccess: actionCreator('@githubProfile/dataLoad.Success').withPayload<GithubUserDto>(),
-    dataLoadError: actionCreator('@githubProfile/dataLoad.Error').withPayload<object>(),
-} as const
+    loadSuccess: action('@githubProfile.loadSuccess').withPayload<GithubUserDto>(),
+    loadError: action('@githubProfile.loadError').withPayload<object>(),
+}
 
 export type GithubProfileAction = ActionsUnion<typeof githubProfileActions>
