@@ -1,11 +1,14 @@
+// @ts-check
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const env = require('./devtools/env')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+const isDevMode = env.mode === 'development'
+
 const baseConfig = getModeRelatedConfig()
 
 /**
- * @typedef { import('webpack').Configuration } WebpackConfiguration
+ * @typedef { import('webpack').Configuration & {devServer: import('webpack-dev-server').Configuration } } WebpackConfiguration
  * @type { WebpackConfiguration }
  */
 const config = {
@@ -33,9 +36,7 @@ const config = {
             template: 'src/index.ejs',
             favicon: 'src/assets/favicon.png',
         }),
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-        }),
+        ...(isDevMode ? [] : [new MiniCssExtractPlugin()]),
     ],
     devtool: 'source-map',
     devServer: {
@@ -50,14 +51,16 @@ const config = {
 module.exports = config
 
 /**
- * @return { import('webpack').Rule }
+ * @return { import('webpack').RuleSetRule }
  */
 function getScssRuleConfig() {
     return {
         test: /\.scss$/,
         use: [
-            'style-loader',
-            MiniCssExtractPlugin.loader,
+            // The MiniCssExtractPlugin should be used only on production builds
+            // without style-loader in the loaders chain, especially if you want to have HMR in development
+            // see details here https://github.com/webpack-contrib/mini-css-extract-plugin#common-use-case
+            isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
                 loader: 'css-loader',
                 options: { sourceMap: true },
