@@ -5,16 +5,15 @@ export type ActionsUnion<
     T extends Record<string, ActionCreator<string, any>>
 > = ReturnType<T[keyof T]>
 
-// PRIVATE HELPERS
-interface TypedAction<T extends string, P = null> extends Action<T> {
+interface StrictAction<T extends string, P = null> extends Action<T> {
     payload: P
 }
 
 type ActionCreator<T extends string, P> = P extends null
     ? () => { type: T; payload: null }
-    : (p: P) => TypedAction<T, P>
+    : (p: P) => StrictAction<T, P>
 
-export const actionCreator = <T extends string>(type: T) => {
+export const action = <T extends string>(type: T) => {
     return {
         withNoPayload: () => {
             return () => {

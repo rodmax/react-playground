@@ -1,5 +1,5 @@
 import { GithubUserDto } from 'api/github/github-api.typings'
-import { StateSlice, reducerSlice } from 'common/redux/reducer-utils'
+import { StateSlice, storeSlice } from 'common/redux/reducer-utils'
 import { shouldNeverBeCalled } from 'common/utils/misc'
 import { GithubProfileAction } from './github-profile.actions'
 
@@ -19,24 +19,20 @@ const initialState: GithubProfileState = {
 
 export type GithubProfileStateSlice = StateSlice<typeof githubProfileReducerSlice>
 
-export const githubProfileReducerSlice = reducerSlice(
-    'githubProfile',
-    (
-        state: Readonly<GithubProfileState> = initialState,
-        action: GithubProfileAction
-    ): GithubProfileState => {
+export const githubProfileReducerSlice = storeSlice('githubProfile', initialState).withReducer(
+    (state, action: GithubProfileAction) => {
         switch (action.type) {
-            case '@githubProfile/dataLoad.Start':
+            case '@githubProfile.loadStart':
                 return {
                     ...state,
                     username: action.payload.username,
                     isLoading: true,
                 }
 
-            case '@githubProfile/dataLoad.Success':
+            case '@githubProfile.loadSuccess':
                 return { ...state, isLoading: false, userDto: action.payload }
 
-            case '@githubProfile/dataLoad.Error':
+            case '@githubProfile.loadError':
                 return { ...state, isLoading: false, error: action.payload }
 
             default:
