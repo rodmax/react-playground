@@ -2,6 +2,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const env = require('./devtools/env')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const isDevMode = env.mode === 'development'
 
@@ -26,26 +27,14 @@ const config = {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
             },
-            getScssRuleConfig(),
+            scssRuleConfig(),
         ],
     },
     resolve: {
         modules: [env.srcDir, 'node_modules'],
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/index.ejs',
-            favicon: 'src/assets/favicon.png',
-        }),
-        ...(isDevMode
-            ? []
-            : [
-                  new MiniCssExtractPlugin({
-                      filename: '[name].[contenthash].css',
-                  }),
-              ]),
-    ],
+    plugins: plugins(),
     devtool: 'source-map',
     devServer: {
         contentBase: env.srcDir,
@@ -59,7 +48,7 @@ const config = {
         splitChunks: {
             cacheGroups: {
                 vendor: {
-                    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+                    test: /[\\/]node_modules/,
                     name: 'vendor',
                     chunks: 'all',
                 },
@@ -70,9 +59,30 @@ const config = {
 module.exports = config
 
 /**
+ * @return { WebpackConfiguration['plugins'] }
+ */
+function plugins() {
+    /** @type { WebpackConfiguration['plugins'] }*/
+    const pluginsList = [
+        new HtmlWebpackPlugin({
+            template: 'src/index.ejs',
+            favicon: 'src/assets/favicon.png',
+        }),
+    ]
+    if (!isDevMode) {
+        pluginsList.push(new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }))
+    }
+
+    if (env.stat) {
+        pluginsList.push(new BundleAnalyzerPlugin({ analyzerMode: 'static' }))
+    }
+    return pluginsList
+}
+
+/**
  * @return { import('webpack').RuleSetRule }
  */
-function getScssRuleConfig() {
+function scssRuleConfig() {
     return {
         test: /\.scss$/,
         use: [
