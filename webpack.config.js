@@ -12,11 +12,13 @@ const baseConfig = getModeRelatedConfig()
  * @type { WebpackConfiguration }
  */
 const config = {
-    entry: './src/index.tsx',
+    entry: {
+        index: './src/index.tsx',
+    },
     mode: baseConfig.mode,
     output: {
         path: env.buildDir,
-        filename: 'bundle.js',
+        filename: '[name].[contenthash].js',
     },
     module: {
         rules: [
@@ -36,7 +38,13 @@ const config = {
             template: 'src/index.ejs',
             favicon: 'src/assets/favicon.png',
         }),
-        ...(isDevMode ? [] : [new MiniCssExtractPlugin()]),
+        ...(isDevMode
+            ? []
+            : [
+                  new MiniCssExtractPlugin({
+                      filename: '[name].[contenthash].css',
+                  }),
+              ]),
     ],
     devtool: 'source-map',
     devServer: {
@@ -46,6 +54,17 @@ const config = {
         },
         port: env.devServerPort,
         overlay: true,
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all',
+                },
+            },
+        },
     },
 }
 module.exports = config
