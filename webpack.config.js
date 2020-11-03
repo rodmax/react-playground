@@ -67,7 +67,7 @@ function getScssRuleConfig() {
             },
             {
                 loader: 'postcss-loader',
-                options: { sourceMap: true, postcssOptions: { path: 'src/js/postcss.config.js' } },
+                options: { sourceMap: true },
             },
             {
                 loader: 'sass-loader',
