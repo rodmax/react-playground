@@ -20,5 +20,8 @@ env.mode = process.env.BUILD_MODE === 'production' ? 'production' : 'development
  * @type { 'dev' | 'prod' }
  */
 env.e2eMode = process.env.E2E_MODE === 'prod' ? 'prod' : 'dev'
+
+env.stat = !!process.env.STAT
+
 // eslint-disable-next-line no-console
 console.log(env)
