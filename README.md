@@ -4,7 +4,7 @@
 
 <img src="src/assets/playground-logo.png">
 
-[![Actions Status](https://github.com/rodmax/react-playground/workflows/ci/badge.svg)](https://github.com/rodmax/react-playground/actions) [![Greenkeeper badge](https://badges.greenkeeper.io/rodmax/react-playground.svg)](https://greenkeeper.io/)
+[![Actions Status](https://github.com/rodmax/react-playground/workflows/ci/badge.svg)](https://github.com/rodmax/react-playground/actions)
 [![codecov](https://codecov.io/gh/rodmax/react-playground/branch/master/graph/badge.svg)](https://codecov.io/gh/rodmax/react-playground)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=alert_status)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
