@@ -12,7 +12,7 @@ function request<Dto>(config: HttpRequestConfig): Observable<HttpResponse<Dto>> 
     let url = config.url
     const query = config.queryParams && queryString(config.queryParams)
     if (query) {
-        url = url + '?' + query
+        url = `${url}?${query}`
     }
     return fromFetch(url, { method: config.method }).pipe(
         switchMap(response => {
