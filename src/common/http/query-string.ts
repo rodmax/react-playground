@@ -60,7 +60,7 @@ function serializeValue(
 
 export type QueryValuesSerializer = typeof DEFAULT_SERIALIZER
 
-const DEFAULT_SERIALIZER = {
+export const DEFAULT_SERIALIZER = {
     serializeBoolean: (value: boolean) => value.toString(),
     serializeNumber: (value: number) => value.toString(),
     serializeJson: (value: object) => JSON.stringify(value),

@@ -1,14 +1,12 @@
 import React from 'react'
 import { GithubProfilePage } from './github-profile-page'
-import { httpClient } from 'common/http/http-client'
-import { Subject } from 'rxjs'
 import { GithubUserDto } from 'api/github/github-api.typings'
 import { githubUserDtoFactory } from 'api/github/github-api.factories'
-import { map } from 'rxjs/operators'
 import { renderWithStore } from 'common/redux/testing/render-with-store'
 import { storeFactory } from 'common/redux/store-utils'
 import { githubProfileReducerSlice } from './state/github-profile.reducer'
 import { githubProfileFetchDataEpic } from './state/github-profile.epics'
+import { httpClientMock } from 'common/http/testing/http-client-mock'
 
 describe(`<GithubProfileCard>`, () => {
     const testingStore = storeFactory({
@@ -18,27 +16,20 @@ describe(`<GithubProfileCard>`, () => {
         epics: [githubProfileFetchDataEpic],
     })
 
-    it('should load and show github user data', () => {
-        const apiClientMock = createApiClientMock()
+    beforeEach(() => {
+        httpClientMock.setup()
+    })
 
+    afterEach(() => {
+        httpClientMock.verify()
+        httpClientMock.reset()
+    })
+
+    it('should load and show github user data', () => {
         const { getByText } = renderWithStore(<GithubProfilePage />, testingStore())
-        expect(apiClientMock.requestSpy).toHaveBeenCalledTimes(1)
-        apiClientMock.responseSubject.next(githubUserDtoFactory.item({ login: 'USER_LOGIN' }))
+        httpClientMock
+            .expect<GithubUserDto>({ url: 'https://api.github.com/users/rodmax' })
+            .flush(githubUserDtoFactory.item({ login: 'USER_LOGIN' }))
         getByText('USER_LOGIN')
     })
 })
-
-const createApiClientMock = () => {
-    const responseSubject = new Subject<GithubUserDto>()
-    const requestSpy = jest.spyOn(httpClient, 'request').mockImplementation(() =>
-        responseSubject.pipe(
-            map(data => {
-                return { data, response: {} as Response }
-            })
-        )
-    )
-    return {
-        responseSubject,
-        requestSpy,
-    }
-}
