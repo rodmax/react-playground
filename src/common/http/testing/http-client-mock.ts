@@ -43,13 +43,7 @@ class HttpClientMock {
             this.pendingQueue.splice(index, 1)
             return req as PendingRequest<Dto>
         }
-        throw new Error(
-            `${
-                HttpClientMock.name
-            }: Expected one matching request, found none. expected request: ${requestDescription(
-                match
-            )}`
-        )
+        throw new Error(expectMatchingRequestMsg(match))
     }
 
     private fakeRequest<Dto>(config: HttpRequestConfig): Observable<HttpResponse<Dto>> {
@@ -67,8 +61,15 @@ export const httpClientMock = new HttpClientMock()
 
 function expectNoPendingRequestMsg(pendingRequests: PendingRequest[]): string {
     return [
-        `${HttpClientMock.name}: verify: expect no pending request but found ${pendingRequests.length}`,
-        pendingRequests.map((req, index) => `[${index + 1}] ${requestDescription(req.match())}`),
+        `${HttpClientMock.name}: expect NO PENDING request but found ${pendingRequests.length}`,
+        pendingRequests.map(req => requestDescription(req.match())),
+    ].join('\n')
+}
+
+function expectMatchingRequestMsg(match: RequestMatch): string {
+    return [
+        `${HttpClientMock.name}: expect ONE MATCHING request but found none`,
+        requestDescription(match),
     ].join('\n')
 }
 
@@ -78,11 +79,13 @@ function requestDescription(match: RequestMatch): string {
         str = `${match.method} ${str}`
     }
     let extra = ''
-    if (match.queryParams || match.body) {
+    if (match.queryParams || match.body || match.bodyPartial || match.queryParamsPartial) {
         extra = ` ${JSON.stringify(
             {
-                queryParams: match.queryParams,
-                body: match.body,
+                queryParams: match.queryParams || undefined,
+                queryParamsPartial: match.queryParamsPartial || undefined,
+                body: match.body || undefined,
+                bodyPartial: match.bodyPartial || undefined,
             },
             null,
             2

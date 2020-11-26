@@ -1,4 +1,5 @@
 import { OmitStrict } from 'common/typings/omit-strict.typings'
+import { deepEqual } from 'common/utils/deep-equals'
 import { pick } from 'common/utils/pick'
 import { Observable, Subject } from 'rxjs'
 import { HttpRequestConfig, HttpResponse } from '../http-client.types'
@@ -29,7 +30,16 @@ export class PendingRequest<Dto = unknown> {
         if (this.config.url !== expected.url) {
             return false
         }
-        return true
+        if (expected.method && expected.method !== this.config.method) {
+            return false
+        }
+        return (
+            equalExactOrPartial(
+                this.config.queryParams,
+                expected.queryParams,
+                expected.queryParamsPartial
+            ) && equalExactOrPartial(this.config.body, expected.body, expected.bodyPartial)
+        )
     }
 
     public flush(data: Dto, restParams: Partial<OmitStrict<HttpResponse<Dto>, 'body'>> = {}): void {
@@ -58,4 +68,16 @@ export class PendingRequest<Dto = unknown> {
     public match(): RequestMatch {
         return pick(this.config, ['url', 'method', 'body', 'queryParams'])
     }
+}
+
+function equalExactOrPartial(
+    actual: unknown,
+    expected: unknown,
+    expectedPartial: unknown
+): boolean {
+    expected = expected || expectedPartial
+    if (!expected) {
+        return true
+    }
+    return deepEqual(actual, expected, { isExpectedPartial: !!expectedPartial })
 }

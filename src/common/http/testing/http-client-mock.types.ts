@@ -1,8 +1,13 @@
 import { HttpMethod } from '../http-client.types'
 
-export interface RequestMatch {
+export type RequestMatch = {
     url: string
     method?: HttpMethod
-    queryParams?: object
-    body?: object
-}
+} & QueryParamsMatch &
+    BodyMatch
+
+type QueryParamsMatch =
+    | { queryParams?: object; queryParamsPartial?: null }
+    | { queryParams?: null; queryParamsPartial?: object }
+
+type BodyMatch = { body?: object; bodyPartial?: null } | { body?: null; bodyPartial?: object }

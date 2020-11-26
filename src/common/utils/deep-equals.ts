@@ -1,10 +1,19 @@
 export function deepEqual(
-    actual: object,
-    expected: object,
+    actual: object | unknown,
+    expected: object | unknown,
     config: { isExpectedPartial: boolean } = { isExpectedPartial: false }
 ): boolean {
-    const actualKeys = Object.keys(actual)
-    const expectedKeys = Object.keys(expected)
+    if (isObject(actual)) {
+        if (!isObject(expected)) {
+            return false
+        }
+        // here we come if both objects
+    } else if (actual !== expected) {
+        return false
+    }
+
+    const actualKeys = Object.keys(actual as object)
+    const expectedKeys = Object.keys(expected as object)
 
     if (config.isExpectedPartial) {
         if (actualKeys.length < expectedKeys.length) {

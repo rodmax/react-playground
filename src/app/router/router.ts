@@ -10,6 +10,10 @@ export const routes: AppRoute[] = [
         path: '/',
     },
     {
+        name: 'users',
+        path: '/users',
+    },
+    {
         name: 'github-profile',
         path: '/github-profile',
     },

@@ -76,7 +76,63 @@ describe('HttpClientMock', () => {
         expect(callVerify).not.toThrowError()
 
         observable.subscribe()
-        expect(callVerify).toThrowError('expect no pending request but found 1')
+        expect(callVerify).toThrowError('expect NO PENDING request but found 1')
         httpClientMock.expect({ url: '/any' })
+    })
+
+    it('match queryParams/queryParamsPartial', () => {
+        const observer = spyObserver()
+        const config: HttpRequestConfig = {
+            method: 'GET',
+            url: '/url',
+            queryParams: { a: 1, b: 2 },
+        }
+
+        httpClient.request(config).subscribe(observer)
+        httpClientMock.expect({
+            url: '/url',
+            queryParams: { a: 1, b: 2 },
+        })
+
+        httpClient.request(config).subscribe(observer)
+        expect(() => {
+            httpClientMock.expect({
+                url: '/url',
+                queryParams: { a: 1 },
+            })
+        }).toThrow('expect ONE MATCHING request but found none')
+
+        httpClientMock.expect({
+            url: '/url',
+            queryParamsPartial: { a: 1 },
+        })
+    })
+
+    it('match body/bodyPartial', () => {
+        const observer = spyObserver()
+        const config: HttpRequestConfig = {
+            method: 'POST',
+            url: '/url',
+            body: { a: 3, b: 4 },
+        }
+
+        httpClient.request(config).subscribe(observer)
+        httpClientMock.expect({
+            url: '/url',
+            body: { a: 3, b: 4 },
+        })
+
+        httpClient.request(config).subscribe(observer)
+        expect(() => {
+            httpClientMock.expect({
+                url: '/url',
+                body: { a: 3 },
+            })
+        }).toThrow('expect ONE MATCHING request but found none')
+
+        httpClientMock.expect({
+            url: '/url',
+            bodyPartial: { a: 3 },
+        })
     })
 })
