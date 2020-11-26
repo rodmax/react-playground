@@ -79,7 +79,7 @@
     "@typescript-eslint/eslint-plugin": "4.4.0",
     "@typescript-eslint/parser": "4.4.0",
     "autoprefixer": "9.8.6",
-    "css-loader": "5.0.0",
+    "css-loader": "5.0.1",
     "css-mqpacker": "7.0.0",
     "cssnano": "4.1.10",
     "dependency-cruiser": "9.15.1",
