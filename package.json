@@ -67,7 +67,7 @@
     "tslib": "2.0.3"
   },
   "devDependencies": {
-    "@testing-library/react": "11.1.0",
+    "@testing-library/react": "11.2.2",
     "@types/eslint": "7.2.3",
     "@types/html-webpack-plugin": "3.2.4",
     "@types/jest": "26.0.15",
