@@ -29,7 +29,7 @@ describe(ApiClient.name, () => {
         httpClientMock
             .expect<OrderDto>({
                 method: 'POST',
-                url: 'https:/<mocked-token>.mockapi.io/api/v1/orders',
+                url: 'https://<mocked-token>.mockapi.io/api/v1/orders',
                 body: { type: 'pizza' },
             })
             .flush({ id: 1 })
@@ -44,7 +44,7 @@ describe(ApiClient.name, () => {
         httpClientMock
             .expect<ApiListDto<OrderDto>>({
                 method: 'GET',
-                url: 'https:/<mocked-token>.mockapi.io/api/v1/orders',
+                url: 'https://<mocked-token>.mockapi.io/api/v1/orders',
                 queryParams: { text: 'pizza' },
             })
             .flush(apiListDto([{ id: 1 }]))
