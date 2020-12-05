@@ -14,6 +14,7 @@ export const UsersListPage: React.FC = () => {
             dispatch(usersListActions.loadStart())
         }
     }, [isLoggedIn])
+
     return (
         <div>
             <AuthForm />

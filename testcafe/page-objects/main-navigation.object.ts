@@ -1,6 +1,6 @@
 import { Selector } from 'testcafe'
 
-export const NAVIGATION_LINK_LABELS = ['github-profile', 'http-client-demo'] as const
+export const NAVIGATION_LINK_LABELS = ['github-profile', 'users'] as const
 
 type MainNavigationLinkLabel = typeof NAVIGATION_LINK_LABELS[number]
 

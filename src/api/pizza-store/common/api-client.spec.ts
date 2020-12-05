@@ -2,6 +2,7 @@ import { httpClientMock } from 'common/http/testing/http-client-mock'
 import { spyObserver } from 'common/testing/spy-observer'
 import { ApiClient } from './api-client'
 import { apiClientBackend } from './api-client-backend'
+import { apiListDto } from './api.testing'
 import { ApiListDto } from './api.types'
 
 describe(ApiClient.name, () => {
@@ -46,10 +47,10 @@ describe(ApiClient.name, () => {
                 url: 'https:/<mocked-token>.mockapi.io/api/v1/orders',
                 queryParams: { text: 'pizza' },
             })
-            .flush({ items: [{ id: 1 }], total: 1 })
+            .flush(apiListDto([{ id: 1 }]))
         expect(observer.next).toHaveBeenCalledWith<Parameters<typeof observer['next']>>({
             items: [{ id: 1 }],
-            total: 1,
+            count: 1,
         })
     })
 })

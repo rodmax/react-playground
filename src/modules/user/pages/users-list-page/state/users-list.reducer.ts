@@ -17,9 +17,9 @@ const initialState: UsersListState = {
     error: null,
 }
 
-export type UsersListStateSlice = StateSlice<typeof UsersListReducerSlice>
+export type UsersListStateSlice = StateSlice<typeof usersListReducerSlice>
 
-export const UsersListReducerSlice = storeSlice('usersList', initialState).withReducer(
+export const usersListReducerSlice = storeSlice('usersList', initialState).withReducer(
     (state, action: UsersListAction) => {
         switch (action.type) {
             case '@usersList.loadStart':

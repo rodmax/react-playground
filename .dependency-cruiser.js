@@ -1,5 +1,5 @@
 // @ts-check
-const testsRelatedPaths = ['\\.spec\\.(tsx|ts)$', 'testing/', 'factories\\.ts']
+const testsRelatedPaths = ['\\.(spec|testing)\\.(tsx|ts)$', 'testing/', 'factories\\.ts']
 
 const COMMON_ANY = '^src/common/'
 const API_ANY = '^src/api/'

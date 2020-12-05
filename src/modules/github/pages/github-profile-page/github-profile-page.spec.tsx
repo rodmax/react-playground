@@ -8,7 +8,7 @@ import { githubProfileReducerSlice } from './state/github-profile.reducer'
 import { githubProfileFetchDataEpic } from './state/github-profile.epics'
 import { httpClientMock } from 'common/http/testing/http-client-mock'
 
-describe(`<GithubProfileCard>`, () => {
+describe(`${GithubProfilePage.name}`, () => {
     const testingStore = storeFactory({
         reducers: {
             ...githubProfileReducerSlice,

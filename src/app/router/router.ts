@@ -17,10 +17,6 @@ export const routes: AppRoute[] = [
         name: 'github-profile',
         path: '/github-profile',
     },
-    {
-        name: 'http-client-demo',
-        path: '/http-client-demo',
-    },
 ]
 
 export function createAppRouter(): AppRouter {

@@ -1,4 +1,3 @@
-import { GithubUserDto } from 'api/github/github-api.typings'
 import { ApiListDto } from 'api/pizza-store/common/api.types'
 import { UserDto } from 'api/pizza-store/user/user-client.types'
 import { action, ActionsUnion } from 'common/redux/action-utils'

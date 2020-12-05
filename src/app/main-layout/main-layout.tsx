@@ -2,7 +2,6 @@ import React from 'react'
 import { useAppRoute } from '../router/router'
 import { AppRouteName, APP_FEATURE_ROUTE_NAMES } from '../router/router.typings'
 import { GithubProfilePage } from 'modules/github/pages/github-profile-page/github-profile-page'
-import { HttpClientDemoPage } from 'modules/http-client-demo/pages/http-client-demo-page/http-client-demo-page'
 import './main-layout.scss'
 import { Link } from 'react-router5'
 import { UsersListPage } from 'modules/user/pages/users-list-page/users-list-page'
@@ -14,9 +13,6 @@ interface PageConfig {
 const FEATURE_PAGES_CONFIG_BY_ID: Record<AppRouteName, PageConfig> = {
     'github-profile': {
         PageComponent: GithubProfilePage,
-    },
-    'http-client-demo': {
-        PageComponent: HttpClientDemoPage,
     },
     users: {
         PageComponent: UsersListPage,

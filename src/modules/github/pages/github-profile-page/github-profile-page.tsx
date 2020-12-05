@@ -15,6 +15,7 @@ export const GithubProfilePage: React.FC = () => {
     if (!userDto) {
         return <h4>Loading...</h4>
     }
+
     return (
         <>
             <h2>Github profile</h2>
