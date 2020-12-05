@@ -1,6 +1,6 @@
-# Application structure
+# Architecture
 
-Here we give a set of principles and rules that the application (folder) structure follows
+Here we give a set of architectural principles and rules that the application follows
 
 ## LIFT
 
@@ -42,7 +42,7 @@ user/
 
 Below is a diagram showing the dependency rules in the application<br>
 [dependency-cruiser](https://github.com/sverweij/dependency-cruiser) utility used to control this dependencies<br>
-(See [.dependency-cruiser.js](../.dependency-cruiser.js) for details)
+(See [depcruise/](../depcruise) configs for details)
 
 ```mermaid
 flowchart
@@ -70,17 +70,14 @@ flowchart
 
 ```
 
-<details>
-<summary>Expand me to see this repository dependency graph 👇</summary>
+and below is how it looks in real code
+
 <img src="./graph.svg">
-</details>
 
-## Guidelines
+## Layers
 
-### Feature module
-
-Feature module code lives in `modules/{feature}`. This folder contains all feature related
-
--   pages: `modules/{feature}/pages/**`
--   ui components(used by own pages or another feature components): `modules/{feature}/ui/**`
--   code which not related to certain component/page and may be reused between different ui components(business logic, configs, view models, etc): `modules/{feature}/model/**`
+-   [app layer](layer-0-app.md)
+-   [modules layer](layer-1-modules.md)
+-   [api layer](layer-2-api.md)
+-   [common layer](layer-3-common.md)
+-   third-party libs layer
