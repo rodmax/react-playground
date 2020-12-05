@@ -20,9 +20,9 @@ export interface ApiClientBackendOptions {
 }
 
 export class ApiClientBackend {
-    private token: string = ''
+    private token = ''
 
-    constructor(private options: ApiClientBackendOptions) {}
+    constructor(private readonly options: ApiClientBackendOptions) {}
 
     public updateToken(token: string): void {
         this.token = token

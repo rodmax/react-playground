@@ -11,4 +11,6 @@ export function shouldNeverBeCalled(_value: never): void {}
  *
  * Semantically close to NEVER  from rxjs
  */
-export const NOOP_FN = () => {}
+export const NOOP_FN = () => {
+    /** doing nothing */
+}

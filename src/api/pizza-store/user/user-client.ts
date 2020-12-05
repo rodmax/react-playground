@@ -4,7 +4,7 @@ import { ApiListDto } from '../common/api.types'
 import { UserDto, UserSearchParams } from './user-client.types'
 
 export class UserClient {
-    private client = new ApiClient({
+    private readonly client = new ApiClient({
         resourceUrl: '/users',
     })
 

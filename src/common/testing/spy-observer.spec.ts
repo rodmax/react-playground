@@ -1,3 +1,4 @@
+import { NOOP_FN } from 'common/utils/misc'
 import { Subject } from 'rxjs'
 import { spyObserver } from './spy-observer'
 
@@ -16,7 +17,7 @@ describe('spyObserver', () => {
     })
 
     it('spies on "error" callback and prevent fail spec when error overrides', () => {
-        const observer = spyObserver<number>({ error: () => {} })
+        const observer = spyObserver<number>({ error: NOOP_FN })
         const subject = new Subject<number>()
         subject.subscribe(observer)
         const err = new Error('subject error')

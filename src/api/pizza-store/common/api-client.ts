@@ -9,7 +9,7 @@ export interface ApiClientOptions {
     resourceUrl: string
 }
 export class ApiClient<Dto = never> {
-    constructor(private options: ApiClientOptions) {}
+    constructor(private readonly options: ApiClientOptions) {}
 
     public create<T = Dto>(body: ApiClientRequestConfig['body']): Observable<T> {
         return this.request<T>({

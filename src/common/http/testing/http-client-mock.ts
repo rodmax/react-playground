@@ -6,7 +6,7 @@ import { RequestMatch } from './http-client-mock.types'
 import { PendingRequest } from './pending-request'
 
 class HttpClientMock {
-    private pendingQueue: PendingRequest<unknown>[] = []
+    private pendingQueue: PendingRequest[] = []
     private originalRequest: HttpClient['request'] | null = null
 
     constructor() {
@@ -50,7 +50,7 @@ class HttpClientMock {
         return of(true).pipe(
             switchMap(() => {
                 const req = new PendingRequest<Dto>(config)
-                this.pendingQueue.push(req as PendingRequest<unknown>)
+                this.pendingQueue.push(req as PendingRequest)
                 return req.observable()
             })
         )

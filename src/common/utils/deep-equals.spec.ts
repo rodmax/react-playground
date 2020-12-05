@@ -1,7 +1,7 @@
 import { deepEqual } from './deep-equals'
 
 describe('deepEquals', () => {
-    it('should compare objects', () => {
+    it('compares objects', () => {
         expect(
             deepEqual({ a: [1, 2], x: 1, s: 's', n: null }, { a: [1, 2], x: 1, s: 's', n: null })
         ).toStrictEqual(true)
@@ -15,7 +15,7 @@ describe('deepEquals', () => {
         ).toStrictEqual(true)
     })
 
-    it('should compare object with partial', () => {
+    it('compares object with partial', () => {
         expect(
             deepEqual(
                 { a: [1, 2], x: 1, s: 's', n: null },
@@ -23,5 +23,12 @@ describe('deepEquals', () => {
                 { isExpectedPartial: true }
             )
         ).toStrictEqual(true)
+    })
+
+    it('handle primitive/not classic objects passing', () => {
+        expect(deepEqual(12, null)).toStrictEqual(false)
+        expect(deepEqual('a', 'a')).toStrictEqual(true)
+        expect(deepEqual({ a: 'a' }, 'a')).toStrictEqual(false)
+        expect(deepEqual([1, 2], [1, 2])).toStrictEqual(true)
     })
 })

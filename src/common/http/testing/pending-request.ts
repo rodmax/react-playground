@@ -23,8 +23,8 @@ export const DEFAULT_MOCK_ERROR_RESPONSE: Readonly<OmitStrict<HttpResponse<unkno
 }
 
 export class PendingRequest<Dto = unknown> {
-    private response: Subject<HttpResponse<Dto>> = new Subject()
-    constructor(private config: HttpRequestConfig) {}
+    private readonly response: Subject<HttpResponse<Dto>> = new Subject()
+    constructor(private readonly config: HttpRequestConfig) {}
 
     isMatchedTo(expected: RequestMatch): boolean {
         if (this.config.url !== expected.url) {
