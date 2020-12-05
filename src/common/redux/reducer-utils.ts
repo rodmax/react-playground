@@ -9,7 +9,7 @@ export type StateSlice<RS extends Record<string, (...args: any[]) => any>> = {
 
 export const storeSlice = <K extends string, S>(key: K, initialState: Readonly<S>) => {
     return {
-        withReducer: <A>(reducer: (s: Readonly<S>, a: A) => S) => {
+        withReducer: <A>(reducer: (s: Readonly<S>, a: A) => Readonly<S>) => {
             return {
                 [key]: (s: S, a: A) => reducer(s || initialState, a),
             } as ReducerSlice<Record<K, S>, A>

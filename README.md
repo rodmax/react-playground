@@ -70,7 +70,7 @@ and i am now implementing this ideas
 -   [x] Follow [redux architecture StyleGuide](https://redux.js.org/style-guide/style-guide) rules whenever it is reasonably possible
 -   [ ] localization
 -   [ ] form handling(ui/server validation, form state)
--   [ ] folder structure: description and rules
+-   [x] folder structure: description and rules
 -   Store
     -   [x] Redux (fully type safe at first and with reduced boilerplate at second)
     -   [ ] try [immer](https://immerjs.github.io/immer/docs/introduction) (looks nice and recommended by redux team)
@@ -79,7 +79,7 @@ and i am now implementing this ideas
 -   [ ] auth logic (route guards/permissions for individual features)
 -   API client
     -   [x] Proof of concent using RxJs builtin clients(fetch/xhr)
-    -   [ ] API client factory(rxjs based)
+    -   [x] API client factory(rxjs based)
         -   [ ] File uploading
         -   [ ] Catch unhandled API errors on App level
 -   React related:

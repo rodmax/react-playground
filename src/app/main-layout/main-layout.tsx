@@ -2,30 +2,29 @@ import React from 'react'
 import { useAppRoute } from '../router/router'
 import { AppRouteName, APP_FEATURE_ROUTE_NAMES } from '../router/router.typings'
 import { GithubProfilePage } from 'modules/github/pages/github-profile-page/github-profile-page'
-import { HttpClientDemoPage } from 'modules/http-client-demo/pages/http-client-demo-page/http-client-demo-page'
 import './main-layout.scss'
 import { Link } from 'react-router5'
+import { UsersListPage } from 'modules/user/pages/users-list-page/users-list-page'
 
 interface PageConfig {
     PageComponent: React.ComponentType
 }
 
-const FEATURE_PAGES_CONFIG_BY_ID: Partial<Record<AppRouteName, PageConfig>> = {
+const FEATURE_PAGES_CONFIG_BY_ID: Record<AppRouteName, PageConfig> = {
     'github-profile': {
         PageComponent: GithubProfilePage,
     },
-    'http-client-demo': {
-        PageComponent: HttpClientDemoPage,
+    users: {
+        PageComponent: UsersListPage,
     },
-}
-
-const DEFAULT_PAGE_CONFIG: PageConfig = {
-    PageComponent: () => <>default page</>,
+    home: {
+        PageComponent: () => <>default page</>,
+    },
 }
 
 export const MainLayout: React.FC = () => {
     const routeName = useAppRoute().route.name
-    const config = FEATURE_PAGES_CONFIG_BY_ID[routeName] || DEFAULT_PAGE_CONFIG
+    const config = FEATURE_PAGES_CONFIG_BY_ID[routeName]
 
     return (
         <main className='c-main-layout g-layout'>
@@ -38,7 +37,7 @@ export const MainLayout: React.FC = () => {
                     )
                 })}
             </aside>
-            <section className='g-layout__growable'>
+            <section className='g-layout__growable mod-scrollable'>
                 {<config.PageComponent></config.PageComponent>}
             </section>
         </main>

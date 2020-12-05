@@ -3,6 +3,7 @@ import { StateSlice, storeSlice } from 'common/redux/reducer-utils'
 import { shouldNeverBeCalled } from 'common/utils/misc'
 import { GithubProfileAction } from './github-profile.actions'
 
+export const DEFAULT_GITHUB_USERNAME = 'rodmax'
 export interface GithubProfileState {
     username: string
     userDto: GithubUserDto | null

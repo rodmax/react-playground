@@ -1,10 +1,11 @@
 import { TypedRouter, TypedRoute, TypedRouteContext } from 'common/router5/router5-toolkit.typings'
+import { Values } from 'common/typings/values.type'
 
-export const APP_FEATURE_ROUTE_NAMES = ['github-profile', 'http-client-demo'] as const
+export const APP_FEATURE_ROUTE_NAMES = ['github-profile', 'users'] as const
 export const APP_AUX_ROUTE_NAMES = ['home'] as const
 
-export type AppFeatureRouteName = typeof APP_FEATURE_ROUTE_NAMES[number]
-export type AppRouteName = typeof APP_AUX_ROUTE_NAMES[number] | AppFeatureRouteName
+export type AppFeatureRouteName = Values<typeof APP_FEATURE_ROUTE_NAMES>
+export type AppRouteName = Values<typeof APP_AUX_ROUTE_NAMES> | AppFeatureRouteName
 
 export type AppRouter = TypedRouter<AppRouteName>
 export type AppRoute = TypedRoute<AppRouteName>

@@ -1,29 +1,9 @@
 // @ts-check
-const testsRelatedPaths = ['\\.spec\\.(tsx|ts)$', 'testing/', 'factories\\.ts']
+const common = require('./depcruise.common')
 
-const COMMON_ANY = '^src/common/'
-const API_ANY = '^src/api/'
-
-const MODULES_ANY = '^src/modules/'
-const MODULE_PAGES = '^src/modules/\\w+/pages/'
-const MODULE_MODEL = '^src/modules/\\w+/model/'
-const MODULE_UI = '^src/modules/\\w+/ui/'
-
-const APP_ANY = '^src/app/'
-
-/**
- * @typedef { { options: import('dependency-cruiser').IOptions} } DepcruiseOptions
- */
-
-/**
- * @typedef { Omit<import('dependency-cruiser').IRuleSetType, 'options'> & DepcruiseOptions } DepcruiseConfig
- */
-
-/**
- *  @type { DepcruiseConfig }
- */
-const config = {
-    forbidden: [
+module.exports = common
+    .optionsBuilder()
+    .withForbidden([
         /* rules from the 'recommended' preset: */
         {
             name: 'no-circular',
@@ -128,7 +108,7 @@ const config = {
                 'from.pathNot re of the not-to-dev-dep rule in the dependency-cruiser configuration',
             from: {
                 path: '^(src)',
-                pathNot: testsRelatedPaths,
+                pathNot: common.ANY_TESTS,
             },
             to: {
                 dependencyTypes: ['npm-dev'],
@@ -164,50 +144,50 @@ const config = {
             name: 'not-from-any-to-app',
             severity: 'error',
             from: {
-                path: [MODULES_ANY, API_ANY, COMMON_ANY],
+                path: [common.MODULES_ANY, common.API_ANY, common.COMMON_ANY],
             },
             to: {
-                path: APP_ANY,
+                path: common.APP_ANY,
             },
         },
         {
             name: 'not-from-api-or-common-to-modules',
             severity: 'error',
             from: {
-                path: [API_ANY, COMMON_ANY],
+                path: [common.API_ANY, common.COMMON_ANY],
             },
             to: {
-                path: MODULES_ANY,
+                path: common.MODULES_ANY,
             },
         },
         {
             name: 'not-from-common-to-api',
             severity: 'error',
             from: {
-                path: COMMON_ANY,
+                path: common.COMMON_ANY,
             },
             to: {
-                path: API_ANY,
+                path: common.API_ANY,
             },
         },
         {
             name: 'module:not-from-any-to-pages',
             severity: 'error',
             from: {
-                path: [MODULE_UI, MODULE_MODEL],
+                path: [common.MODULE_UI, common.MODULE_MODEL],
             },
             to: {
-                path: MODULE_PAGES,
+                path: common.MODULE_PAGES,
             },
         },
         {
             name: 'module:not-from-model-to-ui',
             severity: 'error',
             from: {
-                path: MODULE_MODEL,
+                path: common.MODULE_MODEL,
             },
             to: {
-                path: MODULE_UI,
+                path: common.MODULE_UI,
             },
         },
         {
@@ -221,50 +201,11 @@ const config = {
                 'from.pathNot re of the not-to-dev-dep rule in the dependency-cruiser configuration',
             from: {
                 path: '^(src)',
-                pathNot: testsRelatedPaths,
+                pathNot: common.ANY_TESTS,
             },
             to: {
-                path: testsRelatedPaths,
+                path: common.ANY_TESTS,
             },
         },
-    ],
-    options: {
-        doNotFollow: {
-            path: 'node_modules',
-            dependencyTypes: [
-                'npm',
-                'npm-dev',
-                'npm-optional',
-                'npm-peer',
-                'npm-bundled',
-                'npm-no-pkg',
-            ],
-        },
-        tsPreCompilationDeps: true,
-        tsConfig: {
-            fileName: 'tsconfig.json',
-        },
-        reporterOptions: {
-            dot: {
-                theme: {
-                    graph: { rankdir: 'TD' },
-                },
-                collapsePattern: [
-                    'src/common/[^/]+',
-                    'src/api/[^/]+',
-                    'src/modules/[^/]+',
-                    'src/app/[^/]+',
-                ],
-                filters: {
-                    includeOnly: {},
-                    focus: {},
-                    exclude: {
-                        path: ['^node_modules'],
-                    },
-                },
-            },
-        },
-    },
-}
-
-module.exports = config
+    ])
+    .options()

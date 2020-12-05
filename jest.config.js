@@ -27,5 +27,6 @@ const config = {
     },
     collectCoverageFrom: ['./src/*/**'],
     coverageDirectory: './reports',
+    setupFiles: ['./src/polyfills/jest-polyfills.js'],
 }
 module.exports = config

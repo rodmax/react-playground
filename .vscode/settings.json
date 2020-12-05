@@ -6,6 +6,7 @@
     "depcruise",
     "devtool",
     "devtools",
+    "mockapi",
     "mqpacker"
   ],
   "[javascript]": {
