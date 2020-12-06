@@ -2,7 +2,7 @@ type ReducerSlice<S extends Record<string, unknown>, A> = {
     [Key in keyof S]: (s: Readonly<S[Key]>, a: A) => S[Key]
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- quick fix to make TS happy
 export type StateSlice<RS extends Record<string, (...args: any[]) => any>> = {
     [K in keyof RS]: ReturnType<RS[K]>
 }

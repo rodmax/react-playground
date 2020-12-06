@@ -5,7 +5,7 @@ import { apiClientBackend } from './api-client-backend'
 import { apiListDto } from './api.testing'
 import { ApiListDto } from './api.types'
 
-describe(ApiClient.name, () => {
+describe(`${ApiClient.name}`, () => {
     interface OrderDto {
         id: number
     }

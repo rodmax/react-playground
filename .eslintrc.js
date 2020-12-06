@@ -8,23 +8,24 @@ const ERR = 2
  */
 const config = {
     parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint', 'react'],
+    plugins: ['@typescript-eslint', 'react', 'jest'],
     parserOptions: {
         sourceType: 'module',
     },
+    extends: ['plugin:eslint-comments/recommended'],
     rules: {
         // General
         'no-console': WARN,
         'no-unused-expressions': ERR,
         'no-duplicate-imports': ERR,
         'prefer-template': ERR,
+        'no-empty': ERR,
 
-        // Below two rules needed to prevent https://stackoverflow.com/a/46809082
-        'react/jsx-uses-react': ERR,
-        'react/jsx-uses-vars': ERR,
+        'eslint-comments/require-description': ERR,
 
         // typescript specific
-        '@typescript-eslint/no-unused-vars': WARN,
+        '@typescript-eslint/no-empty-function': ERR,
+        '@typescript-eslint/no-unused-vars': ERR,
         '@typescript-eslint/no-explicit-any': ERR,
     },
 }

@@ -13,7 +13,7 @@ export const UsersListPage: React.FC = () => {
         if (isLoggedIn) {
             dispatch(usersListActions.loadStart())
         }
-    }, [isLoggedIn])
+    }, [dispatch, isLoggedIn])
 
     return (
         <div>

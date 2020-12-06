@@ -30,6 +30,6 @@ describe(`${GithubProfilePage.name}`, () => {
         httpClientMock
             .expect<GithubUserDto>({ url: 'https://api.github.com/users/rodmax' })
             .flush(githubUserDtoFactory.item({ login: 'USER_LOGIN' }))
-        getByText('USER_LOGIN')
+        expect(getByText('USER_LOGIN')).toBeTruthy()
     })
 })

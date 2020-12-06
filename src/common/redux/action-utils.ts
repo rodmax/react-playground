@@ -1,7 +1,7 @@
 import { Action } from 'redux'
 
 export type ActionsUnion<
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- quick fix to make TS happy
     T extends Record<string, ActionCreator<string, any>>
 > = ReturnType<T[keyof T]>
 

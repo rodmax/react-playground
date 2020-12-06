@@ -32,7 +32,7 @@ describe(`${UsersListPage.name}`, () => {
 
     it('should show empty page when user while user not passed api token', () => {
         const { getByText } = renderWithStore(<UsersListPage />, testingStore())
-        getByText(/"users": null/)
+        expect(getByText(/"users": null/)).toBeTruthy()
     })
 
     it('should load users list when user pass api token', () => {
@@ -46,10 +46,10 @@ describe(`${UsersListPage.name}`, () => {
         fireEvent.submit(apiTokenInput)
         const req = userApi.expectSearch({ page: 1 })
 
-        getByText(/"isLoading": true/)
+        expect(getByText(/"isLoading": true/)).toBeTruthy()
 
         req.flush(apiListDto(userDtoFactory.list({ partials: [{ name: 'USER_NAME' }] })))
-        getByText(/"isLoading": false/)
-        getByText(/USER_NAME/)
+        expect(getByText(/"isLoading": false/)).toBeTruthy()
+        expect(getByText(/USER_NAME/)).toBeTruthy()
     })
 })

@@ -10,7 +10,7 @@ export const GithubProfilePage: React.FC = () => {
 
     useEffect(() => {
         dispatch(githubProfileActions.loadStart({ username: DEFAULT_GITHUB_USERNAME }))
-    }, [])
+    }, [dispatch])
 
     if (!userDto) {
         return <h4>Loading...</h4>

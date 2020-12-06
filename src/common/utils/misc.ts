@@ -3,8 +3,9 @@
  * in place where this function called
  * Useful in "default" section of switch/case statement
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function shouldNeverBeCalled(_value: never): void {}
+export function shouldNeverBeCalled({}: never): void {
+    /** never been called yet due to TS compile error */
+}
 
 /**
  * Stub function that does nothing.

@@ -23,5 +23,5 @@ env.e2eMode = process.env.E2E_MODE === 'prod' ? 'prod' : 'dev'
 
 env.stat = !!process.env.STAT
 
-// eslint-disable-next-line no-console
+// eslint-disable-next-line no-console -- useful development log
 console.log(env)

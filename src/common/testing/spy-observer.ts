@@ -12,7 +12,7 @@ export function spyObserver<T, E = Error>(partial: Partial<Observer<T>> = {}): S
         error: jest.fn(
             partial.error ||
                 (err => {
-                    // eslint-disable-next-line no-console
+                    // eslint-disable-next-line no-console -- valid assertion log used in tests
                     console.error(
                         `[${spyObserver.name}]: unhandled error. If error expected, please override error callback to not see this message\n`,
                         err

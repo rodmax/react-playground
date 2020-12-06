@@ -1,6 +1,6 @@
 import { queryString } from './query-string'
 
-describe(queryString.name, () => {
+describe(`${queryString.name}`, () => {
     it('serialize params with string/number value', () => {
         expect(queryString({ num: 1, str: 'a' })).toStrictEqual('num=1&str=a')
     })

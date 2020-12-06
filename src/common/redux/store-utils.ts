@@ -4,7 +4,7 @@ import { combineReducers, createStore, applyMiddleware, ReducersMapObject, Actio
 import { createEpicMiddleware, combineEpics, Epic } from 'redux-observable'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- quick fix to make TS happy
 type BaseReducerObject = ReducersMapObject<any, any>
 
 interface StoreOptions<M extends BaseReducerObject> {

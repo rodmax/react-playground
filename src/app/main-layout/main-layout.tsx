@@ -10,6 +10,8 @@ interface PageConfig {
     PageComponent: React.ComponentType
 }
 
+const HomePage = () => <>Default page</>
+
 const FEATURE_PAGES_CONFIG_BY_ID: Record<AppRouteName, PageConfig> = {
     'github-profile': {
         PageComponent: GithubProfilePage,
@@ -18,7 +20,7 @@ const FEATURE_PAGES_CONFIG_BY_ID: Record<AppRouteName, PageConfig> = {
         PageComponent: UsersListPage,
     },
     home: {
-        PageComponent: () => <>default page</>,
+        PageComponent: HomePage,
     },
 }
 

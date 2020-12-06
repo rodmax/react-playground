@@ -12,6 +12,6 @@ const server = http.createServer((request, response) => {
 })
 
 server.listen(env.staticServerPort, () => {
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console -- useful development log
     console.log(`Running at http://localhost:${env.staticServerPort}`)
 })
