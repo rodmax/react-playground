@@ -86,7 +86,7 @@
     "css-loader": "5.0.0",
     "css-mqpacker": "7.0.0",
     "cssnano": "4.1.10",
-    "dependency-cruiser": "9.15.1",
+    "dependency-cruiser": "9.19.0",
     "eslint": "7.10.0",
     "eslint-plugin-eslint-comments": "3.2.0",
     "eslint-plugin-jest": "24.1.3",
