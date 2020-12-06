@@ -1,4 +1,4 @@
-import { GithubUserDto } from './github-api.typings'
+import { GithubUserDto } from './github-api.types'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { httpBackend } from 'api/common/http-backend'

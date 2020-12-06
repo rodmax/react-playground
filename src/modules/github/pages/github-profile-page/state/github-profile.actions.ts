@@ -1,4 +1,4 @@
-import { GithubUserDto } from 'api/github/github-api.typings'
+import { GithubUserDto } from 'api/github/github-api.types'
 import { action, ActionsUnion } from 'common/redux/action-utils'
 
 export const githubProfileActions = {

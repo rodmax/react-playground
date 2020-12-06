@@ -1,5 +1,5 @@
 import { Route, Router, State } from 'router5'
-import { Overwrite } from 'common/typings/overwrite.typings'
+import { Overwrite } from 'common/types/overwrite.type'
 import { RouteContext } from 'react-router5/dist/types'
 
 export type TypedRoute<T extends string> = Overwrite<Route, { name: T }>

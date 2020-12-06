@@ -16,8 +16,9 @@ Use `-` to separate words in file name: `github-api-client.ts`, `user-card.tsx`
 Use `.`-separated suffixes to identify one of the following category:
 
 -   `*.spec.ts` - unit/integration test file
--   `*.typings.ts` file which contains interfaces and types(sometimes constants, needed to type declarations)
+-   `*.type.ts` or `*.types.ts` file which contains interfaces and types(sometimes constants, needed to type declarations)
 -   `*.reducer.ts` - for reducer
 -   `*.actions.ts` - for actions
 -   `*.epics.ts` - for epics
+-   `*.selectors.ts` - for selectors
 -   `*.factories.ts` - contains data factory instances

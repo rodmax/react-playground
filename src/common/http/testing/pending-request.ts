@@ -1,4 +1,4 @@
-import { OmitStrict } from 'common/typings/omit-strict.typings'
+import { OmitStrict } from 'common/types/omit-strict.type'
 import { deepEqual } from 'common/utils/deep-equals'
 import { pick } from 'common/utils/pick'
 import { Observable, Subject } from 'rxjs'

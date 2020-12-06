@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppRoute } from '../router/router'
-import { AppRouteName, APP_FEATURE_ROUTE_NAMES } from '../router/router.typings'
+import { AppRouteName, APP_FEATURE_ROUTE_NAMES } from '../router/router.types'
 import { GithubProfilePage } from 'modules/github/pages/github-profile-page/github-profile-page'
 import './main-layout.scss'
 import { Link } from 'react-router5'

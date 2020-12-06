@@ -1,4 +1,4 @@
-import { GithubUserDto } from 'api/github/github-api.typings'
+import { GithubUserDto } from 'api/github/github-api.types'
 import { StateSlice, storeSlice } from 'common/redux/reducer-utils'
 import { shouldNeverBeCalled } from 'common/utils/misc'
 import { GithubProfileAction } from './github-profile.actions'

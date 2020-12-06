@@ -1,5 +1,5 @@
 import { factoryT } from 'factory-t'
-import { GithubUserDto } from './github-api.typings'
+import { GithubUserDto } from './github-api.types'
 
 export const githubUserDtoFactory = factoryT<GithubUserDto>({
     login: 'login',

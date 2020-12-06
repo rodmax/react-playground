@@ -1,5 +1,5 @@
-import { Intersection } from './intersection.typings'
-import { Diff } from './diff.typings'
+import { Intersection } from './intersection.type'
+import { Diff } from './diff.type'
 
 /**
  * Overwrite
