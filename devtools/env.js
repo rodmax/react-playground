@@ -21,7 +21,8 @@ env.mode = process.env.BUILD_MODE === 'production' ? 'production' : 'development
  */
 env.e2eMode = process.env.E2E_MODE === 'prod' ? 'prod' : 'dev'
 
-env.stat = !!process.env.STAT
+env.stat = true
+env.reportFilename = 'bundles-report.html'
 
 // eslint-disable-next-line no-console -- useful development log
 console.log(env)

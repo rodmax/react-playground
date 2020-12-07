@@ -18,7 +18,7 @@
 
 ## Current status
 
-Teh Project is at an early stage. It is actively developing...
+The Project is at an alpha stage. Some parts are good enough, some in active development
 
 ### Achieved goals
 

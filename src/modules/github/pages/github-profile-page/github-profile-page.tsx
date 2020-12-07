@@ -1,3 +1,4 @@
+import { PageContent } from 'common/ui/page-content/page-content'
 import { GithubUserCard } from 'modules/github/ui/github-user-card/github-user.card'
 import React, { Dispatch, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -17,10 +18,10 @@ export const GithubProfilePage: React.FC = () => {
     }
 
     return (
-        <>
+        <PageContent>
             <h2>Github profile</h2>
             <GithubUserCard user={userDto}></GithubUserCard>
-        </>
+        </PageContent>
     )
 }
 
