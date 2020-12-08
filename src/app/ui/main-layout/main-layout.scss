@@ -1,0 +1,23 @@
+.main-layout {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 56px minmax(0, 1fr);
+    grid-template-columns: 200px minmax(0, 1fr);
+    grid-template-areas:
+        'header header'
+        'sidebar content';
+}
+
+.main-layout__sidebar {
+    grid-area: sidebar;
+}
+
+.main-layout__header {
+    grid-area: header;
+}
+
+.main-layout__content {
+    grid-area: content;
+    background-color: var(--app-content-background-color);
+}

@@ -1,16 +1,18 @@
 import React from 'react'
-import { useAppRoute } from '../router/router'
-import { AppRouteName, APP_FEATURE_ROUTE_NAMES } from '../router/router.types'
+import { useAppRoute } from 'app/router/router'
+import { AppRouteName } from 'app/router/router.types'
 import { GithubProfilePage } from 'modules/github/pages/github-profile-page/github-profile-page'
 import './main-layout.scss'
-import { Link } from 'react-router5'
 import { UsersListPage } from 'modules/user/pages/users-list-page/users-list-page'
+import { MainSidebar } from '../main-sidebar/main-sidebar'
+import { MainHeader } from '../main-header/main-header'
+import { PageContent } from 'common/ui/page-content/page-content'
 
 interface PageConfig {
     PageComponent: React.ComponentType
 }
 
-const HomePage = () => <>Default page</>
+const HomePage = () => <PageContent>Default page</PageContent>
 
 const FEATURE_PAGES_CONFIG_BY_ID: Record<AppRouteName, PageConfig> = {
     'github-profile': {
@@ -29,17 +31,14 @@ export const MainLayout: React.FC = () => {
     const config = FEATURE_PAGES_CONFIG_BY_ID[routeName]
 
     return (
-        <main className='c-main-layout g-layout'>
-            <aside className='c-main-layout__sidebar g-layout__fixed u-pad-24'>
-                {APP_FEATURE_ROUTE_NAMES.map(name => {
-                    return (
-                        <Link key={name} className='c-main-layout__nav-link' routeName={name}>
-                            {name}
-                        </Link>
-                    )
-                })}
+        <main className='main-layout g-layout'>
+            <header className='main-layout__header'>
+                <MainHeader />
+            </header>
+            <aside className='main-layout__sidebar'>
+                <MainSidebar />
             </aside>
-            <section className='g-layout__growable mod-scrollable'>
+            <section className='main-layout__content'>
                 {<config.PageComponent></config.PageComponent>}
             </section>
         </main>

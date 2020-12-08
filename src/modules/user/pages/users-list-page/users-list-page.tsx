@@ -1,3 +1,4 @@
+import { PageContent } from 'common/ui/page-content/page-content'
 import { selectIsLoggedIn } from 'modules/auth/model/auth.selectors'
 import { AuthForm } from 'modules/auth/ui/auth-form/auth-form'
 import React, { Dispatch, useEffect } from 'react'
@@ -16,10 +17,10 @@ export const UsersListPage: React.FC = () => {
     }, [dispatch, isLoggedIn])
 
     return (
-        <div>
+        <PageContent>
             <AuthForm />
             <section>isLoggedIn: {isLoggedIn.toString()}</section>
             <pre>{JSON.stringify(state, null, 2)}</pre>
-        </div>
+        </PageContent>
     )
 }

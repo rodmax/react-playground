@@ -28,6 +28,7 @@ const config = {
                 loader: 'ts-loader',
             },
             scssRuleConfig(),
+            fileLoaderConfig(),
         ],
     },
     resolve: {
@@ -74,7 +75,13 @@ function plugins() {
     }
 
     if (env.stat) {
-        pluginsList.push(new BundleAnalyzerPlugin({ analyzerMode: 'static' }))
+        pluginsList.push(
+            new BundleAnalyzerPlugin({
+                analyzerMode: 'static',
+                openAnalyzer: false,
+                reportFilename: env.reportFilename,
+            })
+        )
     }
     return pluginsList
 }
@@ -112,5 +119,27 @@ function scssRuleConfig() {
 function getModeRelatedConfig() {
     return {
         mode: env.mode,
+    }
+}
+
+/**
+ * @return { import('webpack').RuleSetRule }
+ */
+function fileLoaderConfig() {
+    return {
+        test: /\.(png|jpe?g|gif|html)$/i,
+        loader: 'file-loader',
+        options: {
+            /**
+             * @param {string} resourcePath
+             */
+            name(resourcePath) {
+                if (resourcePath.includes(env.reportFilename)) {
+                    return '[name].[ext]'
+                }
+
+                return '[name].[contenthash].[ext]'
+            },
+        },
     }
 }

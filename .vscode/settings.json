@@ -29,5 +29,8 @@
   },
   "[json]": {
     "editor.formatOnSave": true
-  }
+  },
+  "[html]": {
+    "editor.formatOnSave": true
+  },
 }
