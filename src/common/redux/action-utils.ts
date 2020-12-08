@@ -9,6 +9,16 @@ interface StrictAction<T extends string, P = null> extends Action<T> {
     payload: P
 }
 
+/**
+ * Helper type used in reducers
+ * - when action type contains only one action
+ * - to correctly inferring `never` type in `default:` statement
+ */
+export interface NeverAction {
+    type: never
+    payload?: null
+}
+
 type ActionCreator<T extends string, P> = P extends null
     ? () => { type: T; payload: null }
     : (p: P) => StrictAction<T, P>
