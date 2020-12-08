@@ -95,7 +95,7 @@
     "factory-t": "0.3.0",
     "file-loader": "6.2.0",
     "html-webpack-plugin": "4.5.0",
-    "husky": "4.3.0",
+    "husky": "4.3.5",
     "jest": "26.5.3",
     "lint-staged": "10.4.0",
     "mini-css-extract-plugin": "1.2.1",
