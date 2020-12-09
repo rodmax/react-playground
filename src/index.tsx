@@ -8,7 +8,6 @@ import { appStore } from 'app/app-store'
 import { createAppRouter } from 'app/router/router'
 
 const router = createAppRouter()
-
 router.start()
 
 ReactDOM.render(

@@ -3,7 +3,7 @@
 ### Start development server
 
 ```bash
-npm run app:start
+npm run start:dev
 ```
 
 ### Run jest tests
