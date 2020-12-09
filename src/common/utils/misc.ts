@@ -3,7 +3,8 @@
  * in place where this function called
  * Useful in "default" section of switch/case statement
  */
-export function shouldNeverBeCalled({}: never): void {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- obviously required but not used argument
+export function shouldNeverBeCalled(_: never): void {
     /** never been called yet due to TS compile error */
 }
 
