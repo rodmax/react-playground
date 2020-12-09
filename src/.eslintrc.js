@@ -1,7 +1,4 @@
 // @ts-check
-const WARN = 1
-const ERR = 2
-const DISABLE = 0
 
 /**
  * @typedef { import('eslint').Linter.Config } EslintConfig
@@ -16,14 +13,16 @@ const config = {
     ],
     rules: {
         // Below two rules needed to prevent https://stackoverflow.com/a/46809082
-        'react/jsx-uses-react': ERR,
-        'react/jsx-uses-vars': ERR,
-        'react/prop-types': DISABLE, // TS do it in better way
+        'react/jsx-uses-react': 'error',
+        'react/jsx-uses-vars': 'error',
+        'react/prop-types': 'off', // TS do it in better way
+
+        '@typescript-eslint/switch-exhaustiveness-check': 'error',
 
         // FIXME: replace bellow rules with jest plugin analogues
-        'no-restricted-globals': [ERR, 'test.only'],
+        'no-restricted-globals': ['error', 'test.only'],
         'no-restricted-properties': [
-            WARN,
+            'warn',
             {
                 property: 'only',
                 message: '.only(...) not allowed in tests',

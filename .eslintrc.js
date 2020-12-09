@@ -1,6 +1,4 @@
 // @ts-check
-const WARN = 1 // allowed during development but not in production
-const ERR = 2
 
 /**
  * @typedef { import('eslint').Linter.Config } EslintConfig
@@ -11,22 +9,25 @@ const config = {
     plugins: ['@typescript-eslint', 'react', 'jest'],
     parserOptions: {
         sourceType: 'module',
+        project: './tsconfig.eslint.json',
     },
     extends: ['plugin:eslint-comments/recommended'],
     rules: {
         // General
-        'no-console': WARN,
-        'no-unused-expressions': ERR,
-        'no-duplicate-imports': ERR,
-        'prefer-template': ERR,
-        'no-empty': ERR,
+        'no-console': 'warn',
+        'no-unused-expressions': 'error',
+        'no-duplicate-imports': 'error',
+        'prefer-template': 'error',
+        'no-empty': 'error',
 
-        'eslint-comments/require-description': ERR,
+        'eslint-comments/require-description': 'error',
 
         // typescript specific
-        '@typescript-eslint/no-empty-function': ERR,
-        '@typescript-eslint/no-unused-vars': ERR,
-        '@typescript-eslint/no-explicit-any': ERR,
+        '@typescript-eslint/no-empty-function': 'error',
+        '@typescript-eslint/no-unused-vars': 'error',
+        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-shadow': 'error',
+        '@typescript-eslint/no-unnecessary-condition': 'error',
     },
 }
 module.exports = config
