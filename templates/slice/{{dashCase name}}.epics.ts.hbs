@@ -1,0 +1,13 @@
+import { of } from 'rxjs'
+import { switchMap } from 'rxjs/operators'
+import { Epic, ofType } from 'redux-observable'
+import { {{ pascalCase name }}Action, {{ camelCase name }}Actions } from './{{ dashCase name }}.actions'
+
+export const {{ camelCase name }}Epic: Epic<{{ pascalCase name }}Action> = action$ => {
+    return action$.pipe(
+        ofType('@{{camelCase name}}.{{ firstActionName }}'),
+        switchMap(() => {
+            return of({{ camelCase name }}Actions.{{ firstActionName }}());
+        })
+    )
+}

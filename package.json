@@ -5,7 +5,9 @@
   "author": "Rodionov Maxim <rodionov.m.m@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "app:build": "rm -rf dist/ && BUILD_MODE=production webpack",
+    "app:build": "run-s -ln app:build:*",
+    "app:build:stage-1": "rm -rf dist/ && npm run g:all-to-check",
+    "app:build:stage-2": " BUILD_MODE=production webpack",
     "app:start": "webpack serve",
     "app:serve": "./devtools/serve.js",
     "eslint:base": "eslint --format=codeframe --max-warnings=0 --ext=js,ts,tsx",
@@ -27,7 +29,9 @@
     "pre-commit": "run-p -ln lint:all",
     "pre-push": "run-s -ln pre-push:stage-1 pre-push:stage-2",
     "pre-push:stage-1": "run-p -ln lint:all app:build jest",
-    "pre-push:stage-2": "run-p -ln testcafe:prod depcruise:validate"
+    "pre-push:stage-2": "run-p -ln testcafe:prod depcruise:validate",
+    "g:slice": "plop slice",
+    "g:all-to-check": "./devtools/generate-templates-to-check.sh"
   },
   "husky": {
     "hooks": {
@@ -101,6 +105,7 @@
     "mini-css-extract-plugin": "1.2.1",
     "node-sass": "4.14.1",
     "npm-run-all": "4.1.5",
+    "plop": "2.7.4",
     "postcss-loader": "4.0.4",
     "prettier": "2.1.2",
     "sass-loader": "10.0.5",

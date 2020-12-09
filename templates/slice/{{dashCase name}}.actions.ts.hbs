@@ -1,0 +1,8 @@
+
+import { action, ActionsUnion } from 'common/redux/action-utils'
+
+export const {{ camelCase name }}Actions = {
+    {{ firstActionName }}: action('@{{ camelCase name }}.{{ firstActionName }}').withNoPayload(),
+}
+
+export type {{ pascalCase name }}Action = ActionsUnion<typeof {{ camelCase name }}Actions>

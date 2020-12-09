@@ -1,0 +1,27 @@
+import { StateSlice, storeSlice } from 'common/redux/reducer-utils'
+import { NeverAction } from 'common/redux/action-utils'
+import { shouldNeverBeCalled } from 'common/utils/misc'
+import { {{ pascalCase name }}Action } from './{{ dashCase name }}.actions'
+
+export interface {{ pascalCase name }}State {
+}
+
+const initialState: {{ pascalCase name }}State = {
+}
+
+export type {{ pascalCase name }}StateSlice = StateSlice<typeof {{ camelCase name }}ReducerSlice>
+
+export const {{ camelCase name }}ReducerSlice = storeSlice('{{ camelCase name }}', initialState).withReducer(
+    (state, action: {{ pascalCase name }}Action | NeverAction) => {
+        switch (action.type) {
+            case '@{{ camelCase name }}.{{ firstActionName }}':
+                return {
+                    ...state,
+                }
+
+            default:
+                shouldNeverBeCalled(action)
+        }
+        return state
+    }
+)
