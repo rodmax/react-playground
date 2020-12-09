@@ -13,6 +13,7 @@ const baseConfig = getModeRelatedConfig()
  * @type { WebpackConfiguration }
  */
 const config = {
+    target: 'web',
     entry: {
         index: './src/index.tsx',
     },
@@ -38,11 +39,16 @@ const config = {
     plugins: plugins(),
     devtool: 'source-map',
     devServer: {
-        contentBase: env.srcDir,
-        stats: {
-            modules: false,
-        },
+        contentBase: env.buildDir,
+        host: '0.0.0.0',
         port: env.devServerPort,
+        hot: true,
+        stats: {
+            all: false,
+            assets: true,
+            groupAssetsByEmitStatus: true,
+            colors: true,
+        },
         overlay: true,
     },
     optimization: {
@@ -70,9 +76,13 @@ function plugins() {
             favicon: 'src/assets/favicon.png',
         }),
     ]
-    if (!isDevMode) {
-        pluginsList.push(new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }))
+
+    if (isDevMode) {
+        return pluginsList
     }
+
+    // Production only plugins
+    pluginsList.push(new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }))
 
     if (env.stat) {
         pluginsList.push(
