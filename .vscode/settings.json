@@ -33,4 +33,9 @@
   "[html]": {
     "editor.formatOnSave": true
   },
+  "i18n-ally.localesPaths": [
+    "tools/i18n",
+    "src/modules/i18n",
+    "src/modules/i18n/locales"
+  ],
 }
