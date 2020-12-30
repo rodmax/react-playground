@@ -9,5 +9,11 @@
     "types": ["jest"],
     "lib": ["es2015", "es2017", "dom", "dom.iterable", "esnext"]
   },
-  "include": ["src/*.ts", "src/*.tsx", "src/**/*.ts", "src/**/*.tsx"]
+  "include": [
+    "src/*.ts",
+    "src/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/modules/core/i18n/translations/*.json"
+  ]
 }

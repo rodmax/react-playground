@@ -1,0 +1,7 @@
+{
+  "role.ADMIN": "Администратор",
+  "role.CASHIER": "Кассир",
+  "role.CLIENT": "Клиент",
+  "role.COURIER": "Курьер",
+  "usersListPage.noUserLoaded": "Нет загруженных пользователей"
+}

@@ -32,7 +32,7 @@
     "pre-push:stage-2": "run-p -ln testcafe:prod depcruise:validate",
     "g:slice": "plop slice",
     "g:all-to-check": "./devtools/generate-templates-to-check.sh",
-    "i18n:parse": "i18next --config tools/i18n/parser.config.js"
+    "i18n:extract-keys": "i18next --config tools/i18n/parser.config.js"
   },
   "husky": {
     "hooks": {

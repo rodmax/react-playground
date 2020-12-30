@@ -7,6 +7,7 @@ import { UserDto, UserSearchParams } from './user-client.types'
 export const userDtoFactory = factoryT<UserDto>({
     id: fields.index(),
     name: 'mockedUserName',
+    role: 'ADMIN',
 })
 
 export const userApi = {

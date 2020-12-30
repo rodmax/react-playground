@@ -1,0 +1,5 @@
+{
+  "header.bundleReportLink": "Отчет о размере приложения",
+  "header.mainHeader": "Тестовое React приложение",
+  "total": "Всего записей: {{total}}"
+}
