@@ -48,6 +48,8 @@ const config = {
             assets: true,
             groupAssetsByEmitStatus: true,
             colors: true,
+            errorDetails: true,
+            errors: true,
         },
         overlay: true,
     },

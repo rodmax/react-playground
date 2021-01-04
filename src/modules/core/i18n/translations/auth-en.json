@@ -1,0 +1,4 @@
+{
+  "authForm.apiLink": "API token to work with mockapi.io",
+  "authForm.apiTokenInputPlaceholder": "API token"
+}

@@ -8,9 +8,11 @@
     justify-content: flex-start;
 }
 
-.main-header__right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-left: auto;
+.main-header__title {
+    flex-grow: 1;
+}
+
+.main-header__right-item {
+    margin-left: 16px;
+    flex: none;
 }

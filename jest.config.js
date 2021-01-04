@@ -23,10 +23,11 @@ const config = {
     },
     globals: {
         'ts-jest': {
-            tsConfig: './tsconfig.json',
+            tsconfig: './tsconfig.json',
         },
     },
     collectCoverageFrom: ['./src/*/**'],
+    coveragePathIgnorePatterns: ['.json$', 'generated-to-check'],
     coverageDirectory: './reports',
     setupFiles: ['./jest/jest-setup-polyfills.js'],
 }
