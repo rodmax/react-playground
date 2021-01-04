@@ -16,11 +16,9 @@ export class LocalStorageValue<T> {
         const rawValue = localStorage.getItem(this.key)
         let value: T | null = null
         try {
-            value = rawValue && JSON.parse(rawValue)
-        } finally {
-            if (defaultValue !== null && value === null) {
-                value = defaultValue
-            }
+            value = rawValue !== null ? JSON.parse(rawValue) : defaultValue
+        } catch {
+            value = defaultValue
         }
         return value as T
     }

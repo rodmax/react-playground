@@ -29,6 +29,7 @@ export const settingsReducerSlice = storeSlice('settings', initialState).withRed
                     i18n: {
                         ...state.i18n,
                         language: action.payload.language,
+                        isTranslationsLoaded: false,
                     },
                 }
             case '@settings.changeLanguage':
