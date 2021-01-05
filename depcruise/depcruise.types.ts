@@ -1,4 +1,6 @@
-import { IOptions, IRuleSetType } from 'dependency-cruiser'
-import { OmitStrict } from '../src/common/types/omit-strict.type'
+import { IConfiguration, IOptions } from 'dependency-cruiser'
 
-export type DepcruiseConfig = { options: IOptions } & OmitStrict<IRuleSetType, 'options'>
+/**
+ * NOTE: IConfiguration.options not provide tsConfig field, so we override it vi IOptions
+ */
+export type DepcruiseConfig = IConfiguration & { options: IOptions }

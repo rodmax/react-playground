@@ -1,5 +1,7 @@
 {
   "src": "testcafe/",
   "browsers": "firefox:headless",
-  "tsConfigPath": "testcafe/tsconfig.json"
+  "compilerOptions": {
+    "typescript": { "configPath": "testcafe/tsconfig.json" }
+  }
 }
