@@ -1,7 +1,7 @@
 {
-  "src": "testcafe/",
+  "src": "e2e/",
   "browsers": "firefox:headless",
   "compilerOptions": {
-    "typescript": { "configPath": "testcafe/tsconfig.json" }
+    "typescript": { "configPath": "e2e/tsconfig.json" }
   }
 }

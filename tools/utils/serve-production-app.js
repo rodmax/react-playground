@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const env = require('./env')
+const env = require('../env')
 const handler = require('serve-handler')
 const http = require('http')
 

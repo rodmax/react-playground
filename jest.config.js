@@ -19,7 +19,7 @@ const config = {
         '^api/(.*)$': '<rootDir>/src/api/$1',
         '^modules/(.*)$': '<rootDir>/src/modules/$1',
         '^app/(.*)$': '<rootDir>/src/app/$1',
-        '.*\\.(css|scss)$': '<rootDir>/jest/jest-stylesheet-mock-module.js',
+        '.*\\.(css|scss)$': '<rootDir>/tools/jest/jest-stylesheet-mock-module.js',
     },
     globals: {
         'ts-jest': {
@@ -29,6 +29,6 @@ const config = {
     collectCoverageFrom: ['./src/*/**'],
     coveragePathIgnorePatterns: ['.json$', 'generated-to-check'],
     coverageDirectory: './reports',
-    setupFiles: ['./jest/jest-setup-polyfills.js'],
+    setupFiles: ['./tools/jest/jest-setup-polyfills.js'],
 }
 module.exports = config
