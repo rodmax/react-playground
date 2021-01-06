@@ -1,6 +1,6 @@
 // @ts-check
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const env = require('./devtools/env')
+const env = require('./tools/env')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 

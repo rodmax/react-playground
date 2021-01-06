@@ -1,5 +1,8 @@
 // @ts-check
 const prettier = require('prettier')
+const path = require('path')
+
+const TEMPLATE_DIR = './tools/plop/templates'
 
 /**
  * @param {import('plop').NodePlopAPI} plop
@@ -39,8 +42,8 @@ module.exports = function (plop) {
             {
                 type: 'addMany',
                 destination: '{{path}}',
-                templateFiles: './templates/slice/*.hbs',
-                base: './templates/slice',
+                templateFiles: path.join(TEMPLATE_DIR, 'slice/*.hbs'),
+                base: path.join(TEMPLATE_DIR, '/slice'),
                 transform: template => {
                     return prettierConfigPromise.then(config => {
                         return prettier.format(template, { ...config, parser: 'typescript' })

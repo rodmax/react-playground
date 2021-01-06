@@ -1,14 +1,4 @@
 {
   "extends": "./tsconfig.base.json",
-  "include": [
-    "./.*.js",
-    "*.js",
-    "src/",
-    "src/.*.js",
-    "testcafe/",
-    "jest/",
-    "depcruise/",
-    "devtools/",
-    "tools/"
-  ]
+  "include": ["./.*.js", "*.js", "src/", "src/.*.js", "e2e/", "tools/"]
 }
