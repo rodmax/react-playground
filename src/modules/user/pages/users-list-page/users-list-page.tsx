@@ -1,3 +1,4 @@
+import { BarsSpinner } from 'common/ui/bars-spinner/bars-spinner'
 import { PageContent } from 'common/ui/page-content/page-content'
 import { pick } from 'common/utils/pick'
 import { selectIsLoggedIn } from 'modules/auth/model/auth.selectors'
@@ -31,6 +32,7 @@ export const UsersListPage: React.FC = () => {
             {state.users?.items.map(user => {
                 return <UserCard key={user.id} user={user} />
             })}
+            <BarsSpinner isVisible={state.isLoading} fitContainer></BarsSpinner>
         </PageContent>
     )
 }
