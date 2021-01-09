@@ -4,7 +4,7 @@ import { SettingsAction, settingsActions } from './settings.actions'
 import { LocalStorageValue } from 'common/local-storage/local-storage-value'
 import { I18nLanguage, i18nProvider, loadTranslations } from '../i18n'
 import { shouldNeverBeCalled } from 'common/utils/misc'
-import { from, NEVER } from 'rxjs'
+import { NEVER } from 'rxjs'
 import { initializeConfig } from '../config/config'
 
 const languageStorageValue = new LocalStorageValue<I18nLanguage>('setting')
@@ -42,7 +42,7 @@ const languageEpic: Epic<SettingsAction> = action$ => {
 }
 
 const configEpic: Epic<SettingsAction> = () => {
-    return from(initializeConfig()).pipe(
+    return initializeConfig().pipe(
         map(() => {
             return settingsActions.loadConfigSuccess()
         })

@@ -15,12 +15,12 @@ const config = {
     testRegex: '\\.(test|spec)\\.tsx?$',
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
     moduleNameMapper: {
+        '.*\\.(css|scss|html|svg|png)$': '<rootDir>/tools/jest/jest-file-loader-mock-module.js',
         '^common/(.*)$': '<rootDir>/src/common/$1',
         '^api/(.*)$': '<rootDir>/src/api/$1',
         '^assets/(.*)$': '<rootDir>/src/assets/$1',
         '^modules/(.*)$': '<rootDir>/src/modules/$1',
         '^app/(.*)$': '<rootDir>/src/app/$1',
-        '.*\\.(css|scss)$': '<rootDir>/tools/jest/jest-stylesheet-mock-module.js',
     },
     globals: {
         'ts-jest': {
