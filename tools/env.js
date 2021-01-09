@@ -1,3 +1,4 @@
+// @ts-check
 const path = require('path')
 
 // NOTE: TS server can't infer type if module.exports = {} wrapped in parens
@@ -8,6 +9,7 @@ const env = module.exports = {}
 env.rootDir = path.join(__dirname, '..')
 env.buildDir = path.join(env.rootDir, 'dist')
 env.srcDir = path.join(env.rootDir, 'src')
+env.applicationConfigFile = path.join(env.buildDir, 'config.json')
 
 env.devServerPort = 3000
 env.staticServerPort = 5000 // Used to e2e tests of prod application build

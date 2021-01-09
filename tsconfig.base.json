@@ -60,6 +60,7 @@
       "app/*": ["src/app/*"],
       "common/*": ["src/common/*"],
       "modules/*": ["src/modules/*"],
+      "assets/*": ["src/assets/*"],
       "api/*": ["src/api/*"]
     }
   },

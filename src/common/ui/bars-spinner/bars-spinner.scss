@@ -1,6 +1,7 @@
 $minHeight: 4px;
 $maxHeight: 32px;
 $itemWidth: 8px;
+$spinnerColor: #6ec6ff;
 
 .bars-spinner {
     display: flex;
@@ -49,7 +50,7 @@ $itemWidth: 8px;
     }
     25% {
         height: $maxHeight;
-        background: #0057e7;
+        background: $spinnerColor;
     }
     50% {
         height: $minHeight;
@@ -69,7 +70,7 @@ $itemWidth: 8px;
     25% {
         height: 30px;
         transform: translateY(15px);
-        background: #0057e7;
+        background: $spinnerColor;
     }
     50% {
         height: 5px;

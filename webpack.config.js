@@ -1,12 +1,12 @@
 // @ts-check
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const env = require('./tools/env')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const isDevMode = env.mode === 'development'
+const env = require('./tools/env')
 
-const baseConfig = getModeRelatedConfig()
+const isDevMode = env.mode === 'development'
+const isProdMode = !isDevMode
 
 /**
  * @typedef { import('webpack').Configuration & {devServer: import('webpack-dev-server').Configuration } } WebpackConfiguration
@@ -17,7 +17,7 @@ const config = {
     entry: {
         index: './src/index.tsx',
     },
-    mode: baseConfig.mode,
+    mode: env.mode,
     output: {
         path: env.buildDir,
         filename: '[name].[contenthash].js',
@@ -38,21 +38,7 @@ const config = {
     },
     plugins: plugins(),
     devtool: 'source-map',
-    devServer: {
-        contentBase: env.buildDir,
-        host: '0.0.0.0',
-        port: env.devServerPort,
-        hot: true,
-        stats: {
-            all: false,
-            assets: true,
-            groupAssetsByEmitStatus: true,
-            colors: true,
-            errorDetails: true,
-            errors: true,
-        },
-        overlay: true,
-    },
+    devServer: devServerConfig(),
     optimization: {
         splitChunks: {
             cacheGroups: {
@@ -75,26 +61,25 @@ function plugins() {
     const pluginsList = [
         new HtmlWebpackPlugin({
             template: 'src/index.ejs',
-            favicon: 'src/assets/favicon.png',
+            favicon: 'src/assets/favicon.svg',
         }),
     ]
 
-    if (isDevMode) {
-        return pluginsList
+    if (isProdMode) {
+        // Production only plugins
+        pluginsList.push(new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }))
+
+        if (env.stat) {
+            pluginsList.push(
+                new BundleAnalyzerPlugin({
+                    analyzerMode: 'static',
+                    openAnalyzer: false,
+                    reportFilename: env.reportFilename,
+                })
+            )
+        }
     }
 
-    // Production only plugins
-    pluginsList.push(new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }))
-
-    if (env.stat) {
-        pluginsList.push(
-            new BundleAnalyzerPlugin({
-                analyzerMode: 'static',
-                openAnalyzer: false,
-                reportFilename: env.reportFilename,
-            })
-        )
-    }
     return pluginsList
 }
 
@@ -126,20 +111,11 @@ function scssRuleConfig() {
 }
 
 /**
- * @return { Pick<WebpackConfiguration, 'mode'>}
- */
-function getModeRelatedConfig() {
-    return {
-        mode: env.mode,
-    }
-}
-
-/**
  * @return { import('webpack').RuleSetRule }
  */
 function fileLoaderConfig() {
     return {
-        test: /\.(png|jpe?g|gif|html)$/i,
+        test: /\.(png|jpe?g|gif|html|svg)$/i,
         loader: 'file-loader',
         options: {
             /**
@@ -153,5 +129,26 @@ function fileLoaderConfig() {
                 return '[name].[contenthash].[ext]'
             },
         },
+    }
+}
+
+/**
+ * @return { import('webpack-dev-server').Configuration }
+ */
+function devServerConfig() {
+    return {
+        contentBase: env.buildDir,
+        host: '0.0.0.0',
+        port: env.devServerPort,
+        hot: true,
+        stats: {
+            all: false,
+            assets: true,
+            groupAssetsByEmitStatus: true,
+            colors: true,
+            errorDetails: true,
+            errors: true,
+        },
+        overlay: true,
     }
 }

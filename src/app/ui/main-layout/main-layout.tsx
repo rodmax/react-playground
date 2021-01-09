@@ -1,18 +1,16 @@
 import React from 'react'
-import { useAppRoute } from 'app/router/router'
-import { AppRouteName } from 'app/router/router.types'
+import { useAppRoute } from 'modules/core/router/router'
+import { AppRouteName } from 'modules/core/router/router.types'
 import { GithubProfilePage } from 'modules/github/pages/github-profile-page/github-profile-page'
 import './main-layout.scss'
 import { UsersListPage } from 'modules/user/pages/users-list-page/users-list-page'
 import { MainSidebar } from '../main-sidebar/main-sidebar'
 import { MainHeader } from '../main-header/main-header'
-import { PageContent } from 'common/ui/page-content/page-content'
+import { HomePage } from '../home-page/home-page'
 
 interface PageConfig {
     PageComponent: React.ComponentType
 }
-
-const HomePage = () => <PageContent>Default page</PageContent>
 
 const FEATURE_PAGES_CONFIG_BY_ID: Record<AppRouteName, PageConfig> = {
     'github-profile': {

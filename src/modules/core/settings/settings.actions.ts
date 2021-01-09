@@ -5,6 +5,7 @@ export const settingsActions = {
     setLanguage: action('@settings.setLanguage').withPayload<{ language: I18nLanguage }>(),
     changeLanguage: action('@settings.changeLanguage').withPayload<{ language: I18nLanguage }>(),
     loadTranslations: action('@settings.loadTranslations').withNoPayload(),
+    loadConfigSuccess: action('@settings.loadConfigSuccess').withNoPayload(),
 }
 
 export type SettingsAction = ActionsUnion<typeof settingsActions>
