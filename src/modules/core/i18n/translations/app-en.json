@@ -1,5 +1,6 @@
 {
   "header.bundleReportLink": "Bundle report",
   "header.mainHeader": "React playground application",
+  "homePageTitle": "Home page",
   "total": "Total: {{total}}"
 }

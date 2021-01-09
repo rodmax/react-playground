@@ -8,6 +8,15 @@
     justify-content: flex-start;
 }
 
+.main-header__logo-link {
+    height: 50%;
+    margin-right: 16px;
+}
+
+.main-header__logo-link-img {
+    height: 100%;
+}
+
 .main-header__title {
     flex-grow: 1;
 }

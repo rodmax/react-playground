@@ -6,7 +6,7 @@ import { authEpic } from 'modules/auth/model/auth.epics'
 import { usersListReducerSlice } from 'modules/user/pages/users-list-page/state/users-list.reducer'
 import { usersListEpic } from 'modules/user/pages/users-list-page/state/users-list.epics'
 import { settingsReducerSlice } from 'modules/core/settings/settings.reducer'
-import { languageEpic } from 'modules/core/settings/settings.epics'
+import { settingsEpics } from 'modules/core/settings/settings.epics'
 
 export const appStore = storeFactory({
     reducers: {
@@ -15,6 +15,6 @@ export const appStore = storeFactory({
         ...usersListReducerSlice,
         ...settingsReducerSlice,
     },
-    epics: [githubProfileFetchDataEpic, authEpic, usersListEpic, languageEpic],
+    epics: [githubProfileFetchDataEpic, authEpic, usersListEpic, ...settingsEpics],
     enabledDevTools: true,
 })

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @ts-check
 const env = require('../env')
 const handler = require('serve-handler')
 const http = require('http')

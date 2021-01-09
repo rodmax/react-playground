@@ -1,5 +1,6 @@
 {
   "header.bundleReportLink": "Отчет о размере приложения",
   "header.mainHeader": "Тестовое React приложение",
+  "homePageTitle": "Домашняя страница",
   "total": "Всего записей: {{total}}"
 }

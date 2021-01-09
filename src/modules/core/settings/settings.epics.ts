@@ -1,14 +1,15 @@
-import { exhaustMap, startWith } from 'rxjs/operators'
+import { exhaustMap, map, startWith } from 'rxjs/operators'
 import { Epic, ofType } from 'redux-observable'
 import { SettingsAction, settingsActions } from './settings.actions'
 import { LocalStorageValue } from 'common/local-storage/local-storage-value'
 import { I18nLanguage, i18nProvider, loadTranslations } from '../i18n'
 import { shouldNeverBeCalled } from 'common/utils/misc'
-import { NEVER } from 'rxjs'
+import { from, NEVER } from 'rxjs'
+import { initializeConfig } from '../config/config'
 
-export const languageStorageValue = new LocalStorageValue<I18nLanguage>('setting')
+const languageStorageValue = new LocalStorageValue<I18nLanguage>('setting')
 
-export const languageEpic: Epic<SettingsAction> = action$ => {
+const languageEpic: Epic<SettingsAction> = action$ => {
     return action$.pipe(
         ofType('@settings.changeLanguage', '@settings.setLanguage'),
         exhaustMap(action => {
@@ -40,4 +41,12 @@ export const languageEpic: Epic<SettingsAction> = action$ => {
     )
 }
 
-export const settingsEpics = [languageEpic]
+const configEpic: Epic<SettingsAction> = () => {
+    return from(initializeConfig()).pipe(
+        map(() => {
+            return settingsActions.loadConfigSuccess()
+        })
+    )
+}
+
+export const settingsEpics = [languageEpic, configEpic]

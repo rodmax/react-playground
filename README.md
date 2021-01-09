@@ -2,7 +2,7 @@
 
 > [ We can’t be silent! #SavePandaDoc](https://savebelarusit.org/en/)
 
-<img src="src/assets/playground-logo.png">
+<img src="src/assets/big-logo.svg">
 
 [![Actions Status](https://github.com/rodmax/react-playground/workflows/ci/badge.svg)](https://github.com/rodmax/react-playground/actions)
 [![codecov](https://codecov.io/gh/rodmax/react-playground/branch/master/graph/badge.svg)](https://codecov.io/gh/rodmax/react-playground)

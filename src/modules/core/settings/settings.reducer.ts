@@ -5,6 +5,7 @@ import { SettingsAction } from './settings.actions'
 import { I18nLanguage } from '../i18n'
 
 export interface SettingsState {
+    isConfigLoaded: boolean
     i18n: {
         language: null | I18nLanguage
         isTranslationsLoaded: boolean
@@ -12,6 +13,7 @@ export interface SettingsState {
 }
 
 const initialState: SettingsState = {
+    isConfigLoaded: false,
     i18n: {
         language: null,
         isTranslationsLoaded: false,
@@ -47,6 +49,11 @@ export const settingsReducerSlice = storeSlice('settings', initialState).withRed
                         ...state.i18n,
                         isTranslationsLoaded: true,
                     },
+                }
+            case '@settings.loadConfigSuccess':
+                return {
+                    ...state,
+                    isConfigLoaded: true,
                 }
 
             default:
