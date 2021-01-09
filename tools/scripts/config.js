@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // @ts-check
 /**
- * @typedef { import('../../src/modules/core/config/config').AppConfig }  AppConfig
+ * @typedef { import('../../src/modules/core/config/config.types').AppConfig }  AppConfig
  */
 const env = require('../env')
 const fs = require('fs').promises

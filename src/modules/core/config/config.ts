@@ -1,11 +1,9 @@
-export interface AppConfig {
-    version: string
-    commitHash: string
-    mode: 'DEV' | 'PROD' | 'TEST'
-    /** @description not implemented yet */
-    sentryApiKey: string | null
-    generated: string
-}
+import { httpBackend } from 'api/common/http-backend'
+import { NEVER, Observable } from 'rxjs'
+import { tap } from 'rxjs/operators'
+import { AppConfig } from './config.types'
+
+export { AppConfig }
 
 let configValue: AppConfig | null = null
 
@@ -16,11 +14,23 @@ export function config(): Readonly<AppConfig> {
     throw new Error('Assertion error: attempt to config access before loading')
 }
 
-export async function initializeConfig(): Promise<void> {
+export const CONFIG_URL = 'config.json'
+
+export function initializeConfig(): Observable<unknown> {
     if (configValue) {
         // eslint-disable-next-line no-console -- here console is ok
         console.warn('app config already loaded')
-        return
+        return NEVER
     }
-    configValue = await (await fetch('config.json')).json()
+
+    return httpBackend
+        .request<AppConfig>({
+            method: 'GET',
+            url: CONFIG_URL,
+        })
+        .pipe(
+            tap(resp => {
+                configValue = resp.body
+            })
+        )
 }
