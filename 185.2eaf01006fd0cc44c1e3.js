@@ -1,1 +1,0 @@
-(self.webpackChunkreact_playground=self.webpackChunkreact_playground||[]).push([[185],{3185:e=>{"use strict";e.exports=JSON.parse('{"header.bundleReportLink":"Bundle report","header.mainHeader":"React playground application","total":"Total: {{total}}"}')}}]);
