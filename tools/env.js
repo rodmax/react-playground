@@ -8,6 +8,7 @@ const env = module.exports = {}
 
 env.rootDir = path.join(__dirname, '..')
 env.buildDir = path.join(env.rootDir, 'dist')
+env.buildAssetsDir = path.join(env.buildDir, 'assets')
 env.srcDir = path.join(env.rootDir, 'src')
 env.applicationConfigFile = path.join(env.buildDir, 'config.json')
 

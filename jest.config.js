@@ -15,7 +15,7 @@ const config = {
     testRegex: '\\.(test|spec)\\.tsx?$',
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
     moduleNameMapper: {
-        '.*\\.(css|scss|html|svg|png)$': '<rootDir>/tools/jest/jest-file-loader-mock-module.js',
+        '.*\\.(css|scss|html|svg|png)$': '<rootDir>/tools/jest/jest-asset-resource-modules-mock.js',
         '^common/(.*)$': '<rootDir>/src/common/$1',
         '^api/(.*)$': '<rootDir>/src/api/$1',
         '^assets/(.*)$': '<rootDir>/src/assets/$1',

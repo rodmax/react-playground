@@ -1,4 +1,5 @@
 // @ts-check
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -29,7 +30,7 @@ const config = {
                 loader: 'ts-loader',
             },
             scssRuleConfig(),
-            fileLoaderConfig(),
+            assetsResourceConfig(),
         ],
     },
     resolve: {
@@ -74,7 +75,7 @@ function plugins() {
                 new BundleAnalyzerPlugin({
                     analyzerMode: 'static',
                     openAnalyzer: false,
-                    reportFilename: env.reportFilename,
+                    reportFilename: path.join('assets', env.reportFilename),
                 })
             )
         }
@@ -113,20 +114,18 @@ function scssRuleConfig() {
 /**
  * @return { import('webpack').RuleSetRule }
  */
-function fileLoaderConfig() {
+function assetsResourceConfig() {
     return {
         test: /\.(png|jpe?g|gif|html|svg)$/i,
-        loader: 'file-loader',
-        options: {
-            /**
-             * @param {string} resourcePath
-             */
-            name(resourcePath) {
-                if (resourcePath.includes(env.reportFilename)) {
-                    return '[name].[ext]'
+        type: 'asset/resource',
+        generator: {
+            /** @param { {filename: string} } resource */
+            filename: resource => {
+                if (resource.filename.includes(env.reportFilename)) {
+                    return 'assets/[name][ext]'
                 }
 
-                return '[name].[contenthash].[ext]'
+                return 'assets/[name].[contenthash][ext]'
             },
         },
     }
