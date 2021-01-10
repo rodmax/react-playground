@@ -32,9 +32,11 @@ export const _ = (key: I18nKey): I18nKey => key
 export function loadTranslations(language: I18nLanguage): Promise<Array<[I18nNamespace, object]>> {
     return Promise.all(
         I18N_NAMESPACES.map(ns => {
-            return import(`./translations/${ns}-${language}.json`).then(
-                (module: { default: object }) => [ns, module.default] as [I18nNamespace, object]
-            )
+            return import(
+                /* webpackExclude: /old\.json$/ */
+                /* webpackChunkName: "[request]" */
+                `./translations/${ns}-${language}.json`
+            ).then((module: { default: object }) => [ns, module.default] as [I18nNamespace, object])
         })
     )
 }
