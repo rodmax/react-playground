@@ -1,4 +1,3 @@
-import React from 'react'
 import './main-header.scss'
 import bundleReportPath from 'assets/bundles-report.html'
 import { t } from 'modules/core/i18n'

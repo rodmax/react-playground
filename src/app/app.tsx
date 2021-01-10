@@ -1,4 +1,4 @@
-import React from 'react'
+import { StrictMode } from 'react'
 import { selectIsAppInitialized } from 'modules/core/settings/settings.selectors'
 import { Provider, useSelector } from 'react-redux'
 import { RouterProvider } from 'react-router5'
@@ -19,12 +19,12 @@ const AppInner: React.FC = () => {
 
 export const App: React.FunctionComponent = () => {
     return (
-        <React.StrictMode>
+        <StrictMode>
             <RouterProvider router={router}>
                 <Provider store={appStore()}>
                     <AppInner />
                 </Provider>
             </RouterProvider>
-        </React.StrictMode>
+        </StrictMode>
     )
 }

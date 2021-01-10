@@ -1,4 +1,3 @@
-import React from 'react'
 import { render } from '@testing-library/react'
 import { App } from './app'
 import { httpClientMock } from 'common/http/testing/http-client-mock'

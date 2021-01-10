@@ -1,7 +1,6 @@
 import { UserDto } from 'api/pizza-store/user/user-client.types'
 import { t } from 'modules/core/i18n'
 import { USER_ROLE_I18N } from 'modules/user/model/user.l10n'
-import React from 'react'
 
 interface UserCardProps {
     user: UserDto

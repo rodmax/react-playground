@@ -1,4 +1,3 @@
-import React from 'react'
 import { APP_FEATURE_ROUTE_NAMES } from 'modules/core/router/router.types'
 import './main-sidebar.scss'
 import { RouteLink } from 'modules/core/router/route-link/route-link'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { GithubProfilePage } from './github-profile-page'
 import { GithubUserDto } from 'api/github/github-api.types'
 import { githubUserDtoFactory } from 'api/github/github-api.factories'
