@@ -1,0 +1,1 @@
+(self.webpackChunkreact_playground=self.webpackChunkreact_playground||[]).push([[929],{7284:e=>{"use strict";e.exports=JSON.parse('{"role.ADMIN":"Администратор","role.CASHIER":"Кассир","role.CLIENT":"Клиент","role.COURIER":"Курьер","usersListPage.noUserLoaded":"Нет загруженных пользователей"}')}}]);

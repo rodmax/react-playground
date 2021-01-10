@@ -1,0 +1,1 @@
+(self.webpackChunkreact_playground=self.webpackChunkreact_playground||[]).push([[628],{2836:e=>{"use strict";e.exports=JSON.parse('{"header.bundleReportLink":"Отчет о размере приложения","header.mainHeader":"Тестовое React приложение","homePageTitle":"Домашняя страница","total":"Всего записей: {{total}}"}')}}]);
