@@ -2,7 +2,7 @@ import { includes } from 'common/utils/includes'
 import { I18N_LANGUAGES } from 'modules/core/i18n'
 import { SettingsAction, settingsActions } from 'modules/core/settings/settings.actions'
 import { selectCurrentLanguage } from 'modules/core/settings/settings.selectors'
-import React, { Dispatch } from 'react'
+import { Dispatch } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 export const LanguageSelect: React.FC = () => {

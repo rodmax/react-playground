@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router5'
 import { AppRouteName } from '../router.types'
 

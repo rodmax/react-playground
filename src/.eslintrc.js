@@ -15,6 +15,7 @@ const config = {
         // Below two rules needed to prevent https://stackoverflow.com/a/46809082
         'react/jsx-uses-react': 'error',
         'react/jsx-uses-vars': 'error',
+        'react/react-in-jsx-scope': 'off', // not needed starting from react 17
         'react/prop-types': 'off', // TS do it in better way
 
         '@typescript-eslint/switch-exhaustiveness-check': 'error',

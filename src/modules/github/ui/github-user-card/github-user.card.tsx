@@ -1,4 +1,3 @@
-import React from 'react'
 import { GithubUserDto } from 'api/github/github-api.types'
 
 interface GithubProfileCardProps {

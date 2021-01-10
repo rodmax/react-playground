@@ -1,4 +1,3 @@
-import React from 'react'
 import './bars-spinner.scss'
 import cn from 'classnames'
 

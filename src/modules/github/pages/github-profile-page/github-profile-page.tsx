@@ -1,7 +1,7 @@
 import { BarsSpinner } from 'common/ui/bars-spinner/bars-spinner'
 import { PageContent } from 'common/ui/page-content/page-content'
 import { GithubUserCard } from 'modules/github/ui/github-user-card/github-user.card'
-import React, { Dispatch, useEffect } from 'react'
+import { Dispatch, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GithubProfileAction, githubProfileActions } from './state/github-profile.actions'
 import { DEFAULT_GITHUB_USERNAME } from './state/github-profile.reducer'

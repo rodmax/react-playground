@@ -1,4 +1,3 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { httpClientMock } from 'common/http/testing/http-client-mock'
 import { storeFactory } from 'common/redux/store-utils'

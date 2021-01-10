@@ -1,4 +1,3 @@
-import React from 'react'
 import { PageContent } from 'common/ui/page-content/page-content'
 import bigLogoUrl from 'assets/big-logo.svg'
 import { t } from 'modules/core/i18n'

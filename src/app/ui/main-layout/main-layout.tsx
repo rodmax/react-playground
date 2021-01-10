@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAppRoute } from 'modules/core/router/router'
 import { AppRouteName } from 'modules/core/router/router.types'
 import { GithubProfilePage } from 'modules/github/pages/github-profile-page/github-profile-page'
