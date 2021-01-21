@@ -24,7 +24,7 @@ describe(`${GithubProfilePage.name}`, () => {
         httpClientMock.reset()
     })
 
-    it('should load and show github user data', () => {
+    it('loads and shows github user data', () => {
         const { getByText } = renderWithStore(<GithubProfilePage />, testingStore())
         httpClientMock
             .expect<GithubUserDto>({ url: 'https://api.github.com/users/rodmax' })

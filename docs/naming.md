@@ -72,3 +72,15 @@ Why verb for **commands**:
 -   A: Yes just look to return type
     -   commands: `doAction(): void | Promise<void> | Observable<void>`
     -   queries: `data(): <any non void type>`
+
+## Should Not Begin With Should in test description
+
+Do not use should when describing your tests.<br>
+Use the third person in the present tense.
+
+[Short](https://www.betterspecs.org/#should) and [slightly longer](http://bretthard.in/post/tests-should-not-begin-with-should) explanations
+
+```diff
+- it('should not change timings')
++ it('does not change timings')
+```
