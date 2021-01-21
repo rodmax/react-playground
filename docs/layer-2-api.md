@@ -33,4 +33,4 @@ Provides utilities to work with http protocol
 > One of which the `pizza-store` service, so all related it code lives in `api/pizza-store` sub-folder.<br>
 > If you work with one backend entry point in your app, you should put user client code directly to `api/user/user-client.ts`
 
-<img src="graph-api.svg">
+<img src="./images/api-code-graph.svg">

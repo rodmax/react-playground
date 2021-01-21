@@ -1,5 +1,12 @@
 # Development
 
+### Prepare local environment
+
+-   install nodejs 12+ version and corresponded npm
+-   in root folder run `npm ci`
+-   install docker and setup it make possible run without sudo (to able run pre-push hook)
+-   [optionally] `npm i -g @mermaid-js/mermaid-cli` (to generate docs images from mermaid graph files)
+
 ### Start development server
 
 ```bash

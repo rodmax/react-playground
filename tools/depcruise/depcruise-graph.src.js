@@ -18,7 +18,13 @@ module.exports = common
                 includeOnly: {},
                 focus: {},
                 exclude: {
-                    path: ['^node_modules', ...common.ANY_TESTS, ...common.ANY_TYPINGS],
+                    path: [
+                        '^node_modules',
+                        ...common.ANY_TESTS,
+                        ...common.ANY_TYPINGS,
+                        'src/assets',
+                        'generated-to-check',
+                    ],
                 },
             },
         },

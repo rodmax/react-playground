@@ -44,35 +44,11 @@ Below is a diagram showing the dependency rules in the application<br>
 [dependency-cruiser](https://github.com/sverweij/dependency-cruiser) utility used to control this dependencies<br>
 (See [depcruise/](../depcruise) configs for details)
 
-```mermaid
-flowchart
-    app/ --> modules/
-    app/ --> api/
-    app/ --> common/
-    modules/ --> api/
-    modules/ --> common/
-    api/ --> common/
-
-    subgraph modules/
-        subgraph modules/a/
-            modules/a/page/ --> modules/a/ui/
-            modules/a/page/ --> modules/a/model/
-            modules/a/ui/ --> modules/a/model/
-        end
-        subgraph modules/b/
-            modules/b/page/ --> modules/b/ui/
-            modules/b/page/ --> modules/b/model/
-            modules/b/ui/ --> modules/b/model/
-        end
-    end
-    modules/a/ -- modules/a/ui-or-model --> modules/b/
-    modules/b/ -- modules/b/ui-or-model --> modules/a/
-
-```
+<img src="./images/deps-layers.png">
 
 and below is how it looks in real code
 
-<img src="./graph.svg">
+<img src="./images/src-code-graph.svg">
 
 ## Layers
 

@@ -4,99 +4,92 @@
 
 <img src="src/assets/big-logo.svg">
 
-[![Actions Status](https://github.com/rodmax/react-playground/workflows/ci/badge.svg)](https://github.com/rodmax/react-playground/actions)
-[![codecov](https://codecov.io/gh/rodmax/react-playground/branch/master/graph/badge.svg)](https://codecov.io/gh/rodmax/react-playground)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=alert_status)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=sqale_index)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
+## Project goals
 
-## Goals
-
--   build production ready SPA stater kit(with more strong and quality oriented defaults with compared to CRA)
--   not to lose the readability of architecture and clean code
+-   production ready SPA stater kit<br>
+    (may be with more strong and quality oriented defaults with compared to CRA<br>
+    although it may happens that we just wanted to cook the webpack ourselves 🙃)
+-   clean(in our opinion) architecture with attempt to formalize as many as possible project use cases
+-   target audience - commercial project development team(2+ front-end developers)
 -   deep dive into React ecosystem
 
-## Current status
+## Status
 
-The Project is at an alpha stage. Some parts are good enough, some in active development
+The Project is continuously improved.<br>
+Currently the author subjectively satisfied with most of the tech decisions in project<br>
 
-### Achieved goals
+> the repo is not used in production, so something may not suit the needs of the real world
 
--   project fully automated (CI with build/unit/e2e/test/analyzing code coverage and code quality)
+Play with master-branch [demo](https://rodmax.github.io/react-playground/#/)<br>
+and corresponded [webpack bundle analyzer stat page](https://rodmax.github.io/react-playground/assets/bundles-report.html)
 
-### Next step
+## Code
 
-Current focus - app architecture.<br>
-I have a clear understanding of how the app should be designed <br>
-and i am now implementing this ideas
+-   Language - `TypeScript` (with hyper strong tsconfig.json)
+-   View - `react`
+-   State - `redux`
+-   Side effects & async flow - `RxJs`
+-   Routing - `router-5`
+-   i18n - `i18next`
+-   Style - `SASS + PostCSS` with BEM-like-notation, 🤔 CSS modules considered
 
-## TODO list
+## Tools
 
-### Key technologies
+-   build - good old `webpack` with loader/plugin friends
+-   deploy - `github pages` or `nginx`-docker container(may be run locally)
+-   CI services:
 
--   [x] TypeScript
--   [x] UI library: React
--   [x] bundler: Webpack
--   [x] Sass + PostCSS(autoprefixer and friends)
+    -   github actions: [![Actions Status](https://github.com/rodmax/react-playground/workflows/ci/badge.svg)](https://github.com/rodmax/react-playground/actions)
+    -   code coverage: [![codecov](https://codecov.io/gh/rodmax/react-playground/branch/master/graph/badge.svg)](https://codecov.io/gh/rodmax/react-playground)
+    -   sonarcloud:
+        -   [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=alert_status)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
+        -   [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
+        -   [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=sqale_index)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
 
-### Quality
+-   unit/integration testing: `jest`, `testing-library`
+-   e2e: `testcafe`
+-   code scaffolding/generation - `plop`-based
+-   code quality: `eslint`, `prettier`, `stylelint`, `dependency-cruiser`(validate architecture-related import rule)
 
--   [x] CI: base on [github actions](https://github.com/rodmax/react-playground/actions)
--   [x] [CI: code coverage](https://codecov.io/gh/rodmax/react-playground)
--   [x] [CI: sonar cloud analyzer](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
--   [x] E2E testing: [testcafe](https://devexpress.github.io/testcafe/)
-    -   [ ] snapshots of failed tests as artifacts
--   [x] unit & international testing:
-    -   [x] [jest](https://jestjs.io/)
-    -   [x] [testing-library](https://testing-library.com/)
-        -   [ ] attempt to find approach to reuse testing code like angular harnesses do
--   [x] Hyper strong TypeScript config
--   [x] EsLint
-    -   [ ] review all set of existing rules and involve them
-    -   [ ] add HOOKS related eslint rules
-    -   [ ] add REACT related eslint rules
--   [x] Stylelint
--   [ ] integrate audit(LightHouse or other) to CI
--   [ ] Review tools of [minimizing for production](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production)
--   [ ] Investigate & involve(if appreciable) dependency visualization tool, [like this](https://arkit.pro/svg/UDfDp34EW20C0C2zh-YeWrym37waaQe4sf82-dqTdI-vq3fv7r80MavQoKbGJ6s_t8In--2Vj8kYFKbFFAWq1jZuvcAL7PSL9_AS-WmGMEDtlbU28LS0)
+## Features
 
-### Build/Deploy
+#### i18n
 
--   [x] add [tslib](https://www.npmjs.com/package/tslib)
--   [x] CI: deploy to github pages via github actions
+i18n approach based-on `i18next`-ecosystem with bellow features:
 
-### App/Architecture
+-   automatic keys parsing from source code
+-   type-safe message ids depending from JSON files
+-   split translations by multiple JSON files
+-   (vscode) ability to maintain JSON file directly from editor (via extension i18n-ally)
 
--   [x] Follow [redux architecture StyleGuide](https://redux.js.org/style-guide/style-guide) rules whenever it is reasonably possible
--   [ ] localization
--   [ ] form handling(ui/server validation, form state)
--   [x] folder structure: description and rules
--   Store
-    -   [x] Redux (fully type safe at first and with reduced boilerplate at second)
-    -   [ ] try [immer](https://immerjs.github.io/immer/docs/introduction) (looks nice and recommended by redux team)
--   [x] Effects/async flow: RxJs(rxjs/observable)
--   [x] Router: router5
--   [ ] auth logic (route guards/permissions for individual features)
--   API client
-    -   [x] Proof of concent using RxJs builtin clients(fetch/xhr)
-    -   [x] API client factory(rxjs based)
-        -   [ ] File uploading
-        -   [ ] Catch unhandled API errors on App level
--   React related:
-    -   [x] [React.StrictMode](https://reactjs.org/docs/strict-mode.html)
-    -   [ ] try suspense
+Read details [here](./docs/i18n.md)
 
-### Development experience
+#### Dynamically loaded config
 
--   [x] Prettier for formatting(integration with VSCode)
-    -   [x] Apply prettier to all files(md,js,json,yaml)
--   [ ] Setup solution tsconfig.json (split base/app/spec/testcafe tsconfigs)
--   [ ] HMR for CSS
--   [ ] commit format & commit-based changelog generation
+Dynamically loaded config approach(tools & code utils)
 
-### Web technologies:
+Philosophy is based on
 
--   [ ] Web workers
--   [ ] WebAssembly
--   [ ] Service Worker
--   [ ] SSR
+-   An app’s config is everything that is likely to vary between deploys (staging, production, developer environments, etc)
+    [Config rule from The Twelve Factor App](https://12factor.net/config)
+-   [Build Once, Deploy Anywhere!](https://www.openshift.com/blog/build-once-deploy-anywhere)
+
+#### RxJs based http/api client
+
+Hand made HTTP/API client:
+
+-   API inspired by angular's HttpClient
+-   has declarative mock for testing
+-   tiny size(just a few source code files over RxJs)
+
+#### Redux-related tools
+
+Set of common helpers and plop-based code generation tools allows to simplify and unify
+redux-related code base
+
+## Guidelines
+
+-   [Architecture](docs/architecture.md)
+-   [Naming](docs/naming.md)
+-   [Coding(TS and common programming rules)](docs/coding.md)
+-   [Development(tools and env setup)](docs/development.md)

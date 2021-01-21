@@ -1,0 +1,22 @@
+flowchart
+    app/ --> modules/
+    app/ --> api/
+    app/ --> common/
+    modules/ --> api/
+    modules/ --> common/
+    api/ --> common/
+
+    subgraph modules/
+        subgraph modules/a/
+            modules/a/page/ --> modules/a/ui/
+            modules/a/page/ --> modules/a/model/
+            modules/a/ui/ --> modules/a/model/
+        end
+        subgraph modules/b/
+            modules/b/page/ --> modules/b/ui/
+            modules/b/page/ --> modules/b/model/
+            modules/b/ui/ --> modules/b/model/
+        end
+    end
+    modules/a/ -- modules/a/ui-or-model --> modules/b/
+    modules/b/ -- modules/b/ui-or-model --> modules/a/
