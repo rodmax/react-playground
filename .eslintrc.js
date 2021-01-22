@@ -28,6 +28,24 @@ const config = {
         '@typescript-eslint/no-explicit-any': 'error',
         '@typescript-eslint/no-shadow': 'error',
         '@typescript-eslint/no-unnecessary-condition': 'error',
+        '@typescript-eslint/prefer-readonly': 'error',
+        '@typescript-eslint/explicit-member-accessibility': [
+            'error',
+            { accessibility: 'no-public' },
+        ],
+        '@typescript-eslint/naming-convention': [
+            'error',
+            {
+                selector: 'typeParameter',
+                format: ['PascalCase'],
+            },
+            {
+                selector: 'classProperty',
+                modifiers: ['private', 'protected'],
+                format: ['camelCase'],
+                trailingUnderscore: 'require',
+            },
+        ],
     },
 }
 module.exports = config

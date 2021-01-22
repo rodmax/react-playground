@@ -23,37 +23,37 @@ export const DEFAULT_MOCK_ERROR_RESPONSE: Readonly<OmitStrict<HttpResponse<unkno
 }
 
 export class PendingRequest<Dto = unknown> {
-    private readonly response: Subject<HttpResponse<Dto>> = new Subject()
-    constructor(private readonly config: HttpRequestConfig) {}
+    private readonly response_: Subject<HttpResponse<Dto>> = new Subject()
+    constructor(private readonly config_: HttpRequestConfig) {}
 
     isMatchedTo(expected: RequestMatch): boolean {
-        if (this.config.url !== expected.url) {
+        if (this.config_.url !== expected.url) {
             return false
         }
-        if (expected.method && expected.method !== this.config.method) {
+        if (expected.method && expected.method !== this.config_.method) {
             return false
         }
         return (
             equalExactOrPartial(
-                this.config.queryParams,
+                this.config_.queryParams,
                 expected.queryParams,
                 expected.queryParamsPartial
-            ) && equalExactOrPartial(this.config.body, expected.body, expected.bodyPartial)
+            ) && equalExactOrPartial(this.config_.body, expected.body, expected.bodyPartial)
         )
     }
 
-    public flush(data: Dto, restParams: Partial<OmitStrict<HttpResponse<Dto>, 'body'>> = {}): void {
-        this.response.next({
+    flush(data: Dto, restParams: Partial<OmitStrict<HttpResponse<Dto>, 'body'>> = {}): void {
+        this.response_.next({
             body: data,
             ...DEFAULT_MOCK_SUCCESS_RESPONSE,
             ...restParams,
         })
-        this.response.complete()
+        this.response_.complete()
     }
 
-    public error<B>(body: B, restParams: Partial<OmitStrict<HttpResponse<B>, 'body'>> = {}): void {
-        this.response.error(
-            new HttpError(this.config, {
+    error<B>(body: B, restParams: Partial<OmitStrict<HttpResponse<B>, 'body'>> = {}): void {
+        this.response_.error(
+            new HttpError(this.config_, {
                 body: body,
                 ...DEFAULT_MOCK_ERROR_RESPONSE,
                 ...restParams,
@@ -61,12 +61,12 @@ export class PendingRequest<Dto = unknown> {
         )
     }
 
-    public observable(): Observable<HttpResponse<Dto>> {
-        return this.response.asObservable()
+    observable(): Observable<HttpResponse<Dto>> {
+        return this.response_.asObservable()
     }
 
-    public match(): RequestMatch {
-        return pick(this.config, ['url', 'method', 'body', 'queryParams'])
+    match(): RequestMatch {
+        return pick(this.config_, ['url', 'method', 'body', 'queryParams'])
     }
 }
 

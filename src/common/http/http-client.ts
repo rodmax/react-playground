@@ -11,17 +11,17 @@ export interface HttpClientConfig {
 }
 
 export class HttpClient {
-    private readonly config: HttpClientConfig
+    private readonly config_: HttpClientConfig
     constructor(configOverrides: Partial<HttpClientConfig> = {}) {
-        this.config = {
+        this.config_ = {
             ...this.defaultConfig(),
             ...configOverrides,
         }
     }
-    public request<Dto>(config: HttpRequestConfig): Observable<HttpResponse<Dto>> {
+    request<Dto>(config: HttpRequestConfig): Observable<HttpResponse<Dto>> {
         let url = config.url
         const query =
-            config.queryParams && queryString(config.queryParams, this.config.querySerializer)
+            config.queryParams && queryString(config.queryParams, this.config_.querySerializer)
 
         if (query) {
             url = `${url}?${query}`

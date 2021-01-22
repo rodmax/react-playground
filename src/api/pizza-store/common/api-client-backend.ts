@@ -20,16 +20,16 @@ export interface ApiClientBackendOptions {
 }
 
 export class ApiClientBackend {
-    private token = ''
+    private token_ = ''
 
-    constructor(private readonly options: ApiClientBackendOptions) {}
+    constructor(private readonly options_: ApiClientBackendOptions) {}
 
-    public updateToken(token: string): void {
-        this.token = token
+    updateToken(token: string): void {
+        this.token_ = token
     }
 
-    public request<T>(config: ApiClientRequestConfig): Observable<HttpResponse<T>> {
-        return this.options.httpBackend.request({
+    request<T>(config: ApiClientRequestConfig): Observable<HttpResponse<T>> {
+        return this.options_.httpBackend.request({
             method: config.method,
             url: this.url(config.urlParts),
             queryParams: config.queryParams,
@@ -37,12 +37,12 @@ export class ApiClientBackend {
         })
     }
 
-    public url(urlParts: ApiUrlParts): string {
+    url(urlParts: ApiUrlParts): string {
         return apiUrl([this.endpoint(), ...urlParts])
     }
 
     private endpoint(): string {
-        return this.options.endpointTemplate.replace(TOKEN_PLACEHOLDER, this.token)
+        return this.options_.endpointTemplate.replace(TOKEN_PLACEHOLDER, this.token_)
     }
 }
 

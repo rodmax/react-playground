@@ -6,41 +6,41 @@ import { RequestMatch } from './http-client-mock.types'
 import { PendingRequest } from './pending-request'
 
 class HttpClientMock {
-    private pendingQueue: PendingRequest[] = []
-    private originalRequest: HttpClient['request'] | null = null
+    private pendingQueue_: PendingRequest[] = []
+    private originalRequest_: HttpClient['request'] | null = null
 
     constructor() {
         this.fakeRequest = this.fakeRequest.bind(this)
     }
 
-    public setup(): void {
+    setup(): void {
         this.reset()
-        this.originalRequest = HttpClient.prototype.request
+        this.originalRequest_ = HttpClient.prototype.request
         HttpClient.prototype.request = this.fakeRequest
     }
 
-    public reset(): void {
-        if (this.originalRequest) {
-            HttpClient.prototype.request = this.originalRequest
-            this.originalRequest = null
+    reset(): void {
+        if (this.originalRequest_) {
+            HttpClient.prototype.request = this.originalRequest_
+            this.originalRequest_ = null
         }
-        this.pendingQueue = []
+        this.pendingQueue_ = []
     }
 
-    public verify(): void {
-        if (this.pendingQueue.length) {
-            throw new Error(expectNoPendingRequestMsg(this.pendingQueue))
+    verify(): void {
+        if (this.pendingQueue_.length) {
+            throw new Error(expectNoPendingRequestMsg(this.pendingQueue_))
         }
     }
 
-    public expect<Dto = null>(match: RequestMatch): PendingRequest<Dto> {
-        const index = this.pendingQueue.findIndex(req => {
+    expect<Dto = null>(match: RequestMatch): PendingRequest<Dto> {
+        const index = this.pendingQueue_.findIndex(req => {
             return req.isMatchedTo(match)
         })
 
         if (index >= 0) {
-            const req = this.pendingQueue[index]
-            this.pendingQueue.splice(index, 1)
+            const req = this.pendingQueue_[index]
+            this.pendingQueue_.splice(index, 1)
             return req as PendingRequest<Dto>
         }
         throw new Error(expectMatchingRequestMsg(match))
@@ -50,7 +50,7 @@ class HttpClientMock {
         return of(true).pipe(
             switchMap(() => {
                 const req = new PendingRequest<Dto>(config)
-                this.pendingQueue.push(req as PendingRequest)
+                this.pendingQueue_.push(req as PendingRequest)
                 return req.observable()
             })
         )

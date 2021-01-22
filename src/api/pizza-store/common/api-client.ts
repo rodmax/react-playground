@@ -11,7 +11,7 @@ export interface ApiClientOptions {
 export class ApiClient<Dto = never> {
     constructor(private readonly options: ApiClientOptions) {}
 
-    public create<T = Dto>(body: ApiClientRequestConfig['body']): Observable<T> {
+    create<T = Dto>(body: ApiClientRequestConfig['body']): Observable<T> {
         return this.request<T>({
             method: 'POST',
             urlParts: [],
@@ -19,7 +19,7 @@ export class ApiClient<Dto = never> {
         }).pipe(map(responseToBody))
     }
 
-    public update<T = Dto>(id: ApiAnyId, body: ApiClientRequestConfig['body']): Observable<T> {
+    update<T = Dto>(id: ApiAnyId, body: ApiClientRequestConfig['body']): Observable<T> {
         return this.request<T>({
             method: 'PUT',
             urlParts: [id],
@@ -27,9 +27,7 @@ export class ApiClient<Dto = never> {
         }).pipe(map(responseToBody))
     }
 
-    public search<T = Dto>(
-        queryParams: ApiClientRequestConfig['queryParams']
-    ): Observable<ApiListDto<T>> {
+    search<T = Dto>(queryParams: ApiClientRequestConfig['queryParams']): Observable<ApiListDto<T>> {
         return this.request<ApiListDto<T>>({
             method: 'GET',
             urlParts: [],
@@ -37,7 +35,7 @@ export class ApiClient<Dto = never> {
         }).pipe(map(responseToBody))
     }
 
-    public request<T>(config: ApiClientRequestConfig): Observable<HttpResponse<T>> {
+    request<T>(config: ApiClientRequestConfig): Observable<HttpResponse<T>> {
         return apiClientBackend.request({
             ...config,
             urlParts: [this.options.resourceUrl, ...config.urlParts],

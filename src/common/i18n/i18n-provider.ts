@@ -25,21 +25,18 @@ export class I18nProvider<Language extends string> {
         })
     }
 
-    public translateFunction<K extends string>(): (
-        key: K | K[],
-        options?: TOptions<StringMap>
-    ) => string {
+    translateFunction<K extends string>(): (key: K | K[], options?: TOptions<StringMap>) => string {
         return i18next.t.bind(i18next)
     }
 
-    public setLanguageWithTranslations(lng: Language, translations: Array<[string, object]>): void {
+    setLanguageWithTranslations(lng: Language, translations: Array<[string, object]>): void {
         translations.forEach(([ns, resource]) => {
             i18next.addResourceBundle(lng, ns, resource, true, true)
         })
         i18next.changeLanguage(lng)
     }
 
-    public browserLanguage(): Language {
+    browserLanguage(): Language {
         const language = window.navigator.languages[0] || window.navigator.language
         if (includes(this.options.languages, language)) {
             return language
@@ -47,7 +44,7 @@ export class I18nProvider<Language extends string> {
         return this.options.defaultLanguage
     }
 
-    public enableTestingMode(): void {
+    enableTestingMode(): void {
         i18next.changeLanguage('cimode')
     }
 }
