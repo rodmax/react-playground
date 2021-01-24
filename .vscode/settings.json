@@ -1,14 +1,10 @@
 {
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": [
-    "browserslist",
-    "depcruise",
-    "devtool",
-    "devtools",
-    "mockapi",
-    "mqpacker"
-  ],
+  // all keys will be handled by local .cspell.json
+  "cSpell.words": [],
+  "cSpell.dictionaries": [],
+  "cSpell.userWords": [],
   "[javascript]": {
     "editor.formatOnSave": true
   },

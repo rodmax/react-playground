@@ -23,6 +23,8 @@ npm run jest:watch # comfortable for development
 
 we use [plop](https://plopjs.com/) tool to generate new files with consistency.
 
+<!-- cspell: words plopfile -->
+
 > See details in `plopfile.js` and `templates/` folder
 
 #### Generate redux slice

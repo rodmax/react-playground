@@ -41,7 +41,7 @@ and corresponded [webpack bundle analyzer stat page](https://rodmax.github.io/re
 
     -   github actions: [![Actions Status](https://github.com/rodmax/react-playground/workflows/ci/badge.svg)](https://github.com/rodmax/react-playground/actions)
     -   code coverage: [![codecov](https://codecov.io/gh/rodmax/react-playground/branch/master/graph/badge.svg)](https://codecov.io/gh/rodmax/react-playground)
-    -   sonarcloud:
+    -   sonar cloud:
         -   [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=alert_status)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
         -   [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
         -   [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=rodmax_react-playground&metric=sqale_index)](https://sonarcloud.io/dashboard?id=rodmax_react-playground)
@@ -49,7 +49,10 @@ and corresponded [webpack bundle analyzer stat page](https://rodmax.github.io/re
 -   unit/integration testing: `jest`, `testing-library`
 -   e2e: `testcafe`
 -   code scaffolding/generation - `plop`-based
--   code quality: `eslint`, `prettier`, `stylelint`, `dependency-cruiser`(validate architecture-related import rule)
+-   code quality:
+    -   `eslint`, `prettier`, `stylelint`: defacto industry standard
+    -   `dependency-cruiser`: validate architecture-related import rule
+    -   `cspell`: amazing tool to prevent spell errors in your code(say bye "spell error" messages in code review)
 
 ## Features
 
@@ -78,7 +81,7 @@ Philosophy is based on
 
 Hand made HTTP/API client:
 
--   API inspired by angular's HttpClient
+-   API inspired by angular`s HttpClient
 -   has declarative mock for testing
 -   tiny size(just a few source code files over RxJs)
 
