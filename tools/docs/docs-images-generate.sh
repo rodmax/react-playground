@@ -11,5 +11,6 @@ depcruise --config tools/depcruise/depcruise-graph.src.js \
 depcruise --config tools/depcruise/depcruise-graph.api.js \
     --output-type dot src/api/pizza-store/user | dot -T svg > $imagesDir/api-code-graph.svg
 
-# To make mmds working please install "npm i -g @mermaid-js/mermaid-cli" locally
-mmdc -i docs/images/deps-layers.mmd -o $imagesDir/deps-layers.png
+# cspell:words mmdc
+# To make mmdc working please install "npm i -g @mermaid-js/mermaid-cli" locally
+mmdc -i docs/images/dependencies-layers.mmd -o $imagesDir/dependencies-layers.png
