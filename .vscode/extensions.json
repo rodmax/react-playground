@@ -3,7 +3,7 @@
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
-    "antfu.i18n-ally",
+    "lokalise.i18n-ally",
     "streetsidesoftware.code-spell-checker"
   ]
 }

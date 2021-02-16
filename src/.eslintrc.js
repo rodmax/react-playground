@@ -20,15 +20,9 @@ const config = {
 
         '@typescript-eslint/switch-exhaustiveness-check': 'error',
 
-        // FIXME: replace bellow rules with jest plugin analogues
+        // NOTE: test.only here is related to testcafe API
         'no-restricted-globals': ['error', 'test.only'],
-        'no-restricted-properties': [
-            'warn',
-            {
-                property: 'only',
-                message: '.only(...) not allowed in tests',
-            },
-        ],
+        'jest/no-focused-tests': 'warn',
     },
 }
 module.exports = config
