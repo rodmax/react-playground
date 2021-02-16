@@ -12,8 +12,8 @@ env.buildAssetsDir = path.join(env.buildDir, 'assets')
 env.srcDir = path.join(env.rootDir, 'src')
 env.applicationConfigFile = path.join(env.buildDir, 'config.json')
 
-env.devServerPort = '3000'
-env.staticServerPort = process.env.APP_PORT || '5000' // Used to e2e tests of prod application build
+env.devServerPort = 3000
+env.staticServerPort = +(process.env.APP_PORT || 5000) // Used to e2e tests of prod application build
 /**
  * @type { 'production' | 'development' }
  */
