@@ -1,4 +1,7 @@
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/i18n-ally-custom-framework.yml
 node_modules/
 dist/
 reports/

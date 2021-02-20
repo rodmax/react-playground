@@ -30,9 +30,7 @@
     "editor.formatOnSave": true
   },
   "i18n-ally.enabledFrameworks": ["custom", "i18next"],
-  "i18n-ally.localesPaths": [
-    "src/modules/core/i18n/translations"
-  ],
+  "i18n-ally.localesPaths": ["src/modules/core/i18n/translations"],
   "i18n-ally.namespace": true,
-  "i18n-ally.pathMatcher": "{namespace}-{locale}.json",
+  "i18n-ally.pathMatcher": "{namespace}-{locale}.json"
 }
