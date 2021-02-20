@@ -4,9 +4,9 @@
     "node_modules/**",
     "dits/**",
     "reports/**",
-    ".vscode/**",
     "package-lock.json",
-    "*.svg"
+    "*.svg",
+    ".vscode/extensions.json"
   ],
   "language": "en",
   "import": ["@cspell/dict-ru_ru/cspell-ext.json"],
