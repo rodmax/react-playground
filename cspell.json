@@ -22,6 +22,7 @@
     "codecov",
     "codeframe",
     "depcruise",
+    "graphviz",
     "minmax",
     "mockapi",
     "mqpacker",

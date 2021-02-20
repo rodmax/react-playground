@@ -6,7 +6,9 @@
 -   in root folder run `npm ci`
 -   install docker and setup it to make possible run without sudo (to able run pre-push hook)
     -   copy paste [the script](https://github.com/rodmax/dotfiles/blob/master/scripts/install-docker.sh) for `ubuntu/debian/pop os` systems
--   [optionally] `npm i -g @mermaid-js/mermaid-cli` (to generate docs images from mermaid graph files)
+-   [optionally] to generate docs images
+    -   `npm i -g @mermaid-js/mermaid-cli`
+    -   `sudo apt install graphviz`
 
 ### Start development server
 
