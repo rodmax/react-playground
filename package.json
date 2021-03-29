@@ -75,7 +75,7 @@
     "redux-router5": "8.0.1",
     "router5": "8.0.1",
     "router5-plugin-browser": "8.0.1",
-    "rxjs": "6.6.3",
+    "rxjs": "6.6.7",
     "tslib": "2.1.0"
   },
   "devDependencies": {
