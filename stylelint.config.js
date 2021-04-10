@@ -2,10 +2,13 @@
  * @type { import('stylelint').Configuration }
  */
 const config = {
+    plugins: ['stylelint-scss'],
     extends: 'stylelint-config-recommended',
-    rules: {},
+    rules: {
+        'at-rule-no-unknown': null,
+        'scss/at-rule-no-unknown': true,
+    },
     processors: [],
-    plugins: [],
     ignoreFiles: [],
     defaultSeverity: 'error',
 }
