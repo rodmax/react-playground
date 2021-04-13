@@ -12,6 +12,7 @@ module.exports = function (plop) {
     const VALID_NAME = /[\w-]+/
     const INVALID_NAME_PARTS = ['slice', 'store', 'state']
 
+    const SLICE_TEMPLATES_DIR = path.join(TEMPLATE_DIR, 'slice')
     plop.setGenerator('slice', {
         description: 'Generate redux slice source files',
         prompts: [
@@ -42,8 +43,8 @@ module.exports = function (plop) {
             {
                 type: 'addMany',
                 destination: '{{path}}',
-                templateFiles: path.join(TEMPLATE_DIR, 'slice/*.hbs'),
-                base: path.join(TEMPLATE_DIR, '/slice'),
+                templateFiles: path.join(SLICE_TEMPLATES_DIR, '*.hbs'),
+                base: SLICE_TEMPLATES_DIR,
                 transform: template => {
                     return prettierConfigPromise.then(config => {
                         return prettier.format(template, { ...config, parser: 'typescript' })
@@ -52,6 +53,42 @@ module.exports = function (plop) {
                 data: {
                     firstActionName: 'renameMe',
                 },
+            },
+        ],
+    })
+
+    const REACT_FC_TEMPLATES_DIR = path.join(TEMPLATE_DIR, 'react-fc')
+    plop.setGenerator('react-fc', {
+        description: 'Generate react functional component',
+        prompts: [
+            {
+                message:
+                    'React Component name, in any notation: my-component, MyComponent, myComponent',
+                name: 'name',
+                type: 'input',
+                /**
+                 * @param {string} name
+                 */
+                validate: name => {
+                    if (!VALID_NAME.test(name)) {
+                        return `"${name}": name should consist of letters and "-" signs. For ex.: my-component, myComponent`
+                    }
+                    return true
+                },
+            },
+            {
+                message:
+                    'Destination folder where to create component (will be created if not exists)',
+                name: 'path',
+                type: 'input',
+            },
+        ],
+        actions: [
+            {
+                type: 'addMany',
+                destination: '{{path}}/{{dashCase name}}',
+                templateFiles: path.join(REACT_FC_TEMPLATES_DIR, '*.hbs'),
+                base: REACT_FC_TEMPLATES_DIR,
             },
         ],
     })

@@ -33,6 +33,7 @@
     "pre-push:stage-1": "run-p -ln lint:all app:build jest",
     "pre-push:stage-2": "run-p -ln testcafe:prod depcruise:validate",
     "g:slice": "plop slice",
+    "g:react-fc": "plop react-fc",
     "g:all-to-check": "./tools/plop/generate-templates-to-check.sh",
     "cspell:base": "cspell lint --no-progress",
     "cspell:all": "cspell lint --no-progress $(git ls-files)",
