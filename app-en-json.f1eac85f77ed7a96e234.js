@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_playground=self.webpackChunkreact_playground||[]).push([[707],{3254:e=>{e.exports=JSON.parse('{"header.bundleReportLink":"Bundle report","header.mainHeader":"React playground application","homePageTitle":"Home page","total":"Total: {{total}}"}')}}]);

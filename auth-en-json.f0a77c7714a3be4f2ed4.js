@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_playground=self.webpackChunkreact_playground||[]).push([[251],{285:e=>{e.exports=JSON.parse('{"authForm.apiLink":"API token to work with mockapi.io","authForm.apiTokenInputPlaceholder":"API token"}')}}]);
