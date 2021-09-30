@@ -8,6 +8,7 @@
  * @type { import('@jest/types').Config.InitialOptions }
  */
 const config = {
+    testEnvironment: 'jsdom',
     roots: ['src'],
     transform: {
         '^.+\\.tsx?$': 'ts-jest',

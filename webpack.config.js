@@ -40,6 +40,14 @@ const config = {
     plugins: plugins(),
     devtool: 'source-map',
     devServer: devServerConfig(),
+    stats: {
+        all: false,
+        assets: true,
+        groupAssetsByEmitStatus: true,
+        colors: true,
+        errorDetails: true,
+        errors: true,
+    },
     optimization: {
         splitChunks: {
             cacheGroups: {
@@ -136,18 +144,10 @@ function assetsResourceConfig() {
  */
 function devServerConfig() {
     return {
-        contentBase: env.buildDir,
+        static: [env.buildDir],
         host: '0.0.0.0',
         port: env.devServerPort,
         hot: true,
-        stats: {
-            all: false,
-            assets: true,
-            groupAssetsByEmitStatus: true,
-            colors: true,
-            errorDetails: true,
-            errors: true,
-        },
-        overlay: true,
+        // overlay: true,
     }
 }
