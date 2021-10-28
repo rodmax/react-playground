@@ -94,7 +94,7 @@
     "@types/stylelint": "13.13.2",
     "@typescript-eslint/eslint-plugin": "4.32.0",
     "@typescript-eslint/parser": "4.32.0",
-    "autoprefixer": "10.3.6",
+    "autoprefixer": "10.4.0",
     "cspell": "5.11.1",
     "css-loader": "6.3.0",
     "css-mqpacker": "7.0.0",
