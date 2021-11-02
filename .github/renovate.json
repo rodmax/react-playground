@@ -1,0 +1,4 @@
+{
+  "extends": ["config:base", ":disableDependencyDashboard"],
+  "schedule": "after 6pm on friday"
+}
