@@ -1,8 +1,6 @@
 # React stack playground
 
-> [ We can’t be silent! #SavePandaDoc](https://savebelarusit.org/en/)
-
-<img src="src/assets/big-logo.svg">
+<img height="196px" src="src/assets/big-logo.svg">
 
 ## Project goals
 
