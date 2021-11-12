@@ -1,4 +1,10 @@
 {
   "extends": ["config:base", ":disableDependencyDashboard"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
   "schedule": "after 6pm on friday"
 }
