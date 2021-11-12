@@ -44,7 +44,7 @@ Below is a diagram showing the dependency rules in the application<br>
 [dependency-cruiser](https://github.com/sverweij/dependency-cruiser) utility used to control this dependencies<br>
 (See [depcruise/](../depcruise) configs for details)
 
-<img src="./images/deps-layers.png">
+<img src="./images/dependencies-layers.png">
 
 and below is how it looks in real code
 
