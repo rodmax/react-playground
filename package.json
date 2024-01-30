@@ -96,7 +96,7 @@
     "@typescript-eslint/parser": "4.32.0",
     "autoprefixer": "10.3.6",
     "cspell": "5.12.6",
-    "css-loader": "6.3.0",
+    "css-loader": "6.10.0",
     "css-mqpacker": "7.0.0",
     "cssnano": "5.0.8",
     "dependency-cruiser": "10.6.0",
